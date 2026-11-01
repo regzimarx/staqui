@@ -36,7 +36,7 @@ export default function App() {
 }
 ```
 
-Use `theme="dark"` and `density="compact"` for the alternate modes. Components wrapping native elements accept React HTML and ARIA attributes. Fields use `label`, `description`, `error`, and `onValueChange`; checkboxes and switches use `onCheckedChange`. Overlays use `open` and `onOpenChange`.
+Use `theme="dark"` and `density="compact"` for the alternate modes. Use `theme="staqwish"` for the neutral Shopify admin-inspired visual system extracted from the Staqwish project. Components wrapping native elements accept React HTML and ARIA attributes. Fields use `label`, `description`, `error`, and `onValueChange`; checkboxes and switches use `onCheckedChange`. Overlays use `open` and `onOpenChange`.
 
 ## Customization
 

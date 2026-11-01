@@ -36,11 +36,11 @@ import {
 } from "lucide-react";
 import { cx, type Tone, type Size, type Space } from "./shared";
 export interface StaqProviderProps extends HTMLAttributes<HTMLDivElement> {
-  theme?: "light" | "dark";
+  theme?: "light" | "dark" | "staqwish";
   density?: "compact";
 }
 export const StaqContext = createContext<{
-  theme: "light" | "dark";
+  theme: "light" | "dark" | "staqwish";
   density: "compact";
 }>({ theme: "light", density: "compact" });
 export const useStaq = () => useContext(StaqContext);

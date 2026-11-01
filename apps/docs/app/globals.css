@@ -118,10 +118,11 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: var(--site-logo);
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 650;
   text-decoration: none;
-  letter-spacing: -1px;
+  letter-spacing: -0.035em;
+  line-height: 24px;
   color: var(--sq-ink);
   min-width: 157px;
 }
@@ -138,8 +139,11 @@ html {
   background-color: var(--site-logo-blue-dark);
 }
 .brand-light {
-  font-weight: 400;
+  font-weight: 450;
   color: var(--sq-muted);
+}
+.brand:hover {
+  color: var(--sq-ink);
 }
 .top-nav {
   display: flex;

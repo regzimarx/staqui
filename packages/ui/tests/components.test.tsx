@@ -127,6 +127,20 @@ it("modal traps focus, escapes, restores trigger focus and inherits theme", asyn
   );
   expect(trigger).toHaveFocus();
 });
+
+it("supports the Staqwish visual theme", () => {
+  render(
+    <StaqProvider theme="staqwish">
+      <Button variant="primary">Create</Button>
+    </StaqProvider>,
+  );
+
+  expect(screen.getByText("Create").closest("[data-staq-theme]")).toHaveAttribute(
+    "data-staq-theme",
+    "staqwish",
+  );
+});
+
 it("menu skips disabled items and selects with keyboard", async () => {
   const user = userEvent.setup();
   const selected = vi.fn();

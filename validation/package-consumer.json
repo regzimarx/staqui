@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "package": "/Users/regzimarx/Staqforce/StaqUI/artifacts/staqui-ui-0.1.0.tgz",
+  "independentProject": true,
+  "checks": [
+    "TypeScript package declarations",
+    "ESM import",
+    "CommonJS require",
+    "Stylesheet export",
+    "React server render without Next.js"
+  ],
+  "output": "\nESM + CJS + CSS exports + independent React SSR passed.\n"
+}

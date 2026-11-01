@@ -1,0 +1,35 @@
+{
+  "name": "staqui-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @staqui/docs dev",
+    "build:ui": "pnpm --filter @staqui/ui build",
+    "build": "pnpm build:ui && pnpm generate:docs && pnpm --filter @staqui/docs build",
+    "typecheck": "tsc --noEmit -p packages/ui/tsconfig.json && pnpm --filter @staqui/docs typecheck",
+    "test": "vitest run",
+    "check:coverage": "node scripts/check-coverage.mjs",
+    "generate:docs": "node scripts/generate-docs.mjs",
+    "pack:ui": "pnpm build:ui && pnpm --filter @staqui/ui pack --pack-destination ./artifacts"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "axe-core": "^4.11.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.9.10",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  },
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

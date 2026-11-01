@@ -1,0 +1,16 @@
+Final verification, 2026-11-01 Asia/Manila
+Command sequence completed with exit code 0:
+  pnpm build
+  pnpm typecheck
+  pnpm test
+  pnpm check:coverage
+  pnpm --filter @staqui/ui pack --pack-destination ./artifacts
+  node scripts/smoke-package.mjs
+
+Library: ESM, CJS and DTS builds succeeded.
+Next.js 16.4.3: production compilation succeeded; 61/61 static pages generated.
+TypeScript: package and documentation checks succeeded.
+Vitest 5.0.5: 1 test file passed; 63/63 tests passed.
+Coverage: 50/50 source components exported, documented and backed by synchronized examples.
+Package: artifacts/staqui-ui-0.1.0.tgz generated with module exports, declarations, CSS, README and LICENSE.
+Independent consumer: ESM + CJS + CSS exports + TypeScript + React SSR passed.

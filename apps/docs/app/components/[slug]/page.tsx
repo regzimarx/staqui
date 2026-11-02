@@ -1,7 +1,7 @@
 /* Hallmark · waive 26b · staqui shared stylesheet defines active and disabled states · This module consumes styled library controls; duplicating their CSS would break the single source of truth. */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Badge, Icon } from "@staqforce-studio/staqui";
+import { Badge } from "@staqforce-studio/staqui";
 import { SiteLink as Link } from "@/components/site-link";
 import { catalog } from "@/lib/catalog";
 import api from "@/lib/api.json";
@@ -44,6 +44,10 @@ export default async function ComponentPage({
         <span>/</span>
         <span>{c.category}</span>
       </div>
+      <span className="studio-kicker">
+        {c.category.toUpperCase()} / COMPONENT{" "}
+        {String(index + 1).padStart(2, "0")}
+      </span>
       <div className="component-heading">
         <h1>{c.title}</h1>
         <Badge>React component</Badge>
@@ -128,20 +132,12 @@ export default async function ComponentPage({
         </p>
       </section>
       <section>
-        <h2>Variants, states & adaptations</h2>
+        <h2>Variants & implementation notes</h2>
         <p>{c.adaptation}</p>
         <p>
           Use the typed API above for the supported variants. The example
           demonstrates the primary composition; shared controls inherit hover,
           focus, active and disabled treatment where applicable.
-        </p>
-        <Link href={c.source} target="_blank">
-          Reference research: {c.title}
-          <Icon name="arrowUpRight" size={14} />
-        </Link>
-        <p className="research-date">
-          Research captured November 1, 2026. Independent implementation
-          inspired by reference component catalog.
         </p>
       </section>
       {related.length > 0 && (

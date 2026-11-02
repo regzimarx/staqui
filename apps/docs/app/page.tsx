@@ -1,331 +1,253 @@
-import {
-  Button,
-  Heading,
-  Icon,
-  ListItem,
-  Paragraph,
-  Stack,
-  Text,
-  UnorderedList,
-} from "@staqforce-studio/staqui";
 import NextLink from "next/link";
-import type { ReactNode } from "react";
-import { CodeBlock } from "@/components/code-block";
-import { ExampleWorkbench, SettingsDemo } from "@/components/workspace-demo";
+import { Button, Icon } from "@staqforce-studio/staqui";
+import { SettingsDemo, ExampleWorkbench } from "@/components/workspace-demo";
 import { HomeGallery } from "@/components/home-gallery";
-import { SiteLink as Link } from "@/components/site-link";
-
-const chapters = [
-  {
-    href: "#components",
-    title: "Specimens",
-    detail: "Fifty components, each one running.",
-  },
-  {
-    href: "#standards",
-    title: "Standards",
-    detail: "The decisions behind the surface.",
-  },
-  {
-    href: "#compose",
-    title: "Compositions",
-    detail: "Assembled example applications.",
-  },
-  {
-    href: "#customize",
-    title: "Tokens",
-    detail: "Color, type, radius, and density.",
-  },
-];
-
-const tokenSamples = [
-  {
-    token: "--sq-accent",
-    use: "Primary actions and focus",
-    swatch: "lp-swatch-accent",
-  },
-  {
-    token: "--sq-selected",
-    use: "Chosen rows and controls",
-    swatch: "lp-swatch-selected",
-  },
-  {
-    token: "--sq-subtle",
-    use: "Quiet canvas behind content",
-    swatch: "lp-swatch-subtle",
-  },
-  {
-    token: "--sq-font",
-    use: "Fixel Display, overridable",
-    swatch: "lp-swatch-type",
-  },
-];
-
-function ChapterHead({
-  index,
-  label,
-  title,
-  description,
-  href,
-  linkLabel,
-}: {
-  index: string;
-  label: string;
-  title: ReactNode;
-  description: string;
-  href?: string;
-  linkLabel?: string;
-}) {
-  return (
-    <div className="lp-chapter-head">
-      <div>
-        <Text className="lp-mono lp-chapter">
-          <Text className="lp-chapter-index">{index}</Text>
-          {label}
-        </Text>
-        <Heading level={2}>{title}</Heading>
-      </div>
-      <div className="lp-chapter-side">
-        <Paragraph tone="muted">{description}</Paragraph>
-        {href && linkLabel ? (
-          <Link href={href} className="lp-more">
-            {linkLabel} <Icon name="arrowUpRight" size={14} />
-          </Link>
-        ) : null}
-      </div>
-    </div>
-  );
-}
+import { InstallCommand } from "@/components/install-command";
+import { CodeBlock } from "@/components/code-block";
 
 export default function Home() {
   return (
-    <div className="lp">
-      <section className="lp-hero">
-        <div className="lp-hero-intro">
-          <Text className="lp-mono lp-eyebrow">
-            <span className="lp-eyebrow-mark" aria-hidden="true" />
-            Staqforce Studio · React component system
-          </Text>
-          <Heading level={1}>
-            Build the product.
-            <br />
-            <Text tone="muted">Not the components.</Text>
-          </Heading>
-          <div className="lp-hero-support">
-            <Paragraph tone="muted">
-              staqui is fifty React and TypeScript components for the work that
-              takes the longest: focus states, empty states, dense tables,
-              overlays, and everything in between.
-            </Paragraph>
-            <Stack direction="row" gap="3" className="lp-actions">
-              <Button asChild variant="primary">
-                <NextLink href="/docs/getting-started">
-                  Start building <Icon name="arrowUpRight" size={15} />
-                </NextLink>
-              </Button>
-              <Button asChild>
-                <NextLink href="/components">Browse components</NextLink>
-              </Button>
-            </Stack>
+    <div className="studio-home">
+      <section className="studio-hero">
+        <div className="studio-intro">
+          <div className="studio-eyebrow">
+            <span /> THE PRODUCT INTERFACE TOOLKIT{" "}
+            <span className="version-label">v0.1</span>
           </div>
-          <Paragraph className="lp-facts">
-            <Text>50 components</Text>
-            <Text>React + TypeScript</Text>
-            <Text>Semantic tokens</Text>
-            <Text>MIT licensed</Text>
-          </Paragraph>
-        </div>
-        <figure className="lp-specimen">
-          <div className="lp-specimen-bar">
-            <Text className="lp-mono">Specimen — workspace settings</Text>
-            <Text className="lp-mono lp-live">Live</Text>
-          </div>
-          <div className="lp-specimen-body lp-paper">
-            <SettingsDemo compact />
-          </div>
-          <figcaption className="lp-mono">
-            Every control here ships in the package. Changes stay in this
-            browser.
-          </figcaption>
-        </figure>
-      </section>
-
-      <nav className="lp-index" aria-label="Homepage sections">
-        {chapters.map((chapter, i) => (
-          <Link href={chapter.href} key={chapter.href}>
-            <Text className="lp-mono">0{i + 1}</Text>
-            <Text className="lp-index-title">{chapter.title}</Text>
-            <Text className="lp-index-detail">{chapter.detail}</Text>
-            <Icon name="arrowUpRight" size={14} />
-          </Link>
-        ))}
-      </nav>
-
-      <section id="components" className="lp-section">
-        <ChapterHead
-          index="01"
-          label="Specimens"
-          title={
-            <>
-              Fifty pieces,
-              <br />
-              in working order.
-            </>
-          }
-          description="Not screenshots. These are the published components, mounted on this page and live to the touch."
-          href="/components"
-          linkLabel="View all 50"
-        />
-        <HomeGallery />
-      </section>
-
-      <section id="standards" className="lp-section">
-        <ChapterHead
-          index="02"
-          label="Standards"
-          title={
-            <>
-              The decisions
-              <br />
-              you no longer make.
-            </>
-          }
-          description="Each one starts with how an interface behaves when someone actually uses it."
-        />
-        <div className="lp-standards">
-          <article className="lp-standard">
-            <Text className="lp-mono lp-standard-index">02.1</Text>
-            <Heading level={3}>Interaction is the product.</Heading>
-            <div>
-              <Paragraph tone="muted">
-                Visible focus, real labels, keyboard paths, and feedback that
-                says what happened. The states people hit in a hurry are the
-                ones built first.
-              </Paragraph>
-              <Link href="/docs/accessibility" className="lp-more">
-                Accessibility approach <Icon name="arrowUpRight" size={14} />
-              </Link>
-            </div>
-          </article>
-          <article className="lp-standard">
-            <Text className="lp-mono lp-standard-index">02.2</Text>
-            <Heading level={3}>Density is a choice, not a look.</Heading>
-            <div>
-              <Paragraph tone="muted">
-                Comfortable when a task needs room. Compact when a screen needs
-                context. One 4px grid, one control height per density, so both
-                share the same geometry.
-              </Paragraph>
-              <Link href="/docs/theming" className="lp-more">
-                Themes &amp; tokens <Icon name="arrowUpRight" size={14} />
-              </Link>
-            </div>
-          </article>
-          <article className="lp-standard">
-            <Text className="lp-mono lp-standard-index">02.3</Text>
-            <Heading level={3}>It leaves with you.</Heading>
-            <div>
-              <Paragraph tone="muted">
-                A standalone package with typed props, exported CSS, and no
-                platform service behind it. Nothing in the library depends on
-                this documentation site to work.
-              </Paragraph>
-              <Link href="/docs/getting-started" className="lp-more">
-                Install in your app <Icon name="arrowUpRight" size={14} />
-              </Link>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="compose" className="lp-section">
-        <ChapterHead
-          index="03"
-          label="Compositions"
-          title={
-            <>
-              From parts
-              <br />
-              to a working screen.
-            </>
-          }
-          description="Settings, collections, and a launch plan, assembled only from public exports. Click, type, and explore all three."
-          href="/examples"
-          linkLabel="Open the examples"
-        />
-        <div className="lp-bench lp-paper">
-          <ExampleWorkbench initial="collections" />
-        </div>
-      </section>
-
-      <section id="customize" className="lp-section lp-tokens-section">
-        <div>
-          <Text className="lp-mono lp-chapter">
-            <Text className="lp-chapter-index">04</Text>
-            Tokens
-          </Text>
-          <Heading level={2}>
-            A quiet default,
+          <h1>
+            Less assembly.
             <br />
-            not a signature.
-          </Heading>
-          <Paragraph tone="muted" className="lp-tokens-copy">
-            Start with staqui&rsquo;s restrained palette and let your brand move
-            in. Color, corner, type, and density are all semantic CSS custom
-            properties, so one override reaches every component and every
-            portal.
-          </Paragraph>
-          <UnorderedList className="lp-tokens">
-            {tokenSamples.map((sample) => (
-              <ListItem key={sample.token}>
-                <span
-                  className={`lp-swatch ${sample.swatch}`}
-                  aria-hidden="true"
-                >
-                  {sample.swatch === "lp-swatch-type" ? "Aa" : null}
-                </span>
-                <code>{sample.token}</code>
-                <Text>{sample.use}</Text>
-              </ListItem>
-            ))}
-          </UnorderedList>
-          <Link href="/docs/theming" className="lp-more">
-            Read the theming guide <Icon name="arrowUpRight" size={14} />
-          </Link>
-        </div>
-        <CodeBlock
-          filename="your-brand.css"
-          code={
-            ':root {\n  --sq-font: "Fixel Display", sans-serif;\n  --sq-accent: #0a2eb5;\n  --sq-radius-medium: 12px;\n  --sq-control-height: 40px;\n}\n\n[data-staq-theme="dark"] {\n  --sq-accent: #8da3ff;\n}'
-          }
-        />
-      </section>
-
-      <section className="lp-close">
-        <div>
-          <Text className="lp-mono">Ready when you are</Text>
-          <Heading level={2}>
-            Your next interface
-            <br />
-            starts with a good stack.
-          </Heading>
-        </div>
-        <div className="lp-close-side">
-          <Paragraph tone="muted">
-            Install the package, swap in your tokens, and start from pieces that
-            already behave.
-          </Paragraph>
-          <Stack direction="row" gap="3" className="lp-actions">
+            More <em>possibility.</em>
+          </h1>
+          <p className="studio-lead">
+            Meet StaqUI. Fifty thoughtfully connected React components for the
+            screens people work in every day.
+          </p>
+          <div className="studio-actions">
             <Button asChild variant="primary">
               <NextLink href="/docs/getting-started">
-                Build with staqui <Icon name="arrowUpRight" size={15} />
+                Start building <Icon name="arrowUpRight" size={16} />
               </NextLink>
             </Button>
             <Button asChild>
-              <NextLink href="/components">Browse components</NextLink>
+              <NextLink href="/components">Explore the components</NextLink>
             </Button>
-          </Stack>
+          </div>
+          <div className="studio-byline">
+            <span className="mini-stack" aria-hidden="true">
+              ▰<br />▰<br />▰
+            </span>
+            <span>
+              One visual language. Your entire product.
+              <br />
+              <strong>Made by Staqforce Studio.</strong>
+            </span>
+          </div>
         </div>
+        <div className="studio-showcase">
+          <div className="showcase-grid" aria-hidden="true" />
+          <div className="showcase-label">
+            <span>STQ / INTERFACE STUDIES</span>
+            <span>001 — LIVE</span>
+          </div>
+          <div className="showcase-card">
+            <div className="showcase-card-top">
+              <span className="showcase-dots">● ● ●</span>
+              <span>workspace.settings</span>
+              <Icon name="sliders" size={13} />
+            </div>
+            <SettingsDemo compact />
+          </div>
+          <div className="showcase-stamp">
+            <Icon name="check" size={15} />
+            <span>
+              Real components.
+              <br />
+              <strong>Go ahead, try them.</strong>
+            </span>
+          </div>
+          <span className="showcase-caption">COMPOSED WITH STAQ UI ↗</span>
+        </div>
+      </section>
+      <div className="studio-specs">
+        <span>
+          <strong>50</strong> composable components
+        </span>
+        <span>
+          <Icon name="code" size={16} /> React + TypeScript
+        </span>
+        <span>
+          <Icon name="sun" size={16} /> Light &amp; dark, built in
+        </span>
+        <span>
+          <Icon name="layers" size={16} /> Two densities. One system.
+        </span>
+      </div>
+      <section className="package-feature" aria-labelledby="package-title">
+        <div className="package-feature-copy">
+          <span className="studio-kicker">AVAILABLE ON NPM</span>
+          <h2 id="package-title">
+            <Icon name="package" size={24} /> Your next Staq, one install away.
+          </h2>
+          <p>
+            React components, TypeScript declarations, styles, and fonts. All in{" "}
+            <code>@staqforce-studio/staqui</code>.
+          </p>
+          <Button asChild size="small">
+            <a
+              href="https://www.npmjs.com/package/@staqforce-studio/staqui"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View package on npm <Icon name="arrowUpRight" size={14} />
+            </a>
+          </Button>
+        </div>
+        <InstallCommand />
+      </section>
+      <section className="studio-section" id="components">
+        <div className="studio-section-head">
+          <div>
+            <span className="studio-kicker">01 / THE BUILDING BLOCKS</span>
+            <h2>
+              The pieces behind
+              <br />
+              your next big thing.
+            </h2>
+          </div>
+          <div>
+            <p>
+              Choose a collection and get hands-on. These are the same
+              components, styles, and states that ship in the library.
+            </p>
+            <NextLink href="/components" className="studio-text-link">
+              Meet all 50 components <Icon name="arrowUpRight" size={15} />
+            </NextLink>
+          </div>
+        </div>
+        <HomeGallery />
+      </section>
+      <section className="studio-manifesto">
+        <div className="manifesto-heading">
+          <span className="studio-kicker">THE STAQ WAY</span>
+          <h2>
+            Purpose in
+            <br />
+            every pixel.
+          </h2>
+          <p>
+            Made for dashboards, workspaces, and the tools that get things done.
+          </p>
+          <span className="manifesto-mark" aria-hidden="true">
+            ≋
+          </span>
+        </div>
+        <div className="manifesto-points">
+          <NextLink href="/docs/theming">
+            <span>01</span>
+            <div>
+              <h3>Density with intention.</h3>
+              <p>
+                32px compact controls. 40px comfortable controls. The same
+                rhythm, from a single form to a table full of context.
+              </p>
+            </div>
+            <Icon name="arrowUpRight" size={18} />
+          </NextLink>
+          <NextLink href="/docs/accessibility">
+            <span>02</span>
+            <div>
+              <h3>Behavior is part of the design.</h3>
+              <p>
+                Keyboard paths, visible focus, labels, and useful feedback. The
+                details that turn a collection into a system.
+              </p>
+            </div>
+            <Icon name="arrowUpRight" size={18} />
+          </NextLink>
+          <NextLink href="/docs/design">
+            <span>03</span>
+            <div>
+              <h3>Opinionated. Open to you.</h3>
+              <p>
+                Geist typography, a 4px rhythm, and semantic tokens. A distinct
+                starting point with room for your own identity.
+              </p>
+            </div>
+            <Icon name="arrowUpRight" size={18} />
+          </NextLink>
+        </div>
+      </section>
+      <section className="studio-section" id="compositions">
+        <div className="studio-section-head">
+          <div>
+            <span className="studio-kicker">02 / CONNECT THE PIECES</span>
+            <h2>
+              From a component
+              <br />
+              to your next product.
+            </h2>
+          </div>
+          <div>
+            <p>
+              Explore three working interfaces built from the same public
+              components you’ll use. Search, sort, select, and make yourself at
+              home.
+            </p>
+            <NextLink href="/examples" className="studio-text-link">
+              Explore the compositions <Icon name="arrowUpRight" size={15} />
+            </NextLink>
+          </div>
+        </div>
+        <ExampleWorkbench initial="collections" />
+      </section>
+      <section className="studio-section studio-theme">
+        <div>
+          <span className="studio-kicker">03 / MAKE YOUR MARK</span>
+          <h2>
+            Your identity.
+            <br />
+            In every state.
+          </h2>
+          <p>
+            Change a token and the system follows. Bring your colors, tune the
+            corners, set the density. Keep the consistency.
+          </p>
+          <div className="studio-palette" aria-label="Example brand palette">
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span>Aa</span>
+          </div>
+          <NextLink href="/docs/theming" className="studio-text-link">
+            Find your theme <Icon name="arrowUpRight" size={15} />
+          </NextLink>
+        </div>
+        <CodeBlock
+          filename="your-product.css"
+          code={
+            ':root {\n  --sq-accent: #0a2eb5;\n  --sq-accent-hover: #08238a;\n              --sq-font: "Geist", sans-serif;\n  --sq-radius-medium: 12px;\n}\n\n/* One system. Every surface. */\n[data-staq-theme="dark"] {\n  --sq-accent: #8da3ff;\n  --sq-accent-ink: #101b52;\n}'
+          }
+        />
+      </section>
+      <section className="studio-close">
+        <span className="studio-kicker">YOUR NEXT GREAT INTERFACE</span>
+        <h2>
+          It starts with
+          <br />a good <em>Staq.</em>
+        </h2>
+        <Button asChild>
+          <NextLink href="/docs/getting-started">
+            Let’s build something <Icon name="arrowUpRight" size={17} />
+          </NextLink>
+        </Button>
+        <span className="close-stack" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
       </section>
     </div>
   );

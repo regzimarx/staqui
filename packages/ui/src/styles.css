@@ -2,8 +2,8 @@
 /* Critique: preserve readable contrast and clear interaction boundaries in both densities. */
 :root,
 [data-staq-theme="light"] {
-  --sq-font: "Fixel Display", "Helvetica Neue", Arial, sans-serif;
-  --sq-font-mono: "SFMono-Regular", Consolas, monospace;
+  --sq-font: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --sq-font-mono: "Geist Mono", "SFMono-Regular", Consolas, monospace;
   --sq-bg: oklch(98% 0.003 250);
   --sq-surface: oklch(100% 0 0);
   --sq-subtle: oklch(96% 0.004 250);
@@ -81,7 +81,7 @@
   color-scheme: dark;
 }
 [data-staq-theme="staqwish"] {
-  --sq-font: "ShopifyInter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  --sq-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
   --sq-bg: #f1f1f1;
   --sq-surface: #ffffff;

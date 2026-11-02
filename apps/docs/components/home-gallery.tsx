@@ -1,157 +1,304 @@
 "use client";
+import { useState } from "react";
+import NextLink from "next/link";
 import {
   Badge,
+  Banner,
   Button,
+  ButtonGroup,
   Checkbox,
+  EmailField,
   Icon,
-  Paragraph,
+  Modal,
   Stack,
   Switch,
-  Text,
   TextField,
-  Modal,
 } from "@staqforce-studio/staqui";
-import { SiteLink as Link } from "@/components/site-link";
-import { useState } from "react";
+
+const collections = [
+  {
+    id: "actions",
+    title: "Actions",
+    icon: "arrowUpRight",
+    count: "06",
+    heading: "Make the next step obvious.",
+    description:
+      "A clear hierarchy for the things people do. Try the primary action to open a real dialog.",
+    component: "button",
+    names: "Button · ButtonGroup · Modal",
+  },
+  {
+    id: "forms",
+    title: "Forms",
+    icon: "sliders",
+    count: "17",
+    heading: "A little structure. A lot of clarity.",
+    description:
+      "Labels, descriptions, and native input behavior, connected by the same spacing and state conventions.",
+    component: "text-field",
+    names: "TextField · EmailField · Button",
+  },
+  {
+    id: "feedback",
+    title: "Feedback",
+    icon: "info",
+    count: "05",
+    heading: "Keep everyone in the loop.",
+    description:
+      "Status that says what happened and what comes next. Choose a tone to see the system respond.",
+    component: "banner",
+    names: "Banner · Badge · ButtonGroup",
+  },
+  {
+    id: "selection",
+    title: "Selection",
+    icon: "check",
+    count: "02",
+    heading: "Small choices, clearly made.",
+    description:
+      "Independent settings and explicit consent. Familiar controls with visible labels and keyboard behavior.",
+    component: "switch",
+    names: "Switch · Checkbox · Stack",
+  },
+] as const;
+type Collection = (typeof collections)[number]["id"];
 
 export function HomeGallery() {
-  const [value, setValue] = useState(true);
+  const [active, setActive] = useState<Collection>("actions");
   const [open, setOpen] = useState(false);
-  const [project, setProject] = useState("Something good");
+  const [project, setProject] = useState("Studio workspace");
+  const [email, setEmail] = useState("hello@studio.example");
   const [created, setCreated] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [notifications, setNotifications] = useState(true);
+  const [tone, setTone] = useState<"info" | "success" | "warning">("success");
+  const current = collections.find((item) => item.id === active)!;
   return (
-    <div className="home-gallery">
-      <article className="specimen">
-        <header className="specimen-bar">
-          <Text className="lp-mono">01</Text>
-          <Text className="lp-mono">Actions</Text>
-        </header>
-        <div className="specimen-stage lp-paper">
-          <Stack direction="row" gap="2">
-            <Modal
-              title="Create a project"
-              description="This example creates a local project. No data is sent to a server."
-              open={open}
-              onOpenChange={setOpen}
-              trigger={
-                <Button
-                  variant="primary"
-                  icon={<Icon name="plus" size={15} />}
-                >
-                  Create project
-                </Button>
-              }
-            >
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  if (project.trim()) {
-                    setCreated(true);
-                    setOpen(false);
-                  }
-                }}
-              >
-                <Stack>
-                  <TextField
-                    label="New project name"
-                    value={project}
-                    onValueChange={setProject}
-                    required
-                    autoFocus
-                  />
-                  <Button type="submit" variant="primary">
-                    Create locally
-                  </Button>
-                </Stack>
-              </form>
-            </Modal>
+    <div className="block-explorer">
+      <div className="block-directory">
+        <div>
+          <span className="studio-kicker">PICK A COLLECTION</span>
+          <p>Find your starting point.</p>
+        </div>
+        <ButtonGroup
+          label="Component collections"
+          className="block-collections"
+        >
+          {collections.map((item) => (
             <Button
-              onClick={() => {
-                setCreated(false);
-                setProject("Something good");
+              key={item.id}
+              fullWidth
+              variant={active === item.id ? "primary" : "secondary"}
+              aria-pressed={active === item.id}
+              onClick={() => setActive(item.id)}
+              icon={<Icon name={item.icon} size={16} />}
+            >
+              {item.title}
+              <span className="block-count">{item.count}</span>
+            </Button>
+          ))}
+        </ButtonGroup>
+        <p className="block-directory-note">
+          Live components, straight from the package. Same props. Same styles.
+          Ready for your product.
+        </p>
+        <NextLink href="/components" className="studio-text-link">
+          Browse the full library <Icon name="arrowUpRight" size={15} />
+        </NextLink>
+      </div>
+      <div className="block-detail">
+        <div className="block-detail-heading">
+          <span className="studio-kicker">
+            {current.title.toUpperCase()} / IN PRACTICE
+          </span>
+          <span className="block-live">
+            <span /> Live preview
+          </span>
+          <h3>{current.heading}</h3>
+          <p>{current.description}</p>
+        </div>
+        <div
+          className="block-playground"
+          role="region"
+          aria-label={`${current.title} component preview`}
+        >
+          {active === "actions" && (
+            <Stack gap="6">
+              <ButtonGroup label="Action hierarchy">
+                <Modal
+                  title="Create a project"
+                  description="Create a project in this local component example."
+                  open={open}
+                  onOpenChange={setOpen}
+                  trigger={
+                    <Button
+                      variant="primary"
+                      icon={<Icon name="plus" size={16} />}
+                    >
+                      Create project
+                    </Button>
+                  }
+                >
+                  <form
+                    onSubmit={(event) => {
+                      event.preventDefault();
+                      setCreated(true);
+                      setOpen(false);
+                    }}
+                  >
+                    <Stack>
+                      <TextField
+                        label="Project name"
+                        value={project}
+                        onValueChange={setProject}
+                        required
+                      />
+                      <Button type="submit" variant="primary">
+                        Create project
+                      </Button>
+                    </Stack>
+                  </form>
+                </Modal>
+                <Button
+                  onClick={() => {
+                    setCreated(false);
+                    setProject("Studio workspace");
+                  }}
+                >
+                  Reset example
+                </Button>
+                <Button asChild variant="tertiary">
+                  <NextLink href="/components/button">
+                    View API <Icon name="arrowUpRight" size={16} />
+                  </NextLink>
+                </Button>
+              </ButtonGroup>
+              <div className="block-state-row">
+                <span className="studio-kicker">EVERY STATE HAS A PLACE</span>
+                <ButtonGroup label="Action states">
+                  <Button disabled>Unavailable</Button>
+                  <Button loading>Saving</Button>
+                  <Button tone="critical" disabled>
+                    Delete project
+                  </Button>
+                </ButtonGroup>
+              </div>
+              {created && (
+                <Banner tone="success" title="Project created">
+                  {project} is ready in this local example.
+                </Banner>
+              )}
+            </Stack>
+          )}
+          {active === "forms" && (
+            <form
+              className="block-form"
+              onSubmit={(event) => {
+                event.preventDefault();
+                setSaved(true);
               }}
             >
-              Reset
-            </Button>
-          </Stack>
+              <Stack>
+                <TextField
+                  label="Workspace name"
+                  description="A name your team will recognize."
+                  value={project}
+                  onValueChange={(value) => {
+                    setProject(value);
+                    setSaved(false);
+                  }}
+                  required
+                />
+                <EmailField
+                  label="Team email"
+                  value={email}
+                  onValueChange={(value) => {
+                    setEmail(value);
+                    setSaved(false);
+                  }}
+                  required
+                />
+                <div>
+                  <Button type="submit" variant="primary">
+                    Save workspace
+                  </Button>
+                </div>
+                {saved && (
+                  <Banner tone="success" title="Workspace saved">
+                    Your changes are saved in this local example.
+                  </Banner>
+                )}
+              </Stack>
+            </form>
+          )}
+          {active === "feedback" && (
+            <Stack gap="6">
+              <ButtonGroup label="Feedback tone">
+                {(["info", "success", "warning"] as const).map((value) => (
+                  <Button
+                    key={value}
+                    variant={tone === value ? "primary" : "secondary"}
+                    aria-pressed={tone === value}
+                    onClick={() => setTone(value)}
+                  >
+                    {value === "info"
+                      ? "Information"
+                      : value === "success"
+                        ? "Success"
+                        : "Warning"}
+                  </Button>
+                ))}
+              </ButtonGroup>
+              <Banner
+                tone={tone}
+                title={
+                  tone === "success"
+                    ? "All changes published"
+                    : tone === "warning"
+                      ? "A few details need your attention"
+                      : "Your workspace is up to date"
+                }
+              >
+                {tone === "warning"
+                  ? "Review the remaining details before publishing."
+                  : "Your team can keep working with the latest version."}
+              </Banner>
+              <ButtonGroup label="Example status badges">
+                <Badge tone="success">Published</Badge>
+                <Badge tone="warning">In review</Badge>
+                <Badge>Draft</Badge>
+              </ButtonGroup>
+            </Stack>
+          )}
+          {active === "selection" && (
+            <Stack gap="6">
+              <Switch
+                label="Email notifications"
+                description="Get a message when your team makes an update."
+                checked={notifications}
+                onCheckedChange={setNotifications}
+              />
+              <Checkbox
+                label="Include me in the weekly digest"
+                defaultChecked
+              />
+              <Checkbox label="Share product updates with the team" />
+              <span className="block-selection-summary" aria-live="polite">
+                Email notifications are {notifications ? "on" : "off"}.
+              </span>
+            </Stack>
+          )}
         </div>
-        <div className="specimen-foot">
-          <Paragraph tone="muted">
-            Clear intent at every step, including the destructive ones.
-          </Paragraph>
-          <Link href="/components/button" className="lp-more">
-            Button <Icon name="arrowUpRight" size={13} />
-          </Link>
+        <div className="block-detail-footer">
+          <code>{current.names}</code>
+          <Button asChild size="small">
+            <NextLink href={`/components/${current.component}`}>
+              Explore {current.title.toLowerCase()}{" "}
+              <Icon name="arrowUpRight" size={14} />
+            </NextLink>
+          </Button>
         </div>
-      </article>
-
-      <article className="specimen">
-        <header className="specimen-bar">
-          <Text className="lp-mono">02</Text>
-          <Text className="lp-mono">Forms</Text>
-        </header>
-        <div className="specimen-stage lp-paper">
-          <TextField
-            label="Project name"
-            value={project}
-            onValueChange={setProject}
-            description={created ? "Created in this local example" : undefined}
-          />
-        </div>
-        <div className="specimen-foot">
-          <Paragraph tone="muted">
-            A familiar place for every input.
-          </Paragraph>
-          <Link href="/components/text-field" className="lp-more">
-            Text field <Icon name="arrowUpRight" size={13} />
-          </Link>
-        </div>
-      </article>
-
-      <article className="specimen">
-        <header className="specimen-bar">
-          <Text className="lp-mono">03</Text>
-          <Text className="lp-mono">Feedback</Text>
-        </header>
-        <div className="specimen-stage lp-paper">
-          <Stack direction="row" gap="2">
-            <Badge tone="success">Published</Badge>
-            <Badge tone="warning">In review</Badge>
-            <Badge>Draft</Badge>
-          </Stack>
-        </div>
-        <div className="specimen-foot">
-          <Paragraph tone="muted">
-            Useful signals, without the noise.
-          </Paragraph>
-          <Link href="/components/badge" className="lp-more">
-            Badge <Icon name="arrowUpRight" size={13} />
-          </Link>
-        </div>
-      </article>
-
-      <article className="specimen">
-        <header className="specimen-bar">
-          <Text className="lp-mono">04</Text>
-          <Text className="lp-mono">Selection</Text>
-        </header>
-        <div className="specimen-stage lp-paper">
-          <Stack direction="row" gap="6">
-            <Switch
-              label="Notifications"
-              checked={value}
-              onCheckedChange={setValue}
-            />
-            <Checkbox label="Selected" defaultChecked />
-          </Stack>
-        </div>
-        <div className="specimen-foot">
-          <Paragraph tone="muted">Small controls. Clear choices.</Paragraph>
-          <Link href="/components/switch" className="lp-more">
-            Switch <Icon name="arrowUpRight" size={13} />
-          </Link>
-        </div>
-      </article>
+      </div>
     </div>
   );
 }

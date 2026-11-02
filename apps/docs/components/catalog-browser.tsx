@@ -1,7 +1,12 @@
 /* Hallmark · waive 26b · staqui shared stylesheet defines active and disabled states · This module consumes styled library controls; duplicating their CSS would break the single source of truth. */
 "use client";
 import { useState } from "react";
-import { Badge, Button, EmptyState, Icon, SearchField } from "@staqforce-studio/staqui";
+import {
+  Button,
+  EmptyState,
+  Icon,
+  SearchField,
+} from "@staqforce-studio/staqui";
 import { SiteLink as Link } from "@/components/site-link";
 import { categories, searchCatalog } from "@/lib/catalog";
 export function CatalogBrowser() {
@@ -28,7 +33,7 @@ export function CatalogBrowser() {
           {["All", ...categories].map((c) => (
             <Button
               key={c}
-              variant="tertiary"
+              variant={category === c ? "primary" : "secondary"}
               size="small"
               aria-pressed={category === c}
               onClick={() => setCategory(c)}

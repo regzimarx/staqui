@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button, Icon } from "@staqforce-studio/staqui";
+import { Button, Icon, StaqProvider, useStaq } from "@staqforce-studio/staqui";
 export function CopyButton({
   text,
   label = "Copy code",
@@ -40,8 +40,9 @@ export function CodeBlock({
   code: string;
   filename?: string;
 }) {
+  const { density } = useStaq();
   return (
-    <div className="code-block">
+    <StaqProvider theme="dark" density={density} className="code-block">
       <div className="code-header">
         <span>{filename}</span>
         <CopyButton text={code} />
@@ -49,6 +50,6 @@ export function CodeBlock({
       <pre tabIndex={0} aria-label={`${filename} source`}>
         <code>{code}</code>
       </pre>
-    </div>
+    </StaqProvider>
   );
 }

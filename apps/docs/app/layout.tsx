@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "@staqforce-studio/staqui/styles.css";
 import "./globals.css";
 import { Shell } from "@/components/shell";
+const geist = Geist({ variable: "--font-geist" });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono" });
 export const metadata: Metadata = {
   title: {
-    default: "staqui — A considered foundation for your next interface",
-    template: "%s — staqui",
+    default: "StaqUI — Less assembly. More possibility.",
+    template: "%s — StaqUI",
   },
   description:
     "A React and TypeScript component library by Staqforce Studio. 50 composable components, semantic themes, accessible interactions, and compact layouts.",
@@ -18,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={`${geist.variable} ${geistMono.variable}`}>
         <script
           dangerouslySetInnerHTML={{
             __html: `try{var t=localStorage.getItem("staqui-theme");if(t==="light"||t==="dark")document.documentElement.dataset.staqTheme=t;var d=localStorage.getItem("staqui-density");if(d==="compact"||d==="comfortable")document.documentElement.dataset.staqDensity=d}catch(e){}`,

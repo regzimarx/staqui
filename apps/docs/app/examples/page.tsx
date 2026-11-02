@@ -6,12 +6,16 @@ export default function Examples() {
   return (
     <div className="content-page">
       <div className="page-heading">
+        <span className="studio-kicker">THE COMPOSITION LAB</span>
         <h1>
-          See the pieces
+          Good on their own.
           <br />
-          work together.
+          Better together.
         </h1>
-        <p>Three working compositions for everyday product interfaces.</p>
+        <p>
+          Three working interfaces. One shared system. Explore what happens when
+          the pieces connect.
+        </p>
       </div>
       <ExampleWorkbench initial="collections" />
       <div className="example-notes">

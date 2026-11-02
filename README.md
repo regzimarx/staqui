@@ -1,6 +1,6 @@
 # staqui
 
-An independent React and TypeScript component library and Next.js documentation site. The workspace covers all 50 components in the researched reference component catalog web-component catalog with original branding, semantic themes, and explicitly documented adaptations.
+An independent React and TypeScript component library and Next.js documentation site. The workspace includes 50 components with a distinct Staqforce Studio identity, semantic themes, purposeful density, and documented implementation details.
 
 ## Run locally
 
@@ -21,8 +21,8 @@ Open http://localhost:3000. No environment variables are required.
 - `packages/ui/src`: reusable components, shared types and CSS tokens.
 - `packages/ui/examples`: 50 runnable examples, also used by the test suite and documentation previews.
 - `apps/docs`: Next.js homepage, searchable catalog, component pages, guides and three application examples.
-- `research/INVENTORY.md`: dated source research, reference APIs, related components and adaptations.
-- `research/COVERAGE.md`: generated mapping of all 50 reference components to exports, implementation and examples.
+- `research/INVENTORY.md`: component descriptions, implementation notes, and accessibility guidance.
+- `research/COVERAGE.md`: generated mapping of all 50 components to exports, implementation, and examples.
 - `DESIGN.md`: design decisions and customization principles.
 - `validation/RESULTS.md`: verification evidence and limits.
 
@@ -43,7 +43,7 @@ node scripts/smoke-package.mjs
 
 The independent consumer smoke test installs the archive in a temporary project, checks types, resolves both module formats and CSS, and server-renders React without Next.js. It supports npm, pnpm, and Bun via `--manager`; pnpm is the default. `pnpm check:release` runs the checks and verifies independent npm and pnpm consumers.
 
-If published again, consumers can install it using their preferred package manager:
+Install [@staqforce-studio/staqui](https://www.npmjs.com/package/@staqforce-studio/staqui) from npm using your preferred package manager:
 
 ```sh
 npm install @staqforce-studio/staqui
@@ -51,7 +51,7 @@ pnpm add @staqforce-studio/staqui
 bun add @staqforce-studio/staqui
 ```
 
-Import `@staqforce-studio/staqui/styles.css` once and wrap the application with `StaqProvider`. See `packages/ui/README.md` and the getting-started guide. For local testing, install the generated tarball. See [PUBLISHING.md](./PUBLISHING.md) for account setup, validation, and the release command. The `staqforce` organization and its package were deleted; registry publication under this name is canceled.
+Import `@staqforce-studio/staqui/styles.css` once and wrap the application with `StaqProvider`. See `packages/ui/README.md` and the getting-started guide. For local testing, install the generated tarball. See [PUBLISHING.md](./PUBLISHING.md) for account setup, validation, and the release command.
 
 ## Deploy on Vercel
 
@@ -71,9 +71,9 @@ Enable access to files outside the project root so shared examples and the works
 
 ## Scope and limitations
 
-- Coverage is conceptual equivalence, not drop-in Shopify API compatibility. Every adaptation is listed in the inventory and each component page.
+- Every component has a typed API, a runnable example, and documented implementation boundaries.
 - Color inputs support six-digit RGB hex through native controls; no alpha or wide-gamut picker. DateField uses native date UI; DatePicker supports single/range selection with Date objects and matchers.
-- Menu nesting, virtualized tables, spreadsheet editing, and Shopify-specific services are outside the exposed API. Icons use Lucide rather than Shopify's icon catalog.
+- Menu nesting, virtualized tables, spreadsheet editing, and backend services are outside the exposed API. Icons use Lucide.
 - MoneyField edits a decimal string with a currency label; it does not perform financial arithmetic or localized currency parsing.
 - Uploads and application demos remain local. DropZone emits File objects; applications own upload transport and should use its callback for dropped files rather than relying solely on native FormData.
 - Built-in theme/density propagate into portals. Custom ancestor-only CSS overrides need corresponding global/portal selectors.

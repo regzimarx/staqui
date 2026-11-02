@@ -1,6 +1,6 @@
 # staqui design system
 
-staqui is an independent React design system for product teams building compact workspaces. It references the breadth and restraint of reference component catalog but does not use Shopify assets, runtime, tokens, or services.
+staqui is a React design system by Staqforce Studio for product teams building compact workspaces. Its identity pairs Geist typography and cobalt actions with precise spacing, native semantics, and purposeful density.
 
 ## Identity
 A precise component workbench: broad typography introduces the system, followed by working interface compositions. A geometric stacked mark reflects the name; it is original SVG geometry. Blue is reserved for selected states and primary actions; neutral surfaces carry the interface. The documentation uses a persistent index, a working examples canvas, and an inset code surface. All product names and records are explicitly sample content.
@@ -11,17 +11,19 @@ A precise component workbench: broad typography introduces the system, followed 
 - Text stays legible in neutral and status contexts. A 2px focus outline appears immediately. Borders do not change width on interaction. Status labels accompany colors. Native form semantics preserve autofill and browser validation.
 - Loading disables repeated actions. Disabled controls use native state plus cursor, fill, and foreground changes. Errors have both text and programmatic input associations.
 - Motion is limited to short opacity/transform changes and the loading spinner. Reduced motion removes animation without hiding state.
-- Fixel Display is the default face. Its upright and italic WOFF2 weights and OFL license ship with the library; the stylesheet loads it locally with font-display: swap. The font token remains overridable.
+- Geist is the default face. The font token remains overridable, and consumers can provide their preferred Geist loading strategy.
 
 ## Public API
 Native attributes pass through wherever the component represents one HTML element. Form components add label, description, error and onValueChange. Selection controls use onCheckedChange or onValueChange. Overlays accept React triggers and controlled open/onOpenChange rather than string-based DOM commands. Semantic variants are constrained by TypeScript. CSS custom properties allow local overrides without a styling runtime.
 
-## Deliberate adaptations
-This is conceptual coverage, not a drop-in reference component catalog API clone. See research/INVENTORY.md for every source component, research API, composition notes and component-specific limitations. In particular, native color controls are RGB hex, date fields use native browser UI, DatePicker uses Date objects and matcher constraints, and Icon accepts Lucide components rather than Shopify's icon-name catalog. No app bridge, resource picker, Shopify navigation, service integration, or backend is included.
+## Implementation boundaries
+The component inventory documents every public component and its supported behavior. Native color controls use RGB hex; date fields use native browser UI; DatePicker uses Date objects and matcher constraints. Icons use Lucide. Applications own routing, uploads, service integrations, and backend behavior.
 
-## Landing page
-The homepage is a full-width product page without the documentation sidebar, composed as a specimen sheet: hairline rules, monospaced index labels, and numbered chapters. It opens with a live settings specimen mounted on a graph-paper plate, followed by a chapter index, an asymmetric board of four live component specimens, three numbered standards, the tabbed application workbench on a framed bench, a token sheet beside a copyable CSS override, and a closing installation call to action. The page is built from the library's own primitives (Heading, Paragraph, Text, Stack, list and form components) rather than bespoke markup, so its type scale, tones, and spacing come from the same system it documents. Calls to action are `Button` components rendered onto next/link elements through `asChild`, so they are ordinary links that keep the library's primary and secondary variants instead of a page-specific button class. Every surface, rule, swatch, and grid line is a theme token, so the page follows the light and dark themes rather than a fixed palette. Documentation retains its persistent component navigation.
+## Website
+The landing page combines a paper canvas, cobalt actions, periwinkle graph paper, and lime accents. A live workspace preview leads into component specimens, a dark green principles panel, working compositions, a theme example, and a cobalt closing panel. The stacked motif expresses the relationship between small pieces and a complete product.
+
+Documentation opens at `/docs` with a field guide and six guide cards. Desktop navigation keeps the component index visible; guide pages add an outline at wide widths. Component pages share category numbering, interactive previews, exact example source, and type-generated APIs. Mobile navigation, persistent theme and density controls, and keyboard search work throughout the site.
 
 ## Product identity
 
-staqui is a product of Staqforce Studio. Its UI monogram derives from the Studio mark’s rounded interlocking ribbons and diagonal cuts. The primary mark uses Studio blue (#1534B1), paired with the Fixel Display wordmark. A light periwinkle silhouette provides contrast in dark themes. The transparent master is `apps/docs/public/brand/staqui-mark.png`.
+staqui is a product of Staqforce Studio. Its UI monogram derives from the Studio mark’s rounded interlocking ribbons and diagonal cuts. The primary mark uses Studio blue (#1534B1), paired with the Geist wordmark. A light periwinkle silhouette provides contrast in dark themes. The transparent master is `apps/docs/public/brand/staqui-mark.png`.

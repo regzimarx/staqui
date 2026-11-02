@@ -5,12 +5,16 @@ export default function Components() {
   return (
     <div className="content-page">
       <div className="page-heading">
+        <span className="studio-kicker">THE COMPONENT INDEX / 50 PIECES</span>
         <h1>
-          A component for
+          Everything in
           <br />
-          every little detail.
+          your Staq.
         </h1>
-        <p>50 reusable building blocks. One consistent language.</p>
+        <p>
+          Explore the system. Find the right piece, try it live, and bring it
+          into your product.
+        </p>
       </div>
       <CatalogBrowser />
     </div>

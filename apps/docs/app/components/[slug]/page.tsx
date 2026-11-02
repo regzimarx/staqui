@@ -1,4 +1,4 @@
-/* Hallmark · waive 26b · StaqUI shared stylesheet defines active and disabled states · This module consumes styled library controls; duplicating their CSS would break the single source of truth. */
+/* Hallmark · waive 26b · staqui shared stylesheet defines active and disabled states · This module consumes styled library controls; duplicating their CSS would break the single source of truth. */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Badge, Icon } from "@staqforce/staqui";
@@ -122,7 +122,7 @@ export default async function ComponentPage({
         <p>{c.accessibility}</p>
         <p>
           Visible focus, reduced motion, and both color themes are shared across
-          StaqUI. Choose labels and document structure that make sense in your
+          staqui. Choose labels and document structure that make sense in your
           application; automated checks do not replace assistive-technology
           testing.
         </p>

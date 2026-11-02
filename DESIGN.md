@@ -1,6 +1,6 @@
-# StaqUI design system
+# staqui design system
 
-StaqUI is an independent React design system for product teams building compact workspaces. It references the breadth and restraint of reference component catalog but does not use Shopify assets, runtime, tokens, or services.
+staqui is an independent React design system for product teams building compact workspaces. It references the breadth and restraint of reference component catalog but does not use Shopify assets, runtime, tokens, or services.
 
 ## Identity
 A precise component workbench: broad typography introduces the system, followed by working interface compositions. A geometric stacked mark reflects the name; it is original SVG geometry. Blue is reserved for selected states and primary actions; neutral surfaces carry the interface. The documentation uses a persistent index, a working examples canvas, and an inset code surface. All product names and records are explicitly sample content.
@@ -24,4 +24,4 @@ The homepage is a full-width product page without the documentation sidebar, com
 
 ## Product identity
 
-StaqUI is a product of Staqforce Studio. Its UI monogram derives from the Studio mark’s rounded interlocking ribbons and diagonal cuts. The primary mark uses Studio blue (#1534B1), paired with the Fixel Display wordmark. A light periwinkle silhouette provides contrast in dark themes. The transparent master is `apps/docs/public/brand/staqui-mark.png`.
+staqui is a product of Staqforce Studio. Its UI monogram derives from the Studio mark’s rounded interlocking ribbons and diagonal cuts. The primary mark uses Studio blue (#1534B1), paired with the Fixel Display wordmark. A light periwinkle silhouette provides contrast in dark themes. The transparent master is `apps/docs/public/brand/staqui-mark.png`.

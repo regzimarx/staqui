@@ -1614,7 +1614,7 @@ html {
 .site .sq-link:active {
   color: var(--sq-accent-hover);
 }
-/* StaqUI landing: an editorial specimen sheet built from live library components. */
+/* staqui landing: an editorial specimen sheet built from live library components. */
 .site-landing .site-layout {
   display: block;
 }

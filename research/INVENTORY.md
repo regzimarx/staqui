@@ -1,6 +1,6 @@
-# Research inventory: StaqUI and reference component catalog
+# Research inventory: staqui and reference component catalog
 
-Researched with BrowserOS Neo on 2026-11-01 (Asia/Manila). The versioning reference explicitly identifies reference component catalog. This inventory maps conceptual coverage; StaqUI is not a drop-in replacement or affiliated Shopify product.
+Researched with BrowserOS Neo on 2026-11-01 (Asia/Manila). The versioning reference explicitly identifies reference component catalog. This inventory maps conceptual coverage; staqui is not a drop-in replacement or affiliated Shopify product.
 
 [Catalog](https://shopify.dev/docs/api/app-home/latest/web-components) · [Versioning](https://shopify.dev/docs/api/app-home/latest/web-components/versioning)
 
@@ -21,7 +21,7 @@ Accessibility: Maintain an understandable accessible name and preserve visible f
 
 Related composition: link, button-group.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/button.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/button.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## ButtonGroup — Actions
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/actions/button-group
@@ -38,7 +38,7 @@ Accessibility: Maintain an understandable accessible name and preserve visible f
 
 Related composition: button.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/button-group.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/button-group.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Clickable — Actions
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/actions/clickable
@@ -55,7 +55,7 @@ Accessibility: Maintain an understandable accessible name and preserve visible f
 
 Related composition: button, link.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/clickable.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/clickable.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## ClickableChip — Actions
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/actions/clickable-chip
@@ -72,7 +72,7 @@ Accessibility: Maintain an understandable accessible name and preserve visible f
 
 Related composition: chip, stack.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/clickable-chip.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/clickable-chip.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Link — Actions
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/actions/link
@@ -89,7 +89,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: button, paragraph.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/link.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/link.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Menu — Actions
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/actions/menu
@@ -106,7 +106,7 @@ Accessibility: Radix provides roving focus, typeahead, disabled items, Escape an
 
 Related composition: Compose with layout and typography primitives..
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/menu.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/menu.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Badge — Feedback
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/badge
@@ -123,7 +123,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: chip, table.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/badge.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/badge.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Banner — Feedback
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/banner
@@ -140,7 +140,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: badge, button.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/banner.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/banner.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## EmptyState — Feedback
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/empty-state
@@ -157,7 +157,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: table, banner, icon, image, text, link, button.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/empty-state.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/empty-state.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Progress — Feedback
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/progress
@@ -174,7 +174,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: spinner, text.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/progress.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/progress.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Spinner — Feedback
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/feedback-and-status-indicators/spinner
@@ -191,7 +191,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: button.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/spinner.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/spinner.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Checkbox — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/checkbox
@@ -208,7 +208,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: switch.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/checkbox.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/checkbox.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## ChoiceList — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/choice-list
@@ -225,7 +225,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: select.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/choice-list.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/choice-list.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## ColorField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/color-field
@@ -242,7 +242,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: color-picker.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/color-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/color-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## ColorPicker — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/color-picker
@@ -259,7 +259,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: color-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/color-picker.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/color-picker.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## DateField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/date-field
@@ -276,7 +276,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: date-picker.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/date-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/date-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## DatePicker — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/date-picker
@@ -293,7 +293,7 @@ Accessibility: React DayPicker supports single/range selection, one/two months, 
 
 Related composition: date-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/date-picker.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/date-picker.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## DropZone — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/drop-zone
@@ -310,7 +310,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: Compose with layout and typography primitives..
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/drop-zone.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/drop-zone.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## EmailField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/email-field
@@ -327,7 +327,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: text-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/email-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/email-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## MoneyField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/money-field
@@ -344,7 +344,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: number-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/money-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/money-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## NumberField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/number-field
@@ -361,7 +361,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: money-field, text-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/number-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/number-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## PasswordField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/password-field
@@ -378,7 +378,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: text-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/password-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/password-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## SearchField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/search-field
@@ -395,7 +395,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: text-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/search-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/search-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Select — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/select
@@ -412,7 +412,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: choice-list.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/select.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/select.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Switch — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/switch
@@ -429,7 +429,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: checkbox.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/switch.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/switch.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## TextArea — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/text-area
@@ -446,7 +446,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: text-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/text-area.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/text-area.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## TextField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/text-field
@@ -463,7 +463,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: text-area, email-field, url-field, password-field, search-field, button, clickable.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/text-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/text-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## URLField — Forms
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/forms/url-field
@@ -480,7 +480,7 @@ Accessibility: Use a persistent visible label and provide textual errors; native
 
 Related composition: text-field.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/url-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/url-field.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Box — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/box
@@ -497,7 +497,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: stack, grid.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/box.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/box.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Divider — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/divider
@@ -514,7 +514,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: section.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/divider.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/divider.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Grid — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/grid
@@ -531,7 +531,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: stack.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/grid.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/grid.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## OrderedList — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/ordered-list
@@ -548,7 +548,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: unordered-list.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/ordered-list.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/ordered-list.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Page — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/page
@@ -565,7 +565,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: banner.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/page.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/page.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## QueryContainer — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/query-container
@@ -582,7 +582,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: Compose with layout and typography primitives..
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/query-container.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/query-container.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Section — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/section
@@ -599,7 +599,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: divider.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/section.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/section.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Stack — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/stack
@@ -616,7 +616,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: grid.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/stack.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/stack.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Table — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/table
@@ -633,7 +633,7 @@ Accessibility: Data-driven generic columns replace compound web-component slots.
 
 Related composition: Compose with layout and typography primitives..
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/table.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/table.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## UnorderedList — Layout
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/layout-and-structure/unordered-list
@@ -650,7 +650,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: ordered-list.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/unordered-list.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/unordered-list.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Avatar — Media
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/media-and-visuals/avatar
@@ -667,7 +667,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: thumbnail, image.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/avatar.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/avatar.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Icon — Media
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/media-and-visuals/icon
@@ -684,7 +684,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: button, badge, chip.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/icon.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/icon.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Image — Media
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/media-and-visuals/image
@@ -701,7 +701,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: thumbnail, avatar, grid.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/image.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/image.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Thumbnail — Media
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/media-and-visuals/thumbnail
@@ -718,7 +718,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: image, avatar.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/thumbnail.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/thumbnail.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Modal — Overlays
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/overlays/modal
@@ -735,7 +735,7 @@ Accessibility: Radix Dialog handles focus, Escape, background inertness and scro
 
 Related composition: Compose with layout and typography primitives..
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/modal.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/modal.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Popover — Overlays
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/overlays/popover
@@ -752,7 +752,7 @@ Accessibility: Radix handles anchoring, collision avoidance, Escape and focus re
 
 Related composition: modal.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/popover.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/popover.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Chip — Typography
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/typography-and-content/chip
@@ -769,7 +769,7 @@ Accessibility: Maintain an understandable accessible name and preserve visible f
 
 Related composition: badge, clickable-chip.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/chip.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/chip.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Heading — Typography
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/typography-and-content/heading
@@ -786,7 +786,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: section.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/heading.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/heading.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Number — Typography
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/typography-and-content/number
@@ -803,7 +803,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: text, paragraph, stack.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/number.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/number.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Paragraph — Typography
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/typography-and-content/paragraph
@@ -820,7 +820,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: text.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/paragraph.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/paragraph.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Text — Typography
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/typography-and-content/text
@@ -837,7 +837,7 @@ Accessibility: Preserve semantic structure and communicate meaning with text rat
 
 Related composition: paragraph, heading.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/text.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/text.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
 
 ## Tooltip — Typography
 Source: https://shopify.dev/docs/api/app-home/latest/web-components/typography-and-content/tooltip
@@ -854,4 +854,4 @@ Accessibility: Radix opens immediately on keyboard focus and after 800ms hover. 
 
 Related composition: chip, heading, number, paragraph, text.
 
-StaqUI source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/tooltip.tsx`. Type-derived public API: `apps/docs/lib/api.json`.
+staqui source: `packages/ui/src`. Runnable documentation example: `packages/ui/examples/tooltip.tsx`. Type-derived public API: `apps/docs/lib/api.json`.

@@ -4,7 +4,7 @@ Command sequence completed with exit code 0:
   pnpm typecheck
   pnpm test
   pnpm check:coverage
-  pnpm --filter @staqui/ui pack --pack-destination ./artifacts
+  pnpm --filter @staqforce/staqui pack --pack-destination ./artifacts
   node scripts/smoke-package.mjs
 
 Library: ESM, CJS and DTS builds succeeded.

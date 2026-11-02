@@ -113,7 +113,7 @@ export default function Home() {
           </Heading>
           <div className="lp-hero-support">
             <Paragraph tone="muted">
-              StaqUI is fifty React and TypeScript components for the work that
+              staqui is fifty React and TypeScript components for the work that
               takes the longest: focus states, empty states, dense tables,
               overlays, and everything in between.
             </Paragraph>
@@ -270,7 +270,7 @@ export default function Home() {
             not a signature.
           </Heading>
           <Paragraph tone="muted" className="lp-tokens-copy">
-            Start with StaqUI&rsquo;s restrained palette and let your brand move
+            Start with staqui&rsquo;s restrained palette and let your brand move
             in. Color, corner, type, and density are all semantic CSS custom
             properties, so one override reaches every component and every
             portal.
@@ -318,7 +318,7 @@ export default function Home() {
           <Stack direction="row" gap="3" className="lp-actions">
             <Button asChild variant="primary">
               <NextLink href="/docs/getting-started">
-                Build with StaqUI <Icon name="arrowUpRight" size={15} />
+                Build with staqui <Icon name="arrowUpRight" size={15} />
               </NextLink>
             </Button>
             <Button asChild>

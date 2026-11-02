@@ -5,11 +5,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/regzimarx/StaqUI.git",
+    "url": "git+https://github.com/regzimarx/staqui.git",
     "directory": "packages/ui"
   },
-  "homepage": "https://github.com/regzimarx/StaqUI#readme",
-  "bugs": "https://github.com/regzimarx/StaqUI/issues",
+  "homepage": "https://github.com/regzimarx/staqui#readme",
+  "bugs": "https://github.com/regzimarx/staqui/issues",
   "keywords": [
     "react",
     "components",

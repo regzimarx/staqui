@@ -18,7 +18,7 @@ const useBrowserLayoutEffect =
   typeof window === "undefined" ? useEffect : useLayoutEffect;
 export function Logo() {
   return (
-    <Link href="/" className="brand" aria-label="StaqUI home">
+    <Link href="/" className="brand" aria-label="staqui home">
       <span className="brand-mark" aria-hidden="true" />
       <span>
         Staq<span className="brand-light">UI</span>
@@ -208,7 +208,7 @@ export function Shell({ children }: { children: ReactNode }) {
             {children}
           </main>
           <footer className="site-footer">
-            <span>StaqUI. A product of Staqforce Studio.</span>
+            <span>staqui. A product of Staqforce Studio.</span>
             <Link href="/docs/coverage">Coverage & adaptations</Link>
             <span>MIT licensed</span>
           </footer>

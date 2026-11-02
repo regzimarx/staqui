@@ -1,12 +1,12 @@
-# StaqUI completion record
+# staqui completion record
 
 ## Accepted scope
-Independent React/TypeScript library covering the 50-component reference component catalog web-component catalog, followed by a Next.js documentation site. User selected the name **StaqUI** and **pnpm**. All browser research and verification used BrowserOS Neo. Prepare for Vercel; leave deployment to the user.
+Independent React/TypeScript library covering the 50-component reference component catalog web-component catalog, followed by a Next.js documentation site. User selected the name **staqui** and **pnpm**. All browser research and verification used BrowserOS Neo. Prepare for Vercel; leave deployment to the user.
 
 ## Completed
 - [x] Research catalog and version; capture all 50 component references and API sections.
 - [x] Produce dated inventory, adaptations and coverage mapping.
-- [x] Define original StaqUI identity, semantic tokens, light/dark themes and density options.
+- [x] Define original staqui identity, semantic tokens, light/dark themes and density options.
 - [x] Implement all 50 component equivalents before the full documentation site.
 - [x] Build an independently consumable package with declarations, CSS and module exports.
 - [x] Build documentation, synchronized previews/code, generated API tables, catalog search and guides.

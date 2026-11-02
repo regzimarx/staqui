@@ -4,8 +4,8 @@ import "./globals.css";
 import { Shell } from "@/components/shell";
 export const metadata: Metadata = {
   title: {
-    default: "StaqUI — A considered foundation for your next interface",
-    template: "%s — StaqUI",
+    default: "staqui — A considered foundation for your next interface",
+    template: "%s — staqui",
   },
   description:
     "A React and TypeScript component library by Staqforce Studio. 50 composable components, semantic themes, accessible interactions, and compact layouts.",

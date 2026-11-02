@@ -1,10 +1,10 @@
-# StaqUI component coverage
+# staqui component coverage
 
 Research date: 2026-11-01. Reference: reference component catalog web components. “Implemented” means an independent equivalent, with intentional differences documented in the inventory.
 
 All examples are included in the structural axe test matrix. Interaction tests cover representative controls; browser checks cover representative pages, not every platform/browser combination.
 
-| Reference component | StaqUI export | Implementation | Documentation / runnable source | Adaptations |
+| Reference component | staqui export | Implementation | Documentation / runnable source | Adaptations |
 |---|---|---|---|---|
 | [Button](https://shopify.dev/docs/api/app-home/latest/web-components/actions/button) | `Button` | [Implemented](../packages/ui/src/actions.tsx) | [/components/button](../packages/ui/examples/button.tsx) | [Documented](INVENTORY.md#button--actions) |
 | [Button group](https://shopify.dev/docs/api/app-home/latest/web-components/actions/button-group) | `ButtonGroup` | [Implemented](../packages/ui/src/actions.tsx) | [/components/button-group](../packages/ui/examples/button-group.tsx) | [Documented](INVENTORY.md#buttongroup--actions) |

@@ -73,7 +73,7 @@ const descriptions = {
   tone: "Semantic status treatment; always pair color with text.",
   variant: "Visual emphasis appropriate to the action hierarchy.",
   size: "Size within the shared component scale.",
-  trigger: "A single focusable React element; use a StaqUI Button or Link.",
+  trigger: "A single focusable React element; use a staqui Button or Link.",
   open: "Controlled overlay visibility.",
   onOpenChange: "Called when the user opens or dismisses the overlay.",
   title: "Visible title and accessible name.",

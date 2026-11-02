@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "package": "/Users/regzimarx/Staqforce/StaqUI/artifacts/staqforce-staqui-0.1.0.tgz",
+  "package": "/Users/regzimarx/Staqforce/staqui/artifacts/staqforce-staqui-0.1.0.tgz",
   "independentProject": true,
   "packageManager": "pnpm",
   "checks": [

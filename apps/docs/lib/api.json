@@ -638,7 +638,7 @@
       "default": null,
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
       "required": true,
-      "description": "A single focusable React element; use a StaqUI Button or Link."
+      "description": "A single focusable React element; use a staqui Button or Link."
     },
     {
       "name": "label",
@@ -5920,7 +5920,7 @@
       "default": null,
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>> | undefined",
       "required": false,
-      "description": "A single focusable React element; use a StaqUI Button or Link."
+      "description": "A single focusable React element; use a staqui Button or Link."
     },
     {
       "name": "open",
@@ -5971,7 +5971,7 @@
       "default": null,
       "type": "ReactElement<unknown, string | JSXElementConstructor<any>>",
       "required": true,
-      "description": "A single focusable React element; use a StaqUI Button or Link."
+      "description": "A single focusable React element; use a staqui Button or Link."
     },
     {
       "name": "label",

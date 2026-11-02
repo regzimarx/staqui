@@ -484,7 +484,7 @@ export function ExampleWorkbench({
       <div className="workbench-foot">
         <span>
           <Icon name="layers" size={14} />
-          Built entirely with StaqUI
+          Built entirely with staqui
         </span>
         <LinkToComponents />
       </div>

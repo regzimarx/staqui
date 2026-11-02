@@ -1,4 +1,4 @@
-# StaqUI
+# staqui
 
 An independent React and TypeScript UI library with 50 catalog components, semantic light/dark themes, and compact and comfortable densities. No Shopify or Next.js runtime dependency.
 
@@ -15,7 +15,7 @@ bun add @staqforce/staqui
 Use one of these commands in an existing React application. For an unpublished
 checkout, run `pnpm pack:ui` at the repository root and install the generated
 `artifacts/staqforce-staqui-<version>.tgz` instead. See the repository's
-[PUBLISHING.md](https://github.com/regzimarx/StaqUI/blob/main/PUBLISHING.md) for release instructions.
+[PUBLISHING.md](https://github.com/regzimarx/staqui/blob/main/PUBLISHING.md) for release instructions.
 
 React and React DOM 18.3 or 19 are peer dependencies. ESM, CommonJS, TypeScript declarations and CSS are included. Load styles once in your application's entry point or root layout.
 

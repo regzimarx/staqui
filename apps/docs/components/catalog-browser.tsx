@@ -1,4 +1,4 @@
-/* Hallmark · waive 26b · StaqUI shared stylesheet defines active and disabled states · This module consumes styled library controls; duplicating their CSS would break the single source of truth. */
+/* Hallmark · waive 26b · staqui shared stylesheet defines active and disabled states · This module consumes styled library controls; duplicating their CSS would break the single source of truth. */
 "use client";
 import { useState } from "react";
 import { Badge, Button, EmptyState, Icon, SearchField } from "@staqforce/staqui";

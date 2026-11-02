@@ -41,7 +41,7 @@ export default async function Guide({
       {slug === "getting-started" ? (
         <>
           <p className="guide-lead">
-            StaqUI is an independent React and TypeScript library. Import a
+            staqui is an independent React and TypeScript library. Import a
             stylesheet, add a provider, and compose your interface.
           </p>
           <Banner title="Local package" tone="info">
@@ -81,7 +81,7 @@ export default async function Guide({
           <h2>Use with Next.js</h2>
           <p>
             Import the stylesheet once in your root layout. Components that use
-            state or callbacks belong in client components. StaqUI’s built entry
+            state or callbacks belong in client components. staqui’s built entry
             points retain the use client directive, and the package can also
             render in a conventional React application.
           </p>
@@ -181,7 +181,7 @@ export default async function Guide({
       {slug === "accessibility" ? (
         <>
           <p className="guide-lead">
-            StaqUI targets WCAG 2.2 AA. Its primitives provide a foundation;
+            staqui targets WCAG 2.2 AA. Its primitives provide a foundation;
             your content and application flows complete the experience.
           </p>
           <h2>Keyboard behavior</h2>
@@ -264,7 +264,7 @@ export default async function Guide({
       {slug === "design" ? (
         <>
           <p className="guide-lead">
-            StaqUI keeps the restraint of a good admin interface and makes its
+            staqui keeps the restraint of a good admin interface and makes its
             behavior explicit.
           </p>
           <h2>A quiet visual language</h2>
@@ -286,12 +286,12 @@ export default async function Guide({
             Native inputs preserve browser validation, autofill and mobile
             keyboards. Radix primitives handle overlay focus and collision
             behavior. React DayPicker provides calendar navigation. The visual
-            system and public API belong to StaqUI.
+            system and public API belong to staqui.
           </p>
           <h2>An independent system</h2>
           <p>
             The research catalog is reference component catalog web components, not the older
-            reference component catalog React library. StaqUI has no Shopify runtime, assets,
+            reference component catalog React library. staqui has no Shopify runtime, assets,
             service calls or App Bridge dependency. Its React API is
             intentionally not a compatibility layer.
           </p>
@@ -301,7 +301,7 @@ export default async function Guide({
       {slug === "coverage" ? (
         <>
           <p className="guide-lead">
-            All 50 reference components have a StaqUI export, a runnable
+            All 50 reference components have a staqui export, a runnable
             example, a dedicated documentation page, and a structural
             accessibility test.
           </p>
@@ -319,7 +319,7 @@ export default async function Guide({
                 </summary>
                 <p>{c.adaptation}</p>
                 <Link href={`/components/${c.slug}`}>
-                  Open StaqUI documentation
+                  Open staqui documentation
                 </Link>
                 <br />
                 <Link href={c.source} target="_blank">

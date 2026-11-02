@@ -1,4 +1,4 @@
-# StaqUI validation
+# staqui validation
 
 Validation date: November 1, 2026 (Asia/Manila).
 
@@ -29,7 +29,7 @@ The structural unit scans disable color-contrast because jsdom has no rendered l
 
 Hallmark static sweep: zero FAIL and zero REFLEX findings. One remaining warning concerns different maximum widths for the site shell, component pages and prose guides. This is intentional: the persistent sidebar and long-form reading measure have different width requirements.
 
-The requested separate design reviewer could not run because its agent hit a usage limit. Review continued in-thread using the Neo screenshots. The homepage retains a working component composition, readable hierarchy, mobile stacking and original StaqUI branding. The skill's separate browser render tier was not used; the user explicitly required Neo, and all rendered checks were done there.
+The requested separate design reviewer could not run because its agent hit a usage limit. Review continued in-thread using the Neo screenshots. The homepage retains a working component composition, readable hierarchy, mobile stacking and original staqui branding. The skill's separate browser render tier was not used; the user explicitly required Neo, and all rendered checks were done there.
 
 ## Limits
 

@@ -1,4 +1,4 @@
-# StaqUI
+# staqui
 
 An independent React and TypeScript component library and Next.js documentation site. The workspace covers all 50 components in the researched reference component catalog web-component catalog with original branding, semantic themes, and explicitly documented adaptations.
 

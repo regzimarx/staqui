@@ -1,4 +1,4 @@
-# Publishing StaqUI
+# Publishing staqui
 
 Publish `packages/ui` to the public npm registry. npm, pnpm, Yarn, and Bun can
 all install the same release; no separate package-manager publications are needed.

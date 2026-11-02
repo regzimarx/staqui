@@ -12,13 +12,13 @@ const source = JSON.parse(
 assert.equal(catalog.length, 50);
 assert.equal(new Set(catalog.map((c) => c.slug)).size, 50);
 let rows = [
-  "# StaqUI component coverage",
+  "# staqui component coverage",
   "",
   "Research date: 2026-11-01. Reference: reference component catalog web components. “Implemented” means an independent equivalent, with intentional differences documented in the inventory.",
   "",
   "All examples are included in the structural axe test matrix. Interaction tests cover representative controls; browser checks cover representative pages, not every platform/browser combination.",
   "",
-  "| Reference component | StaqUI export | Implementation | Documentation / runnable source | Adaptations |",
+  "| Reference component | staqui export | Implementation | Documentation / runnable source | Adaptations |",
   "|---|---|---|---|---|",
 ];
 for (const c of catalog) {

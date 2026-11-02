@@ -73,230 +73,238 @@ export function HomeGallery() {
   const [notifications, setNotifications] = useState(true);
   const [tone, setTone] = useState<"info" | "success" | "warning">("success");
   const current = collections.find((item) => item.id === active)!;
+  const total = collections.reduce((sum, item) => sum + Number(item.count), 0);
   return (
     <div className="block-explorer">
-      <div className="block-directory">
-        <div>
-          <span className="studio-kicker">PICK A COLLECTION</span>
-          <p>Find your starting point.</p>
-        </div>
-        <ButtonGroup
-          label="Component collections"
-          className="block-collections"
-        >
-          {collections.map((item) => (
-            <Button
-              key={item.id}
-              fullWidth
-              variant={active === item.id ? "primary" : "secondary"}
-              aria-pressed={active === item.id}
-              onClick={() => setActive(item.id)}
-              icon={<Icon name={item.icon} size={16} />}
-            >
-              {item.title}
-              <span className="block-count">{item.count}</span>
-            </Button>
-          ))}
-        </ButtonGroup>
-        <p className="block-directory-note">
-          Live components, straight from the package. Same props. Same styles.
-          Ready for your product.
-        </p>
-        <NextLink href="/components" className="studio-text-link">
-          Browse the full library <Icon name="arrowUpRight" size={15} />
-        </NextLink>
+      <div className="block-rail-head">
+        <span className="studio-kicker">PICK A COLLECTION</span>
+        <span className="studio-kicker">
+          {String(collections.length).padStart(2, "0")} COLLECTIONS · {total}{" "}
+          COMPONENTS
+        </span>
       </div>
-      <div className="block-detail">
-        <div className="block-detail-heading">
+      <ButtonGroup label="Component collections" className="block-rail">
+        {collections.map((item, index) => (
+          <Button
+            key={item.id}
+            className="block-tab"
+            aria-pressed={active === item.id}
+            onClick={() => setActive(item.id)}
+          >
+            <span className="block-tab-index">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="block-tab-count">{item.count}</span>
+            <Icon name={item.icon} size={15} />
+            <span className="block-tab-name">{item.title}</span>
+          </Button>
+        ))}
+      </ButtonGroup>
+      <div className="block-panel">
+        <div className="block-copy">
           <span className="studio-kicker">
             {current.title.toUpperCase()} / IN PRACTICE
           </span>
-          <span className="block-live">
-            <span /> Live preview
-          </span>
           <h3>{current.heading}</h3>
           <p>{current.description}</p>
+          <div className="block-includes">
+            <span className="studio-kicker">INCLUDES</span>
+            <code>{current.names}</code>
+          </div>
+          <div className="block-copy-actions">
+            <Button asChild size="small">
+              <NextLink href={`/components/${current.component}`}>
+                Explore {current.title.toLowerCase()}{" "}
+                <Icon name="arrowUpRight" size={14} />
+              </NextLink>
+            </Button>
+          </div>
         </div>
-        <div
-          className="block-playground"
-          role="region"
-          aria-label={`${current.title} component preview`}
-        >
-          {active === "actions" && (
-            <Stack gap="6">
-              <ButtonGroup label="Action hierarchy">
-                <Modal
-                  title="Create a project"
-                  description="Create a project in this local component example."
-                  open={open}
-                  onOpenChange={setOpen}
-                  trigger={
-                    <Button
-                      variant="primary"
-                      icon={<Icon name="plus" size={16} />}
-                    >
-                      Create project
-                    </Button>
-                  }
-                >
-                  <form
-                    onSubmit={(event) => {
-                      event.preventDefault();
-                      setCreated(true);
-                      setOpen(false);
-                    }}
-                  >
-                    <Stack>
-                      <TextField
-                        label="Project name"
-                        value={project}
-                        onValueChange={setProject}
-                        required
-                      />
-                      <Button type="submit" variant="primary">
+        <div className="block-stage">
+          <div className="block-stage-bar">
+            <span>STQ / {current.title.toUpperCase()}</span>
+            <span className="block-live">
+              <span /> Live preview
+            </span>
+          </div>
+          <div
+            className="block-playground"
+            role="region"
+            aria-label={`${current.title} component preview`}
+          >
+            {active === "actions" && (
+              <Stack gap="6">
+                <ButtonGroup label="Action hierarchy">
+                  <Modal
+                    title="Create a project"
+                    description="Create a project in this local component example."
+                    open={open}
+                    onOpenChange={setOpen}
+                    trigger={
+                      <Button
+                        variant="primary"
+                        icon={<Icon name="plus" size={16} />}
+                      >
                         Create project
                       </Button>
-                    </Stack>
-                  </form>
-                </Modal>
-                <Button
-                  onClick={() => {
-                    setCreated(false);
-                    setProject("Studio workspace");
-                  }}
-                >
-                  Reset example
-                </Button>
-                <Button asChild variant="tertiary">
-                  <NextLink href="/components/button">
-                    View API <Icon name="arrowUpRight" size={16} />
-                  </NextLink>
-                </Button>
-              </ButtonGroup>
-              <div className="block-state-row">
-                <span className="studio-kicker">EVERY STATE HAS A PLACE</span>
-                <ButtonGroup label="Action states">
-                  <Button disabled>Unavailable</Button>
-                  <Button loading>Saving</Button>
-                  <Button tone="critical" disabled>
-                    Delete project
+                    }
+                  >
+                    <form
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        setCreated(true);
+                        setOpen(false);
+                      }}
+                    >
+                      <Stack>
+                        <TextField
+                          label="Project name"
+                          value={project}
+                          onValueChange={setProject}
+                          required
+                        />
+                        <Button type="submit" variant="primary">
+                          Create project
+                        </Button>
+                      </Stack>
+                    </form>
+                  </Modal>
+                  <Button
+                    onClick={() => {
+                      setCreated(false);
+                      setProject("Studio workspace");
+                    }}
+                  >
+                    Reset example
+                  </Button>
+                  <Button asChild variant="tertiary">
+                    <NextLink href="/components/button">
+                      View API <Icon name="arrowUpRight" size={16} />
+                    </NextLink>
                   </Button>
                 </ButtonGroup>
-              </div>
-              {created && (
-                <Banner tone="success" title="Project created">
-                  {project} is ready in this local example.
-                </Banner>
-              )}
-            </Stack>
-          )}
-          {active === "forms" && (
-            <form
-              className="block-form"
-              onSubmit={(event) => {
-                event.preventDefault();
-                setSaved(true);
-              }}
-            >
-              <Stack>
-                <TextField
-                  label="Workspace name"
-                  description="A name your team will recognize."
-                  value={project}
-                  onValueChange={(value) => {
-                    setProject(value);
-                    setSaved(false);
-                  }}
-                  required
-                />
-                <EmailField
-                  label="Team email"
-                  value={email}
-                  onValueChange={(value) => {
-                    setEmail(value);
-                    setSaved(false);
-                  }}
-                  required
-                />
-                <div>
-                  <Button type="submit" variant="primary">
-                    Save workspace
-                  </Button>
+                <div className="block-state-row">
+                  <span className="studio-kicker">EVERY STATE HAS A PLACE</span>
+                  <ButtonGroup label="Action states">
+                    <Button disabled>Unavailable</Button>
+                    <Button loading>Saving</Button>
+                    <Button tone="critical" disabled>
+                      Delete project
+                    </Button>
+                  </ButtonGroup>
                 </div>
-                {saved && (
-                  <Banner tone="success" title="Workspace saved">
-                    Your changes are saved in this local example.
+                {created && (
+                  <Banner tone="success" title="Project created">
+                    {project} is ready in this local example.
                   </Banner>
                 )}
               </Stack>
-            </form>
-          )}
-          {active === "feedback" && (
-            <Stack gap="6">
-              <ButtonGroup label="Feedback tone">
-                {(["info", "success", "warning"] as const).map((value) => (
-                  <Button
-                    key={value}
-                    variant={tone === value ? "primary" : "secondary"}
-                    aria-pressed={tone === value}
-                    onClick={() => setTone(value)}
-                  >
-                    {value === "info"
-                      ? "Information"
-                      : value === "success"
-                        ? "Success"
-                        : "Warning"}
-                  </Button>
-                ))}
-              </ButtonGroup>
-              <Banner
-                tone={tone}
-                title={
-                  tone === "success"
-                    ? "All changes published"
-                    : tone === "warning"
-                      ? "A few details need your attention"
-                      : "Your workspace is up to date"
-                }
+            )}
+            {active === "forms" && (
+              <form
+                className="block-form"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  setSaved(true);
+                }}
               >
-                {tone === "warning"
-                  ? "Review the remaining details before publishing."
-                  : "Your team can keep working with the latest version."}
-              </Banner>
-              <ButtonGroup label="Example status badges">
-                <Badge tone="success">Published</Badge>
-                <Badge tone="warning">In review</Badge>
-                <Badge>Draft</Badge>
-              </ButtonGroup>
-            </Stack>
-          )}
-          {active === "selection" && (
-            <Stack gap="6">
-              <Switch
-                label="Email notifications"
-                description="Get a message when your team makes an update."
-                checked={notifications}
-                onCheckedChange={setNotifications}
-              />
-              <Checkbox
-                label="Include me in the weekly digest"
-                defaultChecked
-              />
-              <Checkbox label="Share product updates with the team" />
-              <span className="block-selection-summary" aria-live="polite">
-                Email notifications are {notifications ? "on" : "off"}.
-              </span>
-            </Stack>
-          )}
-        </div>
-        <div className="block-detail-footer">
-          <code>{current.names}</code>
-          <Button asChild size="small">
-            <NextLink href={`/components/${current.component}`}>
-              Explore {current.title.toLowerCase()}{" "}
-              <Icon name="arrowUpRight" size={14} />
-            </NextLink>
-          </Button>
+                <Stack>
+                  <TextField
+                    label="Workspace name"
+                    description="A name your team will recognize."
+                    value={project}
+                    onValueChange={(value) => {
+                      setProject(value);
+                      setSaved(false);
+                    }}
+                    required
+                  />
+                  <EmailField
+                    label="Team email"
+                    value={email}
+                    onValueChange={(value) => {
+                      setEmail(value);
+                      setSaved(false);
+                    }}
+                    required
+                  />
+                  <div>
+                    <Button type="submit" variant="primary">
+                      Save workspace
+                    </Button>
+                  </div>
+                  {saved && (
+                    <Banner tone="success" title="Workspace saved">
+                      Your changes are saved in this local example.
+                    </Banner>
+                  )}
+                </Stack>
+              </form>
+            )}
+            {active === "feedback" && (
+              <Stack gap="6">
+                <ButtonGroup label="Feedback tone">
+                  {(["info", "success", "warning"] as const).map((value) => (
+                    <Button
+                      key={value}
+                      variant={tone === value ? "primary" : "secondary"}
+                      aria-pressed={tone === value}
+                      onClick={() => setTone(value)}
+                    >
+                      {value === "info"
+                        ? "Information"
+                        : value === "success"
+                          ? "Success"
+                          : "Warning"}
+                    </Button>
+                  ))}
+                </ButtonGroup>
+                <Banner
+                  tone={tone}
+                  title={
+                    tone === "success"
+                      ? "All changes published"
+                      : tone === "warning"
+                        ? "A few details need your attention"
+                        : "Your workspace is up to date"
+                  }
+                >
+                  {tone === "warning"
+                    ? "Review the remaining details before publishing."
+                    : "Your team can keep working with the latest version."}
+                </Banner>
+                <ButtonGroup label="Example status badges">
+                  <Badge tone="success">Published</Badge>
+                  <Badge tone="warning">In review</Badge>
+                  <Badge>Draft</Badge>
+                </ButtonGroup>
+              </Stack>
+            )}
+            {active === "selection" && (
+              <Stack gap="6">
+                <Switch
+                  label="Email notifications"
+                  description="Get a message when your team makes an update."
+                  checked={notifications}
+                  onCheckedChange={setNotifications}
+                />
+                <Checkbox
+                  label="Include me in the weekly digest"
+                  defaultChecked
+                />
+                <Checkbox label="Share product updates with the team" />
+                <span className="block-selection-summary" aria-live="polite">
+                  Email notifications are {notifications ? "on" : "off"}.
+                </span>
+              </Stack>
+            )}
+          </div>
+          <div className="block-stage-foot">
+            <span>Same props. Same styles.</span>
+            <span>
+              {current.count} / {total} COMPONENTS
+            </span>
+          </div>
         </div>
       </div>
     </div>

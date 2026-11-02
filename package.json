@@ -6,7 +6,7 @@
     "dev": "pnpm --filter @staqui/docs dev",
     "build:ui": "pnpm --filter @staqforce/staqui build",
     "build": "pnpm build:ui && pnpm generate:docs && pnpm --filter @staqui/docs build",
-    "typecheck": "tsc --noEmit -p packages/ui/tsconfig.json && pnpm --filter @staqui/docs typecheck",
+    "typecheck": "pnpm --filter @staqforce/staqui build && tsc --noEmit -p packages/ui/tsconfig.json && pnpm --filter @staqui/docs typecheck",
     "test": "vitest run",
     "check:coverage": "node scripts/check-coverage.mjs",
     "generate:docs": "node scripts/generate-docs.mjs",

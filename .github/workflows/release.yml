@@ -35,4 +35,4 @@ jobs:
           git commit -m "chore: release package [skip ci]"
           git push
       - name: Publish to npm
-        run: npm publish packages/ui --access public --provenance
+        run: npm publish ./packages/ui --access public --provenance

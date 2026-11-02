@@ -1,5 +1,5 @@
 "use client";
-import { PasswordField } from "@staqforce/staqui";
+import { PasswordField } from "@staqforce-studio/staqui";
 
 export default function PasswordFieldExample() {
   return (

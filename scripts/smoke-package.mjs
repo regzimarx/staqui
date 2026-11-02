@@ -58,15 +58,15 @@ writeFileSync(
 );
 writeFileSync(
   join(project, "app.tsx"),
-  `import { StaqProvider, Button, TextField, Table, DatePicker } from '@staqforce/staqui';\nexport const App = () => <StaqProvider theme="dark"><TextField label="Name"/><Button variant="primary">Save</Button><DatePicker mode="range"/><Table label="Inventory" rows={[{id:'a',qty:4}]} rowKey={r=>r.id} columns={[{id:'qty',header:'Quantity',cell:r=>r.qty}]}/></StaqProvider>;\n`,
+  `import { StaqProvider, Button, TextField, Table, DatePicker } from '@staqforce-studio/staqui';\nexport const App = () => <StaqProvider theme="dark"><TextField label="Name"/><Button variant="primary">Save</Button><DatePicker mode="range"/><Table label="Inventory" rows={[{id:'a',qty:4}]} rowKey={r=>r.id} columns={[{id:'qty',header:'Quantity',cell:r=>r.qty}]}/></StaqProvider>;\n`,
 );
 writeFileSync(
   join(project, "app.cts"),
-  `import { Button } from '@staqforce/staqui';\nimport { createElement } from 'react';\nexport const button = createElement(Button, { variant: 'primary' }, 'CommonJS');\n`,
+  `import { Button } from '@staqforce-studio/staqui';\nimport { createElement } from 'react';\nexport const button = createElement(Button, { variant: 'primary' }, 'CommonJS');\n`,
 );
 writeFileSync(
   join(project, "smoke.mjs"),
-  `import { createElement } from 'react';import { renderToString } from 'react-dom/server';import { createRequire } from 'node:module';import { readFileSync } from 'node:fs';import * as ui from '@staqforce/staqui';const require=createRequire(import.meta.url);const cjs=require('@staqforce/staqui');if(!cjs.Button||!ui.Modal)throw Error('Missing exports');const css=readFileSync(require.resolve('@staqforce/staqui/styles.css'),'utf8');if(!css.includes('--sq-accent'))throw Error('Missing styles');const html=renderToString(createElement(ui.StaqProvider,{theme:'dark'},createElement(ui.Button,null,'Works outside Next.js')));if(!html.includes('Works outside Next.js'))throw Error('SSR failed');console.log('ESM + CJS + CSS exports + independent React SSR passed.');`,
+  `import { createElement } from 'react';import { renderToString } from 'react-dom/server';import { createRequire } from 'node:module';import { readFileSync } from 'node:fs';import * as ui from '@staqforce-studio/staqui';const require=createRequire(import.meta.url);const cjs=require('@staqforce-studio/staqui');if(!cjs.Button||!ui.Modal)throw Error('Missing exports');const css=readFileSync(require.resolve('@staqforce-studio/staqui/styles.css'),'utf8');if(!css.includes('--sq-accent'))throw Error('Missing styles');const html=renderToString(createElement(ui.StaqProvider,{theme:'dark'},createElement(ui.Button,null,'Works outside Next.js')));if(!html.includes('Works outside Next.js'))throw Error('SSR failed');console.log('ESM + CJS + CSS exports + independent React SSR passed.');`,
 );
 function run(command, args) {
   const result = spawnSync(command, args, { cwd: project, encoding: "utf8" });

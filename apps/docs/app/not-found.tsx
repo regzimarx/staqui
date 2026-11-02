@@ -1,4 +1,4 @@
-import { EmptyState } from "@staqforce/staqui";
+import { EmptyState } from "@staqforce-studio/staqui";
 import { SiteLink as Link } from "@/components/site-link";
 export default function NotFound() {
   return (

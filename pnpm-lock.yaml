@@ -211,7 +211,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@staqforce/staqui':
+      '@staqforce-studio/staqui':
         specifier: workspace:*
         version: link:../../packages/ui
       lucide-react:

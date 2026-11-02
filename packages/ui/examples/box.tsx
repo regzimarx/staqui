@@ -1,5 +1,5 @@
 "use client";
-import { Box, Text } from "@staqforce/staqui";
+import { Box, Text } from "@staqforce-studio/staqui";
 
 export default function BoxExample() {
   return (

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Menu, Button, Stack } from "@staqforce/staqui";
+import { Menu, Button, Stack } from "@staqforce-studio/staqui";
 
 export default function MenuExample() {
   const [action, setAction] = useState("Choose an action");

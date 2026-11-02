@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Switch, Stack } from "@staqforce/staqui";
+import { Switch, Stack } from "@staqforce-studio/staqui";
 
 export default function SwitchExample() {
   const [enabled, setEnabled] = useState(true);

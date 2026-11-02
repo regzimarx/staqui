@@ -1,5 +1,5 @@
 "use client";
-import { Image } from "@staqforce/staqui";
+import { Image } from "@staqforce-studio/staqui";
 
 export default function ImageExample() {
   return (

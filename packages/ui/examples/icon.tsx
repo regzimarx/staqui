@@ -1,5 +1,5 @@
 "use client";
-import { Icon, Stack } from "@staqforce/staqui";
+import { Icon, Stack } from "@staqforce-studio/staqui";
 
 export default function IconExample() {
   return (

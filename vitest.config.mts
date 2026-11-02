@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 const root = fileURLToPath(new URL(".", import.meta.url));
 export default defineConfig({
   resolve: {
-    alias: { "@staqforce/staqui": resolve(root, "packages/ui/src/index.ts") },
+    alias: { "@staqforce-studio/staqui": resolve(root, "packages/ui/src/index.ts") },
   },
   test: {
     environment: "jsdom",

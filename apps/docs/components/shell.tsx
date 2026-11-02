@@ -11,7 +11,7 @@ import {
   Modal,
   Text,
   type Density,
-} from "@staqforce/staqui";
+} from "@staqforce-studio/staqui";
 import { catalog, categories, searchCatalog } from "@/lib/catalog";
 import { SiteLink as Link } from "@/components/site-link";
 const useBrowserLayoutEffect =

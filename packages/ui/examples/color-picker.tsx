@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ColorPicker } from "@staqforce/staqui";
+import { ColorPicker } from "@staqforce-studio/staqui";
 
 export default function ColorPickerExample() {
   const [value, setValue] = useState("#0a2eb5");

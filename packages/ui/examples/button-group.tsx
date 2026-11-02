@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button, ButtonGroup } from "@staqforce/staqui";
+import { Button, ButtonGroup } from "@staqforce-studio/staqui";
 
 export default function ButtonGroupExample() {
   const [action, setAction] = useState("Draft");

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Select } from "@staqforce/staqui";
+import { Select } from "@staqforce-studio/staqui";
 
 export default function SelectExample() {
   const [value, setValue] = useState("en");

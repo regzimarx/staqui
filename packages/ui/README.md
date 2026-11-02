@@ -7,21 +7,21 @@ An independent React and TypeScript UI library with 50 catalog components, seman
 This package is currently unpublished. For local testing, use the archive described below. If published again, install using your preferred package manager:
 
 ```sh
-npm install @staqforce/staqui
-pnpm add @staqforce/staqui
-bun add @staqforce/staqui
+npm install @staqforce-studio/staqui
+pnpm add @staqforce-studio/staqui
+bun add @staqforce-studio/staqui
 ```
 
 Use one of these commands in an existing React application. For an unpublished
 checkout, run `pnpm pack:ui` at the repository root and install the generated
-`artifacts/staqforce-staqui-<version>.tgz` instead. See the repository's
+`artifacts/staqforce-studio-staqui-<version>.tgz` instead. See the repository's
 [PUBLISHING.md](https://github.com/regzimarx/staqui/blob/main/PUBLISHING.md) for release instructions.
 
 React and React DOM 18.3 or 19 are peer dependencies. ESM, CommonJS, TypeScript declarations and CSS are included. Load styles once in your application's entry point or root layout.
 
 ```tsx
-import { StaqProvider, Stack, TextField, Button } from '@staqforce/staqui';
-import '@staqforce/staqui/styles.css';
+import { StaqProvider, Stack, TextField, Button } from '@staqforce-studio/staqui';
+import '@staqforce-studio/staqui/styles.css';
 
 export default function App() {
   return (

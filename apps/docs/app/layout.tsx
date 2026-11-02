@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@staqforce/staqui/styles.css";
+import "@staqforce-studio/staqui/styles.css";
 import "./globals.css";
 import { Shell } from "@/components/shell";
 export const metadata: Metadata = {

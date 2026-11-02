@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button, Icon } from "@staqforce/staqui";
+import { Button, Icon } from "@staqforce-studio/staqui";
 export function CopyButton({
   text,
   label = "Copy code",

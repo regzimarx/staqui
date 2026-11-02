@@ -1,5 +1,5 @@
 "use client";
-import { TextField, Stack } from "@staqforce/staqui";
+import { TextField, Stack } from "@staqforce-studio/staqui";
 
 export default function TextFieldExample() {
   return (

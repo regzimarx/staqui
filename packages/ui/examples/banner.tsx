@@ -1,5 +1,5 @@
 "use client";
-import { Banner, Stack } from "@staqforce/staqui";
+import { Banner, Stack } from "@staqforce-studio/staqui";
 
 export default function BannerExample() {
   return (

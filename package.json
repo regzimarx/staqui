@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter @staqui/docs dev",
-    "build:ui": "pnpm --filter @staqforce/staqui build",
+    "build:ui": "pnpm --filter @staqforce-studio/staqui build",
     "build": "pnpm build:ui && pnpm generate:docs && pnpm --filter @staqui/docs build",
-    "typecheck": "pnpm --filter @staqforce/staqui build && tsc --noEmit -p packages/ui/tsconfig.json && pnpm --filter @staqui/docs typecheck",
+    "typecheck": "pnpm --filter @staqforce-studio/staqui build && tsc --noEmit -p packages/ui/tsconfig.json && pnpm --filter @staqui/docs typecheck",
     "test": "vitest run",
     "check:coverage": "node scripts/check-coverage.mjs",
     "generate:docs": "node scripts/generate-docs.mjs",
-    "pack:ui": "pnpm --filter @staqforce/staqui pack --pack-destination ./artifacts",
+    "pack:ui": "pnpm --filter @staqforce-studio/staqui pack --pack-destination ./artifacts",
     "check:release": "pnpm typecheck && pnpm test && pnpm pack:ui && pnpm check:coverage && node scripts/smoke-package.mjs && node scripts/smoke-package.mjs --manager npm",
-    "publish:ui": "pnpm check:release && pnpm --filter @staqforce/staqui publish --access public"
+    "publish:ui": "pnpm check:release && pnpm --filter @staqforce-studio/staqui publish --access public"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",

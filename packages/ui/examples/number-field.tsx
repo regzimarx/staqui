@@ -1,5 +1,5 @@
 "use client";
-import { NumberField } from "@staqforce/staqui";
+import { NumberField } from "@staqforce-studio/staqui";
 
 export default function NumberFieldExample() {
   return (

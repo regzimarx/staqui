@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Banner } from "@staqforce/staqui";
+import { Banner } from "@staqforce-studio/staqui";
 import { SiteLink as Link } from "@/components/site-link";
 import { CodeBlock } from "@/components/code-block";
 import { catalog } from "@/lib/catalog";
@@ -45,7 +45,7 @@ export default async function Guide({
             stylesheet, add a provider, and compose your interface.
           </p>
           <Banner title="Local package" tone="info">
-            Registry publication under @staqforce/staqui was canceled.
+            Registry publication under @staqforce-studio/staqui was canceled.
             Install the generated tarball for local development.
           </Banner>
           <h2>Run this workspace</h2>
@@ -64,7 +64,7 @@ export default async function Guide({
           <CodeBlock
             filename="Terminal"
             code={
-              "# If published again, choose one:\nnpm install @staqforce/staqui\npnpm add @staqforce/staqui\nbun add @staqforce/staqui\n\n# For local development, at the repository root:\npnpm pack:ui\n# In your app (adjust the path):\npnpm add /absolute/path/to/staqforce-staqui-0.1.0.tgz"
+              "# If published again, choose one:\nnpm install @staqforce-studio/staqui\npnpm add @staqforce-studio/staqui\nbun add @staqforce-studio/staqui\n\n# For local development, at the repository root:\npnpm pack:ui\n# In your app (adjust the path):\npnpm add /absolute/path/to/staqforce-studio-staqui-0.1.0.tgz"
             }
           />
           <p>
@@ -75,7 +75,7 @@ export default async function Guide({
           <h2>Compose your first interface</h2>
           <CodeBlock
             code={
-              '"use client";\nimport { StaqProvider, Button, TextField, Stack } from "@staqforce/staqui";\nimport "@staqforce/staqui/styles.css";\n\nexport default function App() {\n  return (\n    <StaqProvider theme="light" density="compact">\n      <form onSubmit={event => event.preventDefault()}>\n        <Stack>\n          <TextField label="Project name" required />\n          <Button type="submit" variant="primary">Create project</Button>\n        </Stack>\n      </form>\n    </StaqProvider>\n  );\n}'
+              '"use client";\nimport { StaqProvider, Button, TextField, Stack } from "@staqforce-studio/staqui";\nimport "@staqforce-studio/staqui/styles.css";\n\nexport default function App() {\n  return (\n    <StaqProvider theme="light" density="compact">\n      <form onSubmit={event => event.preventDefault()}>\n        <Stack>\n          <TextField label="Project name" required />\n          <Button type="submit" variant="primary">Create project</Button>\n        </Stack>\n      </form>\n    </StaqProvider>\n  );\n}'
             }
           />
           <h2>Use with Next.js</h2>

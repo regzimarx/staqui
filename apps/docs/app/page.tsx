@@ -7,7 +7,7 @@ import {
   Stack,
   Text,
   UnorderedList,
-} from "@staqforce/staqui";
+} from "@staqforce-studio/staqui";
 import NextLink from "next/link";
 import type { ReactNode } from "react";
 import { CodeBlock } from "@/components/code-block";

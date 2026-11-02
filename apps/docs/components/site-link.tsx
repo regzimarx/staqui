@@ -2,7 +2,7 @@
 
 import NextLink from "next/link";
 import type { AnchorHTMLAttributes } from "react";
-import { cx } from "@staqforce/staqui";
+import { cx } from "@staqforce-studio/staqui";
 
 interface SiteLinkProps
   extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {

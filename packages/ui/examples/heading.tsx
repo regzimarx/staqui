@@ -1,5 +1,5 @@
 "use client";
-import { Heading, Stack } from "@staqforce/staqui";
+import { Heading, Stack } from "@staqforce-studio/staqui";
 
 export default function HeadingExample() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { QueryContainer, Grid, Box } from "@staqforce/staqui";
+import { QueryContainer, Grid, Box } from "@staqforce-studio/staqui";
 
 export default function QueryContainerExample() {
   return (

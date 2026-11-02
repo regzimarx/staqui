@@ -1,5 +1,5 @@
 "use client";
-import { URLField } from "@staqforce/staqui";
+import { URLField } from "@staqforce-studio/staqui";
 
 export default function UrlFieldExample() {
   return (

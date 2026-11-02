@@ -1,7 +1,7 @@
 /* Hallmark · waive 26b · staqui shared stylesheet defines active and disabled states · This module consumes styled library controls; duplicating their CSS would break the single source of truth. */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Badge, Icon } from "@staqforce/staqui";
+import { Badge, Icon } from "@staqforce-studio/staqui";
 import { SiteLink as Link } from "@/components/site-link";
 import { catalog } from "@/lib/catalog";
 import api from "@/lib/api.json";

@@ -1,5 +1,5 @@
 "use client";
-import { Link, Stack } from "@staqforce/staqui";
+import { Link, Stack } from "@staqforce-studio/staqui";
 
 export default function LinkExample() {
   return (

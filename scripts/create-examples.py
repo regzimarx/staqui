@@ -18,7 +18,7 @@ examples={
 'color-field':('ColorField','<ColorField label="Brand color" value={value} onValueChange={setValue} description="Enter a six-digit hex color or use the color picker."/>','const [value, setValue] = useState("#0a2eb5");'),
 'color-picker':('ColorPicker','<ColorPicker label="Accent color" value={value} onValueChange={setValue}/>','const [value, setValue] = useState("#0a2eb5");'),
 'date-field':('DateField','<DateField label="Launch date" value={value} onValueChange={setValue} min="2026-01-01" max="2027-12-31" description="Choose a date in 2026 or 2027."/>','const [value, setValue] = useState("2026-11-12");'),
-'date-picker':('DatePicker, Stack, Badge','<Stack align="start"><DatePicker label="Project timeline" mode="range" defaultMonth={new Date(2026, 10, 1)} value={value} onValueChange={setValue}/><Badge>{value?.from ? `${value.from.toLocaleDateString()} – ${value.to?.toLocaleDateString() ?? "Choose end date"}` : "Choose a range"}</Badge></Stack>','const [value, setValue] = useState<import("@staqforce/staqui").DateRange | undefined>({from:new Date(2026,10,10),to:new Date(2026,10,14)});'),
+'date-picker':('DatePicker, Stack, Badge','<Stack align="start"><DatePicker label="Project timeline" mode="range" defaultMonth={new Date(2026, 10, 1)} value={value} onValueChange={setValue}/><Badge>{value?.from ? `${value.from.toLocaleDateString()} – ${value.to?.toLocaleDateString() ?? "Choose end date"}` : "Choose a range"}</Badge></Stack>','const [value, setValue] = useState<import("@staqforce-studio/staqui").DateRange | undefined>({from:new Date(2026,10,10),to:new Date(2026,10,14)});'),
 'drop-zone':('DropZone','<DropZone label="Project attachments" accept=".png,.jpg,.pdf" multiple description="PNG, JPG or PDF, up to 10 MB each. Files stay in this browser."/>',''),
 'email-field':('EmailField','<EmailField label="Contact email" type="email" placeholder="you@example.com" autoComplete="email" required/>',''),
 'money-field':('MoneyField','<MoneyField label="Monthly budget" currency="USD" defaultValue="2500" min="0" description="Amounts are entered as decimal values."/>',''),
@@ -55,7 +55,7 @@ examples={
 }
 for slug,(imports,jsx,state) in examples.items():
  name=''.join(x.capitalize() for x in slug.split('-'))+'Example'
- s='"use client";\n'+('import { useState } from "react";\n' if state else '')+f'import {{ {imports} }} from "@staqforce/staqui";\n\nexport default function {name}() {{\n  '+(state+'\n  ' if state else '')+'return (\n    '+jsx+'\n  );\n}\n'
+ s='"use client";\n'+('import { useState } from "react";\n' if state else '')+f'import {{ {imports} }} from "@staqforce-studio/staqui";\n\nexport default function {name}() {{\n  '+(state+'\n  ' if state else '')+'return (\n    '+jsx+'\n  );\n}\n'
  (p/f'{slug}.tsx').write_text(s)
 (p/'index.ts').write_text('\n'.join(f'export {{ default as {"".join(x.capitalize() for x in slug.split("-"))}Example }} from "./{slug}";' for slug in examples)+'\n')
 print(f'Created {len(examples)} runnable examples.')

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { DateField } from "@staqforce/staqui";
+import { DateField } from "@staqforce-studio/staqui";
 
 export default function DateFieldExample() {
   const [value, setValue] = useState("2026-11-12");

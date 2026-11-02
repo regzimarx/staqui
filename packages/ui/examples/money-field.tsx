@@ -1,5 +1,5 @@
 "use client";
-import { MoneyField } from "@staqforce/staqui";
+import { MoneyField } from "@staqforce-studio/staqui";
 
 export default function MoneyFieldExample() {
   return (

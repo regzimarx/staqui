@@ -1,5 +1,5 @@
 "use client";
-import { Avatar, Stack } from "@staqforce/staqui";
+import { Avatar, Stack } from "@staqforce-studio/staqui";
 
 export default function AvatarExample() {
   return (

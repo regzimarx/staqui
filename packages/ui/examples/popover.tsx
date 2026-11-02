@@ -1,5 +1,5 @@
 "use client";
-import { Popover, Button, ChoiceList } from "@staqforce/staqui";
+import { Popover, Button, ChoiceList } from "@staqforce-studio/staqui";
 
 export default function PopoverExample() {
   return (

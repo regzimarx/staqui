@@ -35,13 +35,14 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cx, type Tone, type Size, type Space } from "./shared";
+export type Density = "compact" | "comfortable";
 export interface StaqProviderProps extends HTMLAttributes<HTMLDivElement> {
   theme?: "light" | "dark" | "staqwish";
-  density?: "compact";
+  density?: Density;
 }
 export const StaqContext = createContext<{
   theme: "light" | "dark" | "staqwish";
-  density: "compact";
+  density: Density;
 }>({ theme: "light", density: "compact" });
 export const useStaq = () => useContext(StaqContext);
 export function StaqProvider({

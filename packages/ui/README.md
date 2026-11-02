@@ -1,6 +1,6 @@
 # StaqUI
 
-An independent React and TypeScript UI library with 50 catalog components, semantic light/dark themes, and compact density. No Shopify or Next.js runtime dependency.
+An independent React and TypeScript UI library with 50 catalog components, semantic light/dark themes, and compact and comfortable densities. No Shopify or Next.js runtime dependency.
 
 ## Install the local distribution
 
@@ -36,7 +36,7 @@ export default function App() {
 }
 ```
 
-Use `theme="dark"` and `density="compact"` for the alternate modes. Use `theme="staqwish"` for the neutral Shopify admin-inspired visual system extracted from the Staqwish project. Components wrapping native elements accept React HTML and ARIA attributes. Fields use `label`, `description`, `error`, and `onValueChange`; checkboxes and switches use `onCheckedChange`. Overlays use `open` and `onOpenChange`.
+Use `theme="dark"` for the alternate theme and `density="comfortable"` for roomier 40px controls; `density="compact"` is the default with 32px controls. Add `asChild` to `Button` to render its styles onto a single child element, such as a framework link: `<Button asChild variant="primary"><a href="/start">Start</a></Button>`. With `asChild`, put the label and any icon inside that child; the button's own `icon` and `loading` slots apply only to real buttons. Use `theme="staqwish"` for the neutral Shopify admin-inspired visual system extracted from the Staqwish project. Components wrapping native elements accept React HTML and ARIA attributes. Fields use `label`, `description`, `error`, and `onValueChange`; checkboxes and switches use `onCheckedChange`. Overlays use `open` and `onOpenChange`.
 
 ## Customization
 

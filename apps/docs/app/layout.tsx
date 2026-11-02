@@ -19,6 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("staqui-theme");if(t==="light"||t==="dark")document.documentElement.dataset.staqTheme=t;var d=localStorage.getItem("staqui-density");if(d==="compact"||d==="comfortable")document.documentElement.dataset.staqDensity=d}catch(e){}`,
+          }}
+        />
         <Shell>{children}</Shell>
       </body>
     </html>

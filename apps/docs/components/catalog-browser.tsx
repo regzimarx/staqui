@@ -3,16 +3,12 @@
 import { useState } from "react";
 import { Badge, Button, EmptyState, Icon, SearchField } from "@staqui/ui";
 import { SiteLink as Link } from "@/components/site-link";
-import { catalog, categories } from "@/lib/catalog";
+import { categories, searchCatalog } from "@/lib/catalog";
 export function CatalogBrowser() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
-  const results = catalog.filter(
-    (c) =>
-      (category === "All" || c.category === category) &&
-      `${c.title} ${c.name} ${c.description}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
+  const results = searchCatalog(query).filter(
+    (c) => category === "All" || c.category === category,
   );
   return (
     <>

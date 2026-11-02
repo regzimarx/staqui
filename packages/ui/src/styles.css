@@ -118,10 +118,11 @@
   color-scheme: light;
 }
 
-/* Staqwish component treatment: compact controls, soft admin surfaces,
-   and restrained borders with black primary actions. */
+/* Staqwish component treatment: rounded controls that follow the provider
+   density, soft admin surfaces, and restrained borders with black primary
+   actions. */
 [data-staq-theme="staqwish"] .sq-button {
-  min-height: 32px;
+  min-height: var(--sq-control-height);
   padding-inline: 12px;
   border-radius: var(--sq-radius-round);
   border-color: var(--sq-control-border);
@@ -176,11 +177,11 @@
   font-size: 12px;
 }
 [data-staq-theme="staqwish"] .sq-badge {
-  min-height: 24px;
+  min-height: var(--sq-control-height);
   padding: 2px 10px;
 }
 [data-staq-theme="staqwish"] .sq-chip {
-  min-height: 28px;
+  min-height: var(--sq-control-height);
   padding-inline: 10px;
   border-color: var(--sq-border);
   background: var(--sq-subtle);
@@ -192,13 +193,13 @@
 }
 [data-staq-theme="staqwish"] .sq-input-wrap,
 [data-staq-theme="staqwish"] .sq-input {
-  min-height: 32px;
+  min-height: var(--sq-control-height);
   border-radius: var(--sq-radius-large);
   border-color: var(--sq-control-border);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
 }
 [data-staq-theme="staqwish"] .sq-input {
-  padding-block: 5px;
+  padding-block: 0;
   font-size: 13px;
 }
 [data-staq-theme="staqwish"] .sq-input-wrap:focus-within,
@@ -263,7 +264,7 @@
 }
 [data-staq-theme="staqwish"] .sq-table th,
 [data-staq-theme="staqwish"] .sq-table td {
-  padding: 8px;
+  padding: var(--sq-cell-padding);
 }
 [data-staq-theme="staqwish"] .sq-pagination {
   background: var(--sq-subtle);
@@ -282,6 +283,11 @@
   --sq-control-height: 32px;
   --sq-control-padding: 10px;
   --sq-cell-padding: 8px;
+}
+[data-staq-density="comfortable"] {
+  --sq-control-height: 40px;
+  --sq-control-padding: 14px;
+  --sq-cell-padding: 12px;
 }
 .sq-root,
 .sq-modal,
@@ -452,7 +458,7 @@
   border: 1px solid var(--sq-border);
   font: inherit;
   font-size: 13px;
-  min-height: 28px;
+  min-height: var(--sq-control-height);
 }
 .sq-chip-wrapper {
   display: inline-flex;
@@ -654,7 +660,7 @@
   width: 100%;
   min-width: 0;
   min-height: var(--sq-control-height);
-  padding: var(--sq-space-2) var(--sq-control-padding);
+  padding: 0 var(--sq-control-padding);
   border: 1px solid var(--sq-control-border);
   border-radius: var(--sq-radius-medium);
   background: var(--sq-surface);
@@ -703,6 +709,7 @@
 .sq-textarea {
   resize: vertical;
   min-height: 100px;
+  padding-block: var(--sq-space-2);
 }
 .sq-field-help {
   color: var(--sq-muted);
@@ -720,7 +727,7 @@
   display: flex;
   align-items: center;
   gap: var(--sq-space-2);
-  min-height: 28px;
+  min-height: var(--sq-control-height);
   cursor: pointer;
 }
 .sq-check-label:has(:disabled) {
@@ -766,6 +773,14 @@
 .sq-checkbox:hover:not(:disabled) {
   border-color: var(--sq-accent);
 }
+.sq-checkbox:disabled {
+  background: var(--sq-disabled);
+  border-color: var(--sq-border);
+  cursor: not-allowed;
+}
+.sq-checkbox:disabled::before {
+  border-color: var(--sq-disabled-ink);
+}
 .sq-switch .sq-checkbox {
   appearance: none;
   width: 34px;
@@ -774,6 +789,9 @@
   border: 1px solid var(--sq-control-border);
   background: var(--sq-subtle);
   position: relative;
+}
+.sq-switch .sq-checkbox::before {
+  content: none;
 }
 .sq-switch .sq-checkbox::after {
   content: "";

@@ -262,6 +262,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           id={id}
           className={cx("sq-input", "sq-select", className)}
           required={required}
+          defaultValue={
+            placeholder && props.value === undefined
+              ? (props.defaultValue ?? "")
+              : undefined
+          }
           {...props}
           aria-invalid={error ? true : props["aria-invalid"]}
           aria-describedby={
@@ -537,7 +542,7 @@ export function DropZone({
   const [rejection, setRejection] = useState("");
   const [dragging, setDragging] = useState(false);
   function receive(incoming: File[]) {
-    if (disabled) return;
+    if (disabled) return false;
     const patterns =
       accept
         ?.split(",")
@@ -563,11 +568,12 @@ export function DropZone({
       setRejection(message);
       onReject?.(message);
       if (ref.current) ref.current.value = "";
-      return;
+      return false;
     }
     setRejection("");
     setFiles(incoming);
     onFilesChange?.(incoming);
+    return true;
   }
   return (
     <div className="sq-field">
@@ -586,7 +592,14 @@ export function DropZone({
         onDrop={(e) => {
           e.preventDefault();
           setDragging(false);
-          receive(Array.from(e.dataTransfer.files));
+          const dropped = Array.from(e.dataTransfer.files);
+          if (receive(dropped) && ref.current) {
+            try {
+              const transfer = new DataTransfer();
+              dropped.forEach((f) => transfer.items.add(f));
+              ref.current.files = transfer.files;
+            } catch {}
+          }
         }}
       >
         <Icon name="upload" size={24} />

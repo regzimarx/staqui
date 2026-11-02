@@ -43,6 +43,13 @@
       "description": "See the typed definition and working example for this option."
     },
     {
+      "name": "asChild",
+      "default": null,
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "See the typed definition and working example for this option."
+    },
+    {
       "name": "disabled",
       "default": null,
       "type": "boolean | undefined",

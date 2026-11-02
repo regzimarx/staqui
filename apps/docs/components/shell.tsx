@@ -1,17 +1,21 @@
 "use client";
-import { useState, useEffect, type ReactNode } from "react";
+import { useState, useEffect, useLayoutEffect, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import {
   StaqProvider,
   Button,
+  ButtonGroup,
   Icon,
   SearchField,
   Badge,
   Modal,
   Text,
+  type Density,
 } from "@staqui/ui";
-import { catalog, categories } from "@/lib/catalog";
+import { catalog, categories, searchCatalog } from "@/lib/catalog";
 import { SiteLink as Link } from "@/components/site-link";
+const useBrowserLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
 export function Logo() {
   return (
     <Link href="/" className="brand" aria-label="StaqUI home">
@@ -24,19 +28,22 @@ export function Logo() {
 }
 export function Shell({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [density, setDensity] = useState<Density>("compact");
   const [query, setQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const path = usePathname();
-  useEffect(() => {
-    try {
-      const t = localStorage.getItem("staqui-theme");
-      if (t === "light" || t === "dark") setTheme(t);
-    } catch {}
+  useBrowserLayoutEffect(() => {
+    const root = document.documentElement;
+    if (root.dataset.staqTheme === "dark") setTheme("dark");
+    if (root.dataset.staqDensity === "comfortable") setDensity("comfortable");
   }, []);
   useEffect(() => {
     document.documentElement.dataset.staqTheme = theme;
   }, [theme]);
+  useEffect(() => {
+    document.documentElement.dataset.staqDensity = density;
+  }, [density]);
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -58,11 +65,13 @@ export function Shell({ children }: { children: ReactNode }) {
       localStorage.setItem("staqui-theme", next);
     } catch {}
   }
-  const filtered = catalog.filter((c) =>
-    `${c.title} ${c.description} ${c.category}`
-      .toLowerCase()
-      .includes(query.toLowerCase()),
-  );
+  function changeDensity(next: Density) {
+    setDensity(next);
+    try {
+      localStorage.setItem("staqui-density", next);
+    } catch {}
+  }
+  const filtered = searchCatalog(query);
   const sidebar = (
     <>
       <div className="sidebar-intro">
@@ -126,7 +135,7 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <StaqProvider
       theme={theme}
-      density="compact"
+      density={density}
       className={path === "/" ? "site site-landing" : "site"}
     >
       <a className="skip-link" href="#main-content">
@@ -204,6 +213,32 @@ export function Shell({ children }: { children: ReactNode }) {
             <span>MIT licensed</span>
           </footer>
         </div>
+      </div>
+      <div className="density-dock">
+        <ButtonGroup label="Component density" className="density-switch">
+          <Button
+            variant="tertiary"
+            size="small"
+            aria-pressed={density === "compact"}
+            aria-label="Compact density"
+            title="Compact density"
+            onClick={() => changeDensity("compact")}
+          >
+            <Icon name="layers" size={14} />
+            <span className="density-switch-label">Compact</span>
+          </Button>
+          <Button
+            variant="tertiary"
+            size="small"
+            aria-pressed={density === "comfortable"}
+            aria-label="Comfortable density"
+            title="Comfortable density"
+            onClick={() => changeDensity("comfortable")}
+          >
+            <Icon name="sliders" size={14} />
+            <span className="density-switch-label">Comfortable</span>
+          </Button>
+        </ButtonGroup>
       </div>
       <Modal
         title="Search documentation"

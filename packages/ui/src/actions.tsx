@@ -6,7 +6,9 @@ import {
   type AnchorHTMLAttributes,
   type HTMLAttributes,
   type ReactNode,
+  type ElementType,
 } from "react";
+import { Slot } from "@radix-ui/react-slot";
 import { cx, type Tone, type Size } from "./shared";
 import { Icon } from "./foundations";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,6 +18,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   icon?: ReactNode;
   fullWidth?: boolean;
+  asChild?: boolean;
 }
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
@@ -27,6 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       icon,
       fullWidth,
+      asChild,
       children,
       className,
       type = "button",
@@ -34,23 +38,34 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref,
   ) {
+    const Comp = (asChild ? Slot : "button") as ElementType;
     return (
-      <button
+      <Comp
         ref={ref}
-        type={type}
+        type={asChild ? undefined : type}
         className={cx("sq-button", className)}
         data-variant={variant}
         data-tone={tone}
         data-size={size}
         data-full-width={fullWidth}
-        disabled={disabled || loading}
+        disabled={asChild ? undefined : disabled || loading}
         aria-busy={loading || undefined}
         {...props}
       >
-        {loading ? <span className="sq-spinner" aria-hidden="true" /> : icon}
-        {children}
-        {loading && <span className="sq-sr-only">Loading</span>}
-      </button>
+        {asChild ? (
+          children
+        ) : (
+          <>
+            {loading ? (
+              <span className="sq-spinner" aria-hidden="true" />
+            ) : (
+              icon
+            )}
+            {children}
+            {loading && <span className="sq-sr-only">Loading</span>}
+          </>
+        )}
+      </Comp>
     );
   },
 );

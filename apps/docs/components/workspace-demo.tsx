@@ -153,7 +153,6 @@ export function SettingsDemo({ compact = false }: { compact?: boolean }) {
         <Button
           type="submit"
           variant="primary"
-          size="small"
           icon={<Icon name="check" size={14} />}
         >
           Save changes
@@ -206,10 +205,26 @@ export function CollectionsDemo() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [page, setPage] = useState(0);
+  const [sort, setSort] = useState<{
+    column: string;
+    direction: "ascending" | "descending";
+  }>();
   const filtered = rows.filter((r) =>
     r.name.toLowerCase().includes(query.toLowerCase()),
   );
-  const pageRows = filtered.slice(page * 3, page * 3 + 3);
+  const sorted = sort
+    ? [...filtered].sort((a, b) => {
+        const av = sort.column === "items" ? a.items : a.name;
+        const bv = sort.column === "items" ? b.items : b.name;
+        return (
+          (typeof av === "number" && typeof bv === "number"
+            ? av - bv
+            : String(av).localeCompare(String(bv))) *
+          (sort.direction === "descending" ? -1 : 1)
+        );
+      })
+    : filtered;
+  const pageRows = sorted.slice(page * 3, page * 3 + 3);
   return (
     <div className="collections-demo">
       <div className="demo-heading">
@@ -275,12 +290,12 @@ export function CollectionsDemo() {
           onValueChange={(v) => {
             setQuery(v);
             setPage(0);
+            setSelected([]);
           }}
           placeholder="Search collections…"
         />
         {selected.length > 0 && (
           <Button
-            size="small"
             onClick={() => {
               setRows(
                 rows.map((r) =>
@@ -297,6 +312,8 @@ export function CollectionsDemo() {
       <Table
         label="Sample collections"
         rows={pageRows}
+        sort={sort}
+        onSortChange={setSort}
         rowKey={(r) => r.id}
         selected={selected}
         onSelectionChange={setSelected}

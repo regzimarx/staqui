@@ -9,6 +9,7 @@ import {
 import userEvent from "@testing-library/user-event";
 import axe from "axe-core";
 import * as examples from "../examples";
+import { CollectionsDemo } from "../../../apps/docs/components/workspace-demo";
 import {
   Button,
   Checkbox,
@@ -20,6 +21,7 @@ import {
   PasswordField,
   Popover,
   Progress,
+  Select,
   StaqProvider,
   Table,
   TextField,
@@ -66,6 +68,21 @@ it("fields associate labels, help, and errors with the input", () => {
   const input = screen.getByRole("textbox", { name: "Name" });
   expect(input).toHaveAccessibleDescription("Public name Required");
   expect(input).toHaveAttribute("aria-invalid", "true");
+});
+it("uncontrolled selects show their placeholder", () => {
+  render(
+    <Select
+      label="Visibility"
+      placeholder="Choose visibility"
+      options={[
+        { value: "private", label: "Private" },
+        { value: "team", label: "Team" },
+      ]}
+    />,
+  );
+  const select = screen.getByRole("combobox", { name: "Visibility" });
+  expect(select).toHaveValue("");
+  expect(select).toHaveDisplayValue("Choose visibility");
 });
 it("checkbox and radio choices work with the keyboard", async () => {
   const user = userEvent.setup();
@@ -139,6 +156,32 @@ it("supports the Staqwish visual theme", () => {
     "data-staq-theme",
     "staqwish",
   );
+});
+
+it("supports comfortable density", () => {
+  render(
+    <StaqProvider density="comfortable">
+      <Button>Create</Button>
+    </StaqProvider>,
+  );
+
+  expect(
+    screen.getByText("Create").closest("[data-staq-density]"),
+  ).toHaveAttribute("data-staq-density", "comfortable");
+});
+
+it("renders button styles on a child link with asChild", () => {
+  render(
+    <Button asChild variant="primary">
+      <a href="/docs/getting-started">Start building</a>
+    </Button>,
+  );
+
+  const link = screen.getByRole("link", { name: "Start building" });
+  expect(link).toHaveClass("sq-button");
+  expect(link).toHaveAttribute("data-variant", "primary");
+  expect(link).not.toHaveAttribute("type");
+  expect(link).not.toHaveAttribute("disabled");
 });
 
 it("menu skips disabled items and selects with keyboard", async () => {
@@ -247,6 +290,20 @@ it("table sorts numeric values and controls row selection", async () => {
     screen.getByRole("checkbox", { name: "Select all visible rows" }),
   );
   expect(selection).toHaveBeenCalledWith(["a", "b"]);
+});
+it("collection demo sorts all rows before paginating", async () => {
+  const user = userEvent.setup();
+  render(<CollectionsDemo />);
+  await user.click(screen.getByRole("button", { name: "Collection" }));
+  let rows = screen.getAllByRole("row");
+  expect(
+    within(rows[1]).getByText("Archive selection"),
+  ).toBeInTheDocument();
+  await user.click(screen.getByRole("button", { name: "Next page" }));
+  rows = screen.getAllByRole("row");
+  expect(
+    within(rows[1]).getByText("Spring collection"),
+  ).toBeInTheDocument();
 });
 it("calendar selects a range and disables constrained dates", async () => {
   const user = userEvent.setup(),

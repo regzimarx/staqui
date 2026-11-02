@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button, Icon } from "@staqui/ui";
 export function CopyButton({
   text,
@@ -9,11 +9,14 @@ export function CopyButton({
   label?: string;
 }) {
   const [status, setStatus] = useState("");
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  useEffect(() => () => clearTimeout(timer.current), []);
   async function copy() {
     try {
       await navigator.clipboard.writeText(text);
       setStatus("Copied");
-      setTimeout(() => setStatus(""), 2000);
+      clearTimeout(timer.current);
+      timer.current = setTimeout(() => setStatus(""), 2000);
     } catch {
       setStatus("Copy unavailable");
     }

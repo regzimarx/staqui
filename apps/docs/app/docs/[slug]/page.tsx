@@ -98,13 +98,18 @@ export default async function Guide({
           <h2>Theme and density</h2>
           <CodeBlock
             code={
-              '<StaqProvider theme="dark" density="compact">\n  <YourApplication />\n</StaqProvider>'
+              '<StaqProvider theme="dark" density="comfortable">\n  <YourApplication />\n</StaqProvider>'
             }
           />
           <p>
-            Comfortable controls are 40px high; compact controls are 32px.
-            Target sizes remain at least 24px. Dialogs, menus, popovers and
-            tooltips carry their provider’s theme into their portals.
+            Density accepts <code>compact</code> or <code>comfortable</code>.
+            Comfortable controls are 40px high; compact controls are 32px, and
+            the same tokens drive input height, control padding and table cell
+            padding. Target sizes remain at least 24px. Dialogs, menus, popovers
+            and tooltips carry their provider’s theme and density into their
+            portals. The theme toggle in the header and the floating density
+            control apply to every example here, so you can compare them in
+            place.
           </p>
           <h2>Override semantic tokens</h2>
           <CodeBlock

@@ -1,5 +1,5 @@
 "use client";
-import { Stack, Badge } from "@staqui/ui";
+import { Stack, Badge } from "@staqforce/staqui";
 
 export default function StackExample() {
   return (

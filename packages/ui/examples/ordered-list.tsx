@@ -1,5 +1,5 @@
 "use client";
-import { OrderedList, ListItem } from "@staqui/ui";
+import { OrderedList, ListItem } from "@staqforce/staqui";
 
 export default function OrderedListExample() {
   return (

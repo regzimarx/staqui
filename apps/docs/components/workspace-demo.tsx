@@ -23,7 +23,7 @@ import {
   Text,
   TextField,
   type DateRange,
-} from "@staqui/ui";
+} from "@staqforce/staqui";
 export function SettingsDemo({ compact = false }: { compact?: boolean }) {
   const [name, setName] = useState("North studio");
   const [email, setEmail] = useState("hello@north.example");

@@ -1,5 +1,5 @@
 "use client";
-import { Text, Stack } from "@staqui/ui";
+import { Text, Stack } from "@staqforce/staqui";
 
 export default function TextExample() {
   return (

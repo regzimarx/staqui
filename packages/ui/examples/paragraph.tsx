@@ -1,5 +1,5 @@
 "use client";
-import { Paragraph, Link } from "@staqui/ui";
+import { Paragraph, Link } from "@staqforce/staqui";
 
 export default function ParagraphExample() {
   return (

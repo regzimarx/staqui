@@ -1,5 +1,5 @@
 "use client";
-import { DropZone } from "@staqui/ui";
+import { DropZone } from "@staqforce/staqui";
 
 export default function DropZoneExample() {
   return (

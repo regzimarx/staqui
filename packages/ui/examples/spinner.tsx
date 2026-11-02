@@ -1,5 +1,5 @@
 "use client";
-import { Spinner, Stack } from "@staqui/ui";
+import { Spinner, Stack } from "@staqforce/staqui";
 
 export default function SpinnerExample() {
   return (

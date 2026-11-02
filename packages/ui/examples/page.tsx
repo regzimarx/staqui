@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Page, Text, Button } from "@staqui/ui";
+import { Page, Text, Button } from "@staqforce/staqui";
 
 export default function PageExample() {
   const [saved, setSaved] = useState(false);

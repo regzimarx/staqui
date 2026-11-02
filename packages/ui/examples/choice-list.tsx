@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChoiceList } from "@staqui/ui";
+import { ChoiceList } from "@staqforce/staqui";
 
 export default function ChoiceListExample() {
   const [value, setValue] = useState(["private"]);

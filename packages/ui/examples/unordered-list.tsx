@@ -1,5 +1,5 @@
 "use client";
-import { UnorderedList, ListItem } from "@staqui/ui";
+import { UnorderedList, ListItem } from "@staqforce/staqui";
 
 export default function UnorderedListExample() {
   return (

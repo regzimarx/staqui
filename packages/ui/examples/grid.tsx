@@ -1,5 +1,5 @@
 "use client";
-import { Grid, Box } from "@staqui/ui";
+import { Grid, Box } from "@staqforce/staqui";
 
 export default function GridExample() {
   return (

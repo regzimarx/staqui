@@ -1,5 +1,5 @@
 "use client";
-import { Section, Switch } from "@staqui/ui";
+import { Section, Switch } from "@staqforce/staqui";
 
 export default function SectionExample() {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { EmailField } from "@staqui/ui";
+import { EmailField } from "@staqforce/staqui";
 
 export default function EmailFieldExample() {
   return (

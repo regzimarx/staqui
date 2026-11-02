@@ -1,9 +1,10 @@
 {
   "passed": true,
-  "package": "/Users/regzimarx/Staqforce/StaqUI/artifacts/staqui-ui-0.1.0.tgz",
+  "package": "/Users/regzimarx/Staqforce/StaqUI/artifacts/staqforce-staqui-0.1.0.tgz",
   "independentProject": true,
+  "packageManager": "pnpm",
   "checks": [
-    "TypeScript package declarations",
+    "TypeScript ESM and CommonJS package declarations",
     "ESM import",
     "CommonJS require",
     "Stylesheet export",

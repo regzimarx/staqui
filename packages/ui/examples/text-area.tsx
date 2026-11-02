@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { TextArea } from "@staqui/ui";
+import { TextArea } from "@staqforce/staqui";
 
 export default function TextAreaExample() {
   const [value, setValue] = useState(

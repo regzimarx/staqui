@@ -1,5 +1,5 @@
 "use client";
-import { Thumbnail, Stack } from "@staqui/ui";
+import { Thumbnail, Stack } from "@staqforce/staqui";
 
 export default function ThumbnailExample() {
   return (

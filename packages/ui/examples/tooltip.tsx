@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Tooltip, Button, Icon } from "@staqui/ui";
+import { Tooltip, Button, Icon } from "@staqforce/staqui";
 
 export default function TooltipExample() {
   const [copied, setCopied] = useState(false);

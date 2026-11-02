@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import { DatePicker, Stack, Badge } from "@staqui/ui";
+import { DatePicker, Stack, Badge } from "@staqforce/staqui";
 
 export default function DatePickerExample() {
   const [value, setValue] = useState<
-    import("@staqui/ui").DateRange | undefined
+    import("@staqforce/staqui").DateRange | undefined
   >({ from: new Date(2026, 10, 10), to: new Date(2026, 10, 14) });
   return (
     <Stack align="start">

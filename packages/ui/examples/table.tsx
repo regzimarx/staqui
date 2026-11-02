@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Table, Badge } from "@staqui/ui";
+import { Table, Badge } from "@staqforce/staqui";
 
 export default function TableExample() {
   const [selected, setSelected] = useState<string[]>([]);

@@ -1,5 +1,5 @@
 "use client";
-import { Number, Stack } from "@staqui/ui";
+import { Number, Stack } from "@staqforce/staqui";
 
 export default function NumberExample() {
   return (

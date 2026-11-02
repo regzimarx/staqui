@@ -1,17 +1,41 @@
 {
-  "name": "@staqui/ui",
+  "name": "@staqforce/staqui",
   "version": "0.1.0",
   "description": "Compact, accessible React components with a quiet, botanical identity.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/regzimarx/StaqUI.git",
+    "directory": "packages/ui"
+  },
+  "homepage": "https://github.com/regzimarx/StaqUI#readme",
+  "bugs": "https://github.com/regzimarx/StaqUI/issues",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "typescript",
+    "accessible",
+    "staqui"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./styles.css": "./dist/styles.css"
   },
@@ -24,6 +48,7 @@
     "**/*.css"
   ],
   "scripts": {
+    "prepack": "pnpm run build",
     "build": "tsup src/index.ts --format esm,cjs --dts --external react --external react-dom --clean && cp src/styles.css dist/styles.css && mkdir -p dist/fonts && cp src/fonts/* dist/fonts/"
   },
   "peerDependencies": {

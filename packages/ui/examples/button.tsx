@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button, Stack } from "@staqui/ui";
+import { Button, Stack } from "@staqforce/staqui";
 
 export default function ButtonExample() {
   const [count, setCount] = useState(0);

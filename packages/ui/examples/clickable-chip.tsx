@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ClickableChip, Stack } from "@staqui/ui";
+import { ClickableChip, Stack } from "@staqforce/staqui";
 
 export default function ClickableChipExample() {
   const [selected, setSelected] = useState<string[]>(["Design"]);

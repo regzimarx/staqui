@@ -10,7 +10,7 @@ import {
   Text,
   TextField,
   Modal,
-} from "@staqui/ui";
+} from "@staqforce/staqui";
 import { SiteLink as Link } from "@/components/site-link";
 import { useState } from "react";
 

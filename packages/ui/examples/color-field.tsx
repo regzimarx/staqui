@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ColorField } from "@staqui/ui";
+import { ColorField } from "@staqforce/staqui";
 
 export default function ColorFieldExample() {
   const [value, setValue] = useState("#0a2eb5");

@@ -1,5 +1,5 @@
 "use client";
-import { Divider, Text } from "@staqui/ui";
+import { Divider, Text } from "@staqforce/staqui";
 
 export default function DividerExample() {
   return (

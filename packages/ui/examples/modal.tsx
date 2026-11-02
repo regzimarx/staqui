@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Modal, Button, TextField } from "@staqui/ui";
+import { Modal, Button, TextField } from "@staqforce/staqui";
 
 export default function ModalExample() {
   const [open, setOpen] = useState(false);

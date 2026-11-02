@@ -39,17 +39,19 @@ pnpm pack:ui
 node scripts/smoke-package.mjs
 ```
 
-`pnpm build` builds the library before generating documentation and building Next.js. The package archive is `artifacts/staqui-ui-0.1.0.tgz`. It includes ESM, CommonJS, declarations, CSS, README and license.
+`pnpm build` builds the library before generating documentation and building Next.js. Packing rebuilds the library automatically. The package archive is `artifacts/staqforce-staqui-<version>.tgz`. It includes ESM, CommonJS, declarations, CSS, fonts and their license, README and license.
 
-The independent consumer smoke test installs the archive in a temporary project, checks types, resolves both module formats and CSS, and server-renders React without Next.js. Its offline installation uses the local pnpm store populated by workspace installation.
+The independent consumer smoke test installs the archive in a temporary project, checks types, resolves both module formats and CSS, and server-renders React without Next.js. It supports npm, pnpm, and Bun via `--manager`; pnpm is the default. `pnpm check:release` runs the checks and verifies independent npm and pnpm consumers.
 
-To consume the package elsewhere:
+If published again, consumers can install it using their preferred package manager:
 
 ```sh
-pnpm add /absolute/path/to/staqui-ui-0.1.0.tgz
+npm install @staqforce/staqui
+pnpm add @staqforce/staqui
+bun add @staqforce/staqui
 ```
 
-Import `@staqui/ui/styles.css` once and wrap the application with `StaqProvider`. See `packages/ui/README.md` and the getting-started guide. The package name is local; no registry publication has occurred.
+Import `@staqforce/staqui/styles.css` once and wrap the application with `StaqProvider`. See `packages/ui/README.md` and the getting-started guide. For local testing, install the generated tarball. See [PUBLISHING.md](./PUBLISHING.md) for account setup, validation, and the release command. The `staqforce` organization and its package were deleted; registry publication under this name is canceled.
 
 ## Deploy on Vercel
 

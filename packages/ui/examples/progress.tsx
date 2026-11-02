@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Progress, Button, Stack } from "@staqui/ui";
+import { Progress, Button, Stack } from "@staqforce/staqui";
 
 export default function ProgressExample() {
   const [value, setValue] = useState(40);

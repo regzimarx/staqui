@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { EmptyState, Button, Badge } from "@staqui/ui";
+import { EmptyState, Button, Badge } from "@staqforce/staqui";
 
 export default function EmptyStateExample() {
   const [created, setCreated] = useState(false);

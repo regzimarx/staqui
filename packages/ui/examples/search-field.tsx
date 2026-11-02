@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { SearchField, Text, Stack } from "@staqui/ui";
+import { SearchField, Text, Stack } from "@staqforce/staqui";
 
 export default function SearchFieldExample() {
   const [query, setQuery] = useState("");

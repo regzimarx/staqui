@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Chip, Stack, Button } from "@staqui/ui";
+import { Chip, Stack, Button } from "@staqforce/staqui";
 
 export default function ChipExample() {
   const [tags, setTags] = useState(["Summer", "Essentials", "Handmade"]);

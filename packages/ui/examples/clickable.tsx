@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Clickable, Stack, Icon } from "@staqui/ui";
+import { Clickable, Stack, Icon } from "@staqforce/staqui";
 
 export default function ClickableExample() {
   const [selected, setSelected] = useState(false);

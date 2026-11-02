@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button, Icon } from "@staqui/ui";
+import { Button, Icon } from "@staqforce/staqui";
 import { examples } from "@/lib/examples";
 import sources from "@/lib/example-source.json";
 import { CodeBlock, CopyButton } from "./code-block";

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Checkbox, Stack } from "@staqui/ui";
+import { Checkbox, Stack } from "@staqforce/staqui";
 
 export default function CheckboxExample() {
   const [checked, setChecked] = useState(true);

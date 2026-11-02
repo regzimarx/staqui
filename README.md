@@ -2,19 +2,13 @@
 
 An independent React and TypeScript component library and Next.js documentation site. The workspace includes 50 components with a distinct Staqforce Studio identity, semantic themes, purposeful density, and documented implementation details.
 
-## Run locally
+## Guides
 
-Requirements: Node.js 22 or later and pnpm 12.16.1 (pinned in package.json).
-
-```sh
-corepack enable
-pnpm install --frozen-lockfile
-pnpm build:ui
-pnpm generate:docs
-pnpm dev
-```
-
-Open http://localhost:3000. No environment variables are required.
+- [Development](./DEVELOPMENT.md): setup, local development, and validation.
+- [Contributing](./CONTRIBUTING.md): branches, pull requests, and contribution
+  expectations.
+- [Deployment](./DEPLOYMENT.md): deploy the documentation site to Vercel.
+- [Publishing](./PUBLISHING.md): publish the package to npm.
 
 ## Workspace
 
@@ -52,22 +46,6 @@ bun add @staqforce-studio/staqui
 ```
 
 Import `@staqforce-studio/staqui/styles.css` once and wrap the application with `StaqProvider`. See `packages/ui/README.md` and the getting-started guide. For local testing, install the generated tarball. See [PUBLISHING.md](./PUBLISHING.md) for account setup, validation, and the release command.
-
-## Deploy on Vercel
-
-Import this repository and configure:
-
-| Setting | Value |
-| --- | --- |
-| Root directory | `apps/docs` |
-| Framework | Next.js |
-| Install command | `cd ../.. && pnpm install --frozen-lockfile` |
-| Build command | `cd ../.. && pnpm build` |
-| Output directory | Next.js default |
-| Node | 22.x or a newer supported LTS |
-| Environment variables | None |
-
-Enable access to files outside the project root so shared examples and the workspace library are included. `apps/docs/vercel.json` provides the install/build commands. pnpm uses the committed root lockfile. Deployment has been prepared but not executed.
 
 ## Scope and limitations
 

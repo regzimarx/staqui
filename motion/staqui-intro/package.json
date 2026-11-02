@@ -1,0 +1,15 @@
+{
+  "name": "staqui-intro-video",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "preview": "remotion studio src/index.tsx",
+    "render": "remotion render src/index.tsx StaqUI ../../artifacts/motion/staqui-intro.mp4 --codec h264 --crf 17 --concurrency 4"
+  },
+  "dependencies": {
+    "remotion": "4.0.366",
+    "@remotion/cli": "4.0.366",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  }
+}

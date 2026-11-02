@@ -274,26 +274,20 @@ export function Shell({ children }: { children: ReactNode }) {
       <div className="density-dock">
         <ButtonGroup label="Component density" className="density-switch">
           <Button
-            variant={density === "compact" ? "primary" : "tertiary"}
+            variant="tertiary"
             size="small"
             aria-pressed={density === "compact"}
-            aria-label="Compact density"
-            title="Compact density"
             onClick={() => changeDensity("compact")}
           >
-            <Icon name="layers" size={14} />
-            <span className="density-switch-label">Compact</span>
+            Compact
           </Button>
           <Button
-            variant={density === "comfortable" ? "primary" : "tertiary"}
+            variant="tertiary"
             size="small"
             aria-pressed={density === "comfortable"}
-            aria-label="Comfortable density"
-            title="Comfortable density"
             onClick={() => changeDensity("comfortable")}
           >
-            <Icon name="sliders" size={14} />
-            <span className="density-switch-label">Comfortable</span>
+            Comfortable
           </Button>
         </ButtonGroup>
       </div>

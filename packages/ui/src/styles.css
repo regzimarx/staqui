@@ -974,11 +974,11 @@
   box-shadow: 0 1px 2px var(--sq-shadow-color);
 }
 .sq-check-label:not(.sq-switch) .sq-checkbox:where(:checked, :indeterminate):not(:disabled) {
-  background: var(--sq-success);
-  border-color: var(--sq-success);
+  background: var(--sq-accent);
+  border-color: var(--sq-accent);
 }
 .sq-check-label:not(.sq-switch) .sq-checkbox:not(:disabled)::before {
-  border-color: var(--sq-surface);
+  border-color: var(--sq-accent-ink);
 }
 .sq-checkbox[type="radio"] {
   border-radius: 50%;
@@ -988,7 +988,7 @@
   height: 7px;
   border: 0;
   border-radius: 50%;
-  background: var(--sq-surface);
+  background: var(--sq-accent-ink);
 }
 .sq-checkbox[type="radio"]:disabled::before {
   background: var(--sq-disabled-ink);
@@ -1109,7 +1109,7 @@
   background: var(--sq-subtle);
 }
 .sq-choice-list .sq-check-label:has(:checked) {
-  border-color: color-mix(in oklch, var(--sq-success) 62%, var(--sq-border));
+  border-color: color-mix(in oklch, var(--sq-accent) 62%, var(--sq-border));
 }
 .sq-choice-copy {
   display: grid;

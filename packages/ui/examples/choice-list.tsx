@@ -1,22 +1,35 @@
 "use client";
-import { useState } from "react";
-import { ChoiceList } from "@staqforce-studio/staqui";
+import { Badge, ChoiceList } from "@staqforce-studio/staqui";
 
 export default function ChoiceListExample() {
-  const [value, setValue] = useState(["private"]);
   return (
     <ChoiceList
-      label="Workspace visibility"
-      value={value}
-      onValueChange={setValue}
-      name="visibility"
+      label="Workspace plan"
+      hideLabel
+      defaultValue={["starter"]}
       options={[
-        { value: "private", label: "Private — invited members only" },
-        { value: "team", label: "Team — everyone in the workspace" },
         {
-          value: "public",
-          label: "Public — available on a paid plan",
-          disabled: true,
+          value: "starter",
+          label: "Starter",
+          description: "For independent makers",
+          icon: "✳",
+        },
+        {
+          value: "studio",
+          label: "Studio",
+          description: "Flexible space for teams",
+          icon: "▧",
+          badge: (
+            <Badge tone="success" size="small">
+              Popular
+            </Badge>
+          ),
+        },
+        {
+          value: "enterprise",
+          label: "Enterprise",
+          description: "Tools for ambitious teams",
+          icon: "▤",
         },
       ]}
     />

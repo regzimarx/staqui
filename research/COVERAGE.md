@@ -8,6 +8,7 @@ All examples are included in the structural axe test matrix. Interaction tests c
 |---|---|---|---|---|
 | [Button](../apps/docs/app/components/[slug]/page.tsx) | `Button` | [Implemented](../packages/ui/src/actions.tsx) | [/components/button](../packages/ui/examples/button.tsx) | [Documented](INVENTORY.md#button--actions) |
 | [Button group](../apps/docs/app/components/[slug]/page.tsx) | `ButtonGroup` | [Implemented](../packages/ui/src/actions.tsx) | [/components/button-group](../packages/ui/examples/button-group.tsx) | [Documented](INVENTORY.md#buttongroup--actions) |
+| [Tabs](../apps/docs/app/components/[slug]/page.tsx) | `Tabs` | [Implemented](../packages/ui/src/actions.tsx) | [/components/tabs](../packages/ui/examples/tabs.tsx) | [Documented](INVENTORY.md#tabs--actions) |
 | [Clickable](../apps/docs/app/components/[slug]/page.tsx) | `Clickable` | [Implemented](../packages/ui/src/actions.tsx) | [/components/clickable](../packages/ui/examples/clickable.tsx) | [Documented](INVENTORY.md#clickable--actions) |
 | [Clickable chip](../apps/docs/app/components/[slug]/page.tsx) | `ClickableChip` | [Implemented](../packages/ui/src/actions.tsx) | [/components/clickable-chip](../packages/ui/examples/clickable-chip.tsx) | [Documented](INVENTORY.md#clickablechip--actions) |
 | [Link](../apps/docs/app/components/[slug]/page.tsx) | `Link` | [Implemented](../packages/ui/src/actions.tsx) | [/components/link](../packages/ui/examples/link.tsx) | [Documented](INVENTORY.md#link--actions) |

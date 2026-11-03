@@ -1,6 +1,6 @@
 # staqui
 
-An independent React and TypeScript component library and Next.js documentation site. The workspace includes 50 components with a distinct Staqforce Studio identity, semantic themes, purposeful density, and documented implementation details.
+An independent React and TypeScript component library and Next.js documentation site. The workspace includes 51 components with a distinct Staqforce Studio identity, semantic themes, precise spacing, and documented implementation details.
 
 ## Guides
 
@@ -16,7 +16,7 @@ An independent React and TypeScript component library and Next.js documentation 
 - `packages/ui/examples`: 50 runnable examples, also used by the test suite and documentation previews.
 - `apps/docs`: Next.js homepage, searchable catalog, component pages, guides and three application examples.
 - `research/INVENTORY.md`: component descriptions, implementation notes, and accessibility guidance.
-- `research/COVERAGE.md`: generated mapping of all 50 components to exports, implementation, and examples.
+- `research/COVERAGE.md`: generated mapping of all 51 components to exports, implementation, and examples.
 - `DESIGN.md`: design decisions and customization principles.
 - `validation/RESULTS.md`: verification evidence and limits.
 
@@ -54,7 +54,7 @@ Import `@staqforce-studio/staqui/styles.css` once and wrap the application with 
 - Menu nesting, virtualized tables, spreadsheet editing, and backend services are outside the exposed API. Icons use Lucide.
 - MoneyField edits a decimal string with a currency label; it does not perform financial arithmetic or localized currency parsing.
 - Uploads and application demos remain local. DropZone emits File objects; applications own upload transport and should use its callback for dropped files rather than relying solely on native FormData.
-- Built-in theme/density propagate into portals. Custom ancestor-only CSS overrides need corresponding global/portal selectors.
+- Built-in themes propagate into portals. Custom ancestor-only CSS overrides need corresponding global/portal selectors.
 - WCAG 2.2 AA is the design target, not a certification. Automated and Chromium/Neo checks do not replace screen-reader testing or Safari/Firefox and physical touch-device coverage.
 
 MIT licensed original code. Source research captures and dependencies retain their own copyrights and licenses.

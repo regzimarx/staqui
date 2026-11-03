@@ -48,3 +48,4 @@ export { default as NumberExample } from "./number";
 export { default as ParagraphExample } from "./paragraph";
 export { default as TextExample } from "./text";
 export { default as TooltipExample } from "./tooltip";
+export { default as TabsExample } from "./tabs";

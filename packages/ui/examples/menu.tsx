@@ -1,29 +1,36 @@
 "use client";
 import { useState } from "react";
-import { Menu, Button, Stack } from "@staqforce-studio/staqui";
+import { Menu, Button, Icon, Stack } from "@staqforce-studio/staqui";
 
 export default function MenuExample() {
   const [action, setAction] = useState("Choose an action");
   return (
-    <Stack align="start">
+    <Stack align="stretch" gap="2" style={{ maxWidth: 320 }}>
       <Menu
         label="Project actions"
-        trigger={<Button>Project actions</Button>}
+        trigger={
+          <Button fullWidth>
+            Project actions{" "}
+            <Icon className="sq-menu-chevron" name="chevronDown" size={16} />
+          </Button>
+        }
         items={[
           {
             id: "edit",
-            label: "Edit project",
+            label: "Rename project",
+            icon: <Icon name="settings" size={14} />,
             onSelect: () => setAction("Editing project"),
           },
           {
             id: "duplicate",
-            label: "Duplicate project",
+            label: "Make a copy",
+            icon: <Icon name="copy" size={14} />,
             onSelect: () => setAction("Local duplicate created"),
           },
           {
             id: "archive",
             label: "Archive project",
-            tone: "critical",
+            icon: <Icon name="chevronDown" size={14} />,
             onSelect: () => setAction("Archived locally"),
           },
           { id: "locked", label: "Transfer ownership", disabled: true },

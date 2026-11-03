@@ -85,18 +85,22 @@ export function HomeGallery() {
       </div>
       <ButtonGroup label="Component collections" className="block-rail">
         {collections.map((item, index) => (
-          <Button
-            key={item.id}
-            className="block-tab"
-            aria-pressed={active === item.id}
-            onClick={() => setActive(item.id)}
-          >
-            <span className="block-tab-index">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <span className="block-tab-count">{item.count}</span>
-            <Icon name={item.icon} size={15} />
-            <span className="block-tab-name">{item.title}</span>
+          <Button key={item.id} asChild>
+            <button
+              type="button"
+              className="block-tab"
+              aria-pressed={active === item.id}
+              onClick={() => setActive(item.id)}
+            >
+              <span className="block-tab-index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="block-tab-count">{item.count}</span>
+              <span className="block-tab-name">
+                <Icon name={item.icon} size={16} />
+                <span>{item.title}</span>
+              </span>
+            </button>
           </Button>
         ))}
       </ButtonGroup>

@@ -1,6 +1,7 @@
 'use client';
 import ButtonExample from '../../../packages/ui/examples/button';
 import ButtonGroupExample from '../../../packages/ui/examples/button-group';
+import TabsExample from '../../../packages/ui/examples/tabs';
 import ClickableExample from '../../../packages/ui/examples/clickable';
 import ClickableChipExample from '../../../packages/ui/examples/clickable-chip';
 import LinkExample from '../../../packages/ui/examples/link';
@@ -52,6 +53,7 @@ import TooltipExample from '../../../packages/ui/examples/tooltip';
 export const examples = {
   'button': ButtonExample,
   'button-group': ButtonGroupExample,
+  'tabs': TabsExample,
   'clickable': ClickableExample,
   'clickable-chip': ClickableChipExample,
   'link': LinkExample,

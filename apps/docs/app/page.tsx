@@ -4,6 +4,7 @@ import { SettingsDemo, ExampleWorkbench } from "@/components/workspace-demo";
 import { HomeGallery } from "@/components/home-gallery";
 import { InstallCommand } from "@/components/install-command";
 import { CodeBlock } from "@/components/code-block";
+import { catalog } from "@/lib/catalog";
 
 export default function Home() {
   return (
@@ -11,17 +12,17 @@ export default function Home() {
       <section className="studio-hero">
         <div className="studio-intro">
           <div className="studio-eyebrow">
-            <span /> THE PRODUCT INTERFACE TOOLKIT{" "}
+            <span /> THE INTERFACE TOOLKIT{" "}
             <span className="version-label">v0.1</span>
           </div>
           <h1>
-            Less assembly.
+            Build better
             <br />
-            More <em>possibility.</em>
+            <em>product interfaces.</em>
           </h1>
           <p className="studio-lead">
-            Meet StaqUI. Fifty thoughtfully connected React components for the
-            screens people work in every day.
+            StaqUI gives you accessible components for settings, forms, and
+            data-heavy screens. Use them in React or HTML projects.
           </p>
           <div className="studio-actions">
             <Button asChild variant="primary">
@@ -30,7 +31,7 @@ export default function Home() {
               </NextLink>
             </Button>
             <Button asChild>
-              <NextLink href="/components">Explore the components</NextLink>
+              <NextLink href="/components">Browse components</NextLink>
             </Button>
           </div>
           <div className="studio-byline">
@@ -38,17 +39,17 @@ export default function Home() {
               ▰<br />▰<br />▰
             </span>
             <span>
-              One visual language. Your entire product.
+              Open source under the MIT license
               <br />
-              <strong>Made by Staqforce Studio.</strong>
+              <strong>Built by Staqforce Studio</strong>
             </span>
           </div>
         </div>
         <div className="studio-showcase">
           <div className="showcase-grid" aria-hidden="true" />
           <div className="showcase-label">
-            <span>STQ / INTERFACE STUDIES</span>
-            <span>001 — LIVE</span>
+            <span>WORKSPACE SETTINGS</span>
+            <span>LIVE DEMO</span>
           </div>
           <div className="showcase-card">
             <div className="showcase-card-top">
@@ -61,17 +62,15 @@ export default function Home() {
           <div className="showcase-stamp">
             <Icon name="check" size={15} />
             <span>
-              Real components.
-              <br />
-              <strong>Go ahead, try them.</strong>
+              <strong>Try the controls</strong>
             </span>
           </div>
-          <span className="showcase-caption">COMPOSED WITH STAQ UI ↗</span>
+          <span className="showcase-caption">BUILT WITH STAQUI</span>
         </div>
       </section>
       <div className="studio-specs">
         <span>
-          <strong>50</strong> composable components
+          <strong>{catalog.length}</strong> composable components
         </span>
         <span>
           <Icon name="code" size={16} /> React + TypeScript
@@ -80,7 +79,7 @@ export default function Home() {
           <Icon name="sun" size={16} /> Light &amp; dark, built in
         </span>
         <span>
-          <Icon name="layers" size={16} /> Two densities. One system.
+          <Icon name="layers" size={16} /> HTML integration
         </span>
       </div>
       <section className="package-feature" aria-labelledby="package-title">
@@ -121,7 +120,8 @@ export default function Home() {
               components, styles, and states that ship in the library.
             </p>
             <NextLink href="/components" className="studio-text-link">
-              Meet all 50 components <Icon name="arrowUpRight" size={15} />
+              Browse all {catalog.length} components{" "}
+              <Icon name="arrowUpRight" size={15} />
             </NextLink>
           </div>
         </div>
@@ -146,11 +146,8 @@ export default function Home() {
           <NextLink href="/docs/theming">
             <span>01</span>
             <div>
-              <h3>Density with intention.</h3>
-              <p>
-                32px compact controls. 40px comfortable controls. The same
-                rhythm, from a single form to a table full of context.
-              </p>
+              <h3>Consistent spacing.</h3>
+              <p>Shared spacing tokens keep forms and tables aligned.</p>
             </div>
             <Icon name="arrowUpRight" size={18} />
           </NextLink>
@@ -211,7 +208,7 @@ export default function Home() {
           </h2>
           <p>
             Change a token and the system follows. Bring your colors, tune the
-            corners, set the density. Keep the consistency.
+            corners. Keep the consistency.
           </p>
           <div className="studio-palette" aria-label="Example brand palette">
             <span />

@@ -15,9 +15,8 @@ const commands = {
 };
 export function InstallCommand() {
   const [manager, setManager] = useState<keyof typeof commands>("npm");
-  const { density } = useStaq();
   return (
-    <StaqProvider theme="dark" density={density} className="install-command">
+    <StaqProvider theme="dark" className="install-command">
       <div className="install-command-toolbar">
         <ButtonGroup label="Package manager">
           {(Object.keys(commands) as (keyof typeof commands)[]).map((name) => (

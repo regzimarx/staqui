@@ -13,12 +13,12 @@ const sections: Record<string, string[]> = {
     "Use with Next.js",
     "Run this workspace",
   ],
-  theming: ["Theme and density", "Override semantic tokens", "Token groups"],
+  theming: ["Theme", "Override semantic tokens", "Token groups"],
   accessibility: [
     "Keyboard behavior",
     "Labels and validation",
     "Meaning beyond color",
-    "Motion and density",
+    "Motion and target size",
     "What validation can establish",
   ],
   design: [
@@ -98,7 +98,7 @@ export default async function Guide({
             </h2>
             <CodeBlock
               code={
-                '"use client";\nimport { StaqProvider, Button, TextField, Stack } from "@staqforce-studio/staqui";\nimport "@staqforce-studio/staqui/styles.css";\n\nexport default function App() {\n  return (\n    <StaqProvider theme="light" density="compact">\n      <form onSubmit={event => event.preventDefault()}>\n        <Stack>\n          <TextField label="Project name" required />\n          <Button type="submit" variant="primary">Create project</Button>\n        </Stack>\n      </form>\n    </StaqProvider>\n  );\n}'
+                '"use client";\nimport { StaqProvider, Button, TextField, Stack } from "@staqforce-studio/staqui";\nimport "@staqforce-studio/staqui/styles.css";\n\nexport default function App() {\n  return (\n    <StaqProvider theme="light">\n      <form onSubmit={event => event.preventDefault()}>\n        <Stack>\n          <TextField label="Project name" required />\n          <Button type="submit" variant="primary">Create project</Button>\n        </Stack>\n      </form>\n    </StaqProvider>\n  );\n}'
               }
             />
             <h2 id="use-with-next-js">Use with Next.js</h2>
@@ -130,21 +130,15 @@ export default async function Guide({
               Start with the built-in themes, then change only what your product
               needs.
             </p>
-            <h2 id="theme-and-density">Theme and density</h2>
+            <h2 id="theme">Theme</h2>
             <CodeBlock
               code={
-                '<StaqProvider theme="dark" density="comfortable">\n  <YourApplication />\n</StaqProvider>'
+                '<StaqProvider theme="dark">\n  <YourApplication />\n</StaqProvider>'
               }
             />
             <p>
-              Density accepts <code>compact</code> or <code>comfortable</code>.
-              Comfortable controls are 40px high; compact controls are 32px, and
-              the same tokens drive input height, control padding and table cell
-              padding. Target sizes remain at least 24px. Dialogs, menus,
-              popovers and tooltips carry their provider’s theme and density
-              into their portals. The theme toggle in the header and the
-              floating density control apply to every example here, so you can
-              compare them in place.
+              Dialogs, menus, popovers and tooltips carry their provider’s theme
+              into their portals. The header theme toggle applies to all examples.
             </p>
             <h2 id="override-semantic-tokens">Override semantic tokens</h2>
             <CodeBlock
@@ -157,7 +151,7 @@ export default async function Guide({
               Apply the class to StaqProvider. For custom overrides inside
               portals, also target .sq-modal, .sq-menu, .sq-popover and
               .sq-tooltip with the same token overrides, or declare brand tokens
-              globally. Theme and density propagate automatically; arbitrary
+              globally. Theme propagate automatically; arbitrary
               provider-only CSS overrides do not cross the DOM portal boundary.
             </p>
             <h2 id="token-groups">Token groups</h2>
@@ -279,7 +273,7 @@ export default async function Guide({
               labels and alt text; decorative icons are hidden from assistive
               technologies.
             </p>
-            <h2 id="motion-and-density">Motion and density</h2>
+            <h2 id="motion-and-target-size">Motion and target size</h2>
             <p>
               Reduced-motion preferences disable spinner rotation and
               transitions. Compact mode preserves visible focus and minimum
@@ -302,7 +296,7 @@ export default async function Guide({
           <>
             <p className="guide-lead">
               StaqUI is built for the working screen: clear hierarchy,
-              purposeful density, and a consistent rhythm from a small control
+              precise spacing, and a consistent rhythm from a small control
               to an entire workspace.
             </p>
             <h2 id="a-recognizable-visual-language">
@@ -334,8 +328,7 @@ export default async function Guide({
             <h2 id="an-independent-system">An independent system</h2>
             <p>
               StaqUI pairs its own visual language with a focused React API.
-              Components share semantic tokens, state conventions, and density
-              settings. Your application owns data, navigation, and service
+              Components share semantic tokens, state conventions, and interaction patterns. Your application owns data, navigation, and service
               integrations.
             </p>
             <Link href="/docs/coverage">Explore the component inventory</Link>
@@ -344,7 +337,7 @@ export default async function Guide({
         {slug === "coverage" ? (
           <>
             <p className="guide-lead">
-              All 50 StaqUI components have a typed export, a runnable example,
+              All 51 StaqUI components have a typed export, a runnable example,
               a dedicated documentation page, and a structural accessibility
               test.
             </p>

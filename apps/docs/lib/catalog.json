@@ -5,7 +5,7 @@
     "title": "Button",
     "category": "Actions",
     "description": "Trigger an action with clear hierarchy and immediate feedback.",
-    "adaptation": "Three variants, critical tone, three sizes, loading, disabled and fullWidth are supported. Use asChild to compose a navigation link; use callbacks for commands.",
+    "adaptation": "Pill-shaped buttons come in three variants. Use primary for the main action, secondary for supporting actions, and tertiary for quieter actions. Apply the critical tone to destructive actions at any level of emphasis. Small, medium, and large have minimum heights of 28px, 34px, and 42px. Use fullWidth to fill the available space. On native buttons, loading disables interaction and centers a spinner while preserving the button width. Use asChild with a single link for navigation.",
     "accessibility": "Maintain an understandable accessible name and preserve visible focus for all actions.",
     "related": [
       "link",
@@ -23,6 +23,19 @@
     "accessibility": "Maintain an understandable accessible name and preserve visible focus for all actions.",
     "related": [
       "button"
+    ],
+    "interactive": true
+  },
+  {
+    "slug": "tabs",
+    "name": "Tabs",
+    "title": "Tabs",
+    "category": "Actions",
+    "description": "Switch between related content panels in the same view.",
+    "adaptation": "Supply items with unique values, labels, and panel content. Use defaultValue for an initial selection, or pair value with onValueChange to control it.",
+    "accessibility": "Label the tab list. Left and Right Arrow, Home, and End move focus and select a tab. Disabled tabs are skipped.",
+    "related": [
+      "button-group"
     ],
     "interactive": true
   },
@@ -185,7 +198,7 @@
     "title": "Color field",
     "category": "Forms",
     "description": "Enter a hex color directly or choose it visually.",
-    "adaptation": "Six-digit RGB hex only. Alpha, HSL and wide-gamut formats are deliberately excluded. A native color chooser accompanies the editable text input.",
+    "adaptation": "Six-digit RGB hex only. Alpha, HSL and wide-gamut formats are deliberately excluded. A custom picker opens from the swatch beside the editable hex value.",
     "accessibility": "Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.",
     "related": [
       "color-picker"
@@ -197,8 +210,8 @@
     "name": "ColorPicker",
     "title": "Color picker",
     "category": "Forms",
-    "description": "Choose an RGB color with the native system picker.",
-    "adaptation": "Uses the operating-system color interface and six-digit RGB hex. Appearance varies by browser; alpha and an always-visible spectrum are not implemented.",
+    "description": "Choose an RGB color with an inline saturation, brightness, and hue picker.",
+    "adaptation": "Uses six-digit RGB hex. Drag in the color square or use the keyboard sliders to adjust saturation, brightness, and hue.",
     "accessibility": "Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.",
     "related": [
       "color-field"
@@ -211,7 +224,7 @@
     "title": "Date field",
     "category": "Forms",
     "description": "Enter a calendar date with native format and constraint handling.",
-    "adaptation": "Native date input with ISO string values, min/max, required and readOnly. Use DatePicker for calendar matchers and range selection.",
+    "adaptation": "The calendar button opens DatePicker. The input retains ISO string values, min/max, required, and readOnly.",
     "accessibility": "Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.",
     "related": [
       "date-picker"
@@ -313,8 +326,8 @@
     "name": "Select",
     "title": "Select",
     "category": "Forms",
-    "description": "Choose an option from a native, optionally grouped menu.",
-    "adaptation": "Native select/option/optgroup preserve mobile pickers and keyboard behavior. Labels are strings; icon slots are intentionally omitted.",
+    "description": "Choose an option from a rounded, optionally grouped list.",
+    "adaptation": "Single-select options can include descriptions. The selected option shows a checkmark. Multiple selection and listbox sizing use the native control.",
     "accessibility": "Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.",
     "related": [
       "choice-list"

@@ -7,12 +7,20 @@ export default function CheckboxExample() {
   return (
     <Stack>
       <Checkbox
-        label="Email me a weekly summary"
+        label="Product announcements"
+        description="News worth opening your inbox for."
         checked={checked}
         onCheckedChange={setChecked}
       />
-      <Checkbox label="Some items selected" indeterminate />
-      <Checkbox label="Managed by your organization" disabled defaultChecked />
+      <Checkbox
+        label="Weekly digest"
+        description="Highlights delivered every Monday."
+      />
+      <Checkbox
+        label="Partially selected"
+        description="Indeterminate selection."
+        indeterminate
+      />
     </Stack>
   );
 }

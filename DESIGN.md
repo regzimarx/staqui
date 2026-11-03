@@ -1,13 +1,13 @@
 # staqui design system
 
-staqui is a React design system by Staqforce Studio for product teams building compact workspaces. Its identity pairs Geist typography and cobalt actions with precise spacing, native semantics, and purposeful density.
+staqui is a React design system by Staqforce Studio for product teams building compact workspaces. Its identity pairs Geist typography and cobalt actions with precise spacing, native semantics, and precise spacing.
 
 ## Identity
 A precise component workbench: broad typography introduces the system, followed by working interface compositions. A geometric stacked mark reflects the name; it is original SVG geometry. Blue is reserved for selected states and primary actions; neutral surfaces carry the interface. The documentation uses a persistent index, a working examples canvas, and an inset code surface. All product names and records are explicitly sample content.
 
 ## Tokens and ergonomics
 - Semantic OKLCH tokens cover canvas, surface, subtle, hover, selected, ink, muted, boundary, control boundary, focus, disabled, and five status tones. Dark mode defines a separate palette. Theme-aware portals preserve context outside the provider DOM subtree.
-- A 4px spacing grid, 8/12/20px corner scale, one control height per density, and shared icon treatment produce aligned controls. Comfortable controls are 40px; compact controls are 32px. A floating density control at the bottom of the viewport switches between both densities, persists the choice, and applies it to every component including portalled overlays. Interactive targets remain at least 24px.
+- A 4px spacing grid, 10/14/22px corner scale, and shared icon treatment produce aligned controls. Interactive targets remain at least 24px.
 - Text stays legible in neutral and status contexts. A 2px focus outline appears immediately. Borders do not change width on interaction. Status labels accompany colors. Native form semantics preserve autofill and browser validation.
 - Loading disables repeated actions. Disabled controls use native state plus cursor, fill, and foreground changes. Errors have both text and programmatic input associations.
 - Motion is limited to short opacity/transform changes and the loading spinner. Reduced motion removes animation without hiding state.
@@ -22,7 +22,7 @@ The component inventory documents every public component and its supported behav
 ## Website
 The landing page combines a paper canvas, cobalt actions, periwinkle graph paper, and lime accents. A live workspace preview leads into component specimens, a dark green principles panel, working compositions, a theme example, and a cobalt closing panel. The stacked motif expresses the relationship between small pieces and a complete product.
 
-Documentation opens at `/docs` with a field guide and six guide cards. Desktop navigation keeps the component index visible; guide pages add an outline at wide widths. Component pages share category numbering, interactive previews, exact example source, and type-generated APIs. Mobile navigation, persistent theme and density controls, and keyboard search work throughout the site.
+Documentation opens at `/docs` with a field guide and six guide cards. Desktop navigation keeps the component index visible; guide pages add an outline at wide widths. Component pages share category numbering, interactive previews, exact example source, and type-generated APIs. Mobile navigation, a persistent theme control, and keyboard search work throughout the site.
 
 ## Product identity
 

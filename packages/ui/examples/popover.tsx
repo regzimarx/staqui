@@ -6,10 +6,19 @@ export default function PopoverExample() {
     <Popover label="Display options" trigger={<Button>Display options</Button>}>
       <ChoiceList
         label="Show collections"
+        hideLabel
         defaultValue={["all"]}
         options={[
-          { value: "all", label: "All collections" },
-          { value: "published", label: "Published only" },
+          {
+            value: "all",
+            label: "All collections",
+            description: "Include drafts and published collections.",
+          },
+          {
+            value: "published",
+            label: "Published only",
+            description: "Show collections visible in the store.",
+          },
         ]}
       />
     </Popover>

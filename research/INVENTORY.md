@@ -6,7 +6,7 @@ The maintained catalog describes the public components, implementation notes, an
 
 Trigger an action with clear hierarchy and immediate feedback.
 
-Implementation: Three variants, critical tone, three sizes, loading, disabled and fullWidth are supported. Use asChild to compose a navigation link; use callbacks for commands.
+Implementation: Pill-shaped buttons come in three variants. Use primary for the main action, secondary for supporting actions, and tertiary for quieter actions. Apply the critical tone to destructive actions at any level of emphasis. Small, medium, and large have minimum heights of 28px, 34px, and 42px. Use fullWidth to fill the available space. On native buttons, loading disables interaction and centers a spinner while preserving the button width. Use asChild with a single link for navigation.
 
 Accessibility: Maintain an understandable accessible name and preserve visible focus for all actions.
 
@@ -21,6 +21,16 @@ Implementation: Named React children replace primary-action and secondary-action
 Accessibility: Maintain an understandable accessible name and preserve visible focus for all actions.
 
 Runnable example: `packages/ui/examples/button-group.tsx`.
+
+## Tabs — Actions
+
+Switch between related content panels in the same view.
+
+Implementation: Supply items with unique values, labels, and panel content. Use defaultValue for an initial selection, or pair value with onValueChange to control it.
+
+Accessibility: Label the tab list. Left and Right Arrow, Home, and End move focus and select a tab. Disabled tabs are skipped.
+
+Runnable example: `packages/ui/examples/tabs.tsx`.
 
 ## Clickable — Actions
 
@@ -136,7 +146,7 @@ Runnable example: `packages/ui/examples/choice-list.tsx`.
 
 Enter a hex color directly or choose it visually.
 
-Implementation: Six-digit RGB hex only. Alpha, HSL and wide-gamut formats are deliberately excluded. A native color chooser accompanies the editable text input.
+Implementation: Six-digit RGB hex only. Alpha, HSL and wide-gamut formats are deliberately excluded. A custom picker opens from the swatch beside the editable hex value.
 
 Accessibility: Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.
 
@@ -144,9 +154,9 @@ Runnable example: `packages/ui/examples/color-field.tsx`.
 
 ## ColorPicker — Forms
 
-Choose an RGB color with the native system picker.
+Choose an RGB color with an inline saturation, brightness, and hue picker.
 
-Implementation: Uses the operating-system color interface and six-digit RGB hex. Appearance varies by browser; alpha and an always-visible spectrum are not implemented.
+Implementation: Uses six-digit RGB hex. Drag in the color square or use the keyboard sliders to adjust saturation, brightness, and hue.
 
 Accessibility: Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.
 
@@ -156,7 +166,7 @@ Runnable example: `packages/ui/examples/color-picker.tsx`.
 
 Enter a calendar date with native format and constraint handling.
 
-Implementation: Native date input with ISO string values, min/max, required and readOnly. Use DatePicker for calendar matchers and range selection.
+Implementation: The calendar button opens DatePicker. The input retains ISO string values, min/max, required, and readOnly.
 
 Accessibility: Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.
 
@@ -234,9 +244,9 @@ Runnable example: `packages/ui/examples/search-field.tsx`.
 
 ## Select — Forms
 
-Choose an option from a native, optionally grouped menu.
+Choose an option from a rounded, optionally grouped list.
 
-Implementation: Native select/option/optgroup preserve mobile pickers and keyboard behavior. Labels are strings; icon slots are intentionally omitted.
+Implementation: Single-select options can include descriptions. The selected option shows a checkmark. Multiple selection and listbox sizing use the native control.
 
 Accessibility: Use a persistent visible label and provide textual errors; native controls support keyboard input and browser form constraints.
 

@@ -57,7 +57,7 @@ export function GuideOutline({ sections }: { sections: string[] }) {
       </nav>
       <div>
         <strong>Build your Staq.</strong>
-        <p>50 components. One connected system.</p>
+        <p>51 components. One connected system.</p>
         <NextLink href="/components">Explore the library ↗</NextLink>
       </div>
     </aside>

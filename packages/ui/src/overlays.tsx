@@ -27,7 +27,7 @@ export function Modal({
   size = "medium",
   ...props
 }: ModalProps) {
-  const { theme, density } = useStaq();
+  const { theme } = useStaq();
   return (
     <Dialog.Root {...props}>
       {trigger && <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>}
@@ -35,7 +35,6 @@ export function Modal({
         <Dialog.Overlay className="sq-overlay" />
         <Dialog.Content
           data-staq-theme={theme}
-          data-staq-density={density}
           className="sq-modal"
           data-size={size}
         >
@@ -75,7 +74,7 @@ export function Popover({
   side = "bottom",
   ...props
 }: PopoverProps) {
-  const { theme, density } = useStaq();
+  const { theme } = useStaq();
   return (
     <Pop.Root {...props}>
       <Pop.Trigger asChild>{trigger}</Pop.Trigger>
@@ -83,19 +82,19 @@ export function Popover({
         <Pop.Content
           aria-label={label}
           data-staq-theme={theme}
-          data-staq-density={density}
-          className="sq-popover"
+          className="sq-popover sq-popover-panel"
           align={align}
           side={side}
           sideOffset={8}
           collisionPadding={16}
         >
-          {children}
-          <Pop.Close asChild>
-            <Button variant="tertiary" size="small" aria-label="Close popover">
-              <Icon name="close" />
-            </Button>
-          </Pop.Close>
+          <div className="sq-popover-header">
+            <span>{label}</span>
+            <Pop.Close className="sq-popover-close" aria-label="Close popover">
+              <Icon name="close" size={15} />
+            </Pop.Close>
+          </div>
+          <div className="sq-popover-body">{children}</div>
         </Pop.Content>
       </Pop.Portal>
     </Pop.Root>
@@ -125,7 +124,7 @@ export function Menu({
   align = "end",
   onOpenChange,
 }: MenuProps) {
-  const { theme, density } = useStaq();
+  const { theme } = useStaq();
   const groups = [...new Set(items.map((x) => x.group))];
   const item = (i: MenuItem) => (
     <Dropdown.Item
@@ -138,12 +137,20 @@ export function Menu({
     >
       {i.href && !i.disabled ? (
         <a href={i.href}>
-          {i.icon}
+          {i.icon && (
+            <span className="sq-menu-item__icon" aria-hidden="true">
+              {i.icon}
+            </span>
+          )}
           {i.label}
         </a>
       ) : (
         <>
-          {i.icon}
+          {i.icon && (
+            <span className="sq-menu-item__icon" aria-hidden="true">
+              {i.icon}
+            </span>
+          )}
           {i.label}
         </>
       )}
@@ -151,12 +158,13 @@ export function Menu({
   );
   return (
     <Dropdown.Root onOpenChange={onOpenChange}>
-      <Dropdown.Trigger asChild>{trigger}</Dropdown.Trigger>
+      <Dropdown.Trigger asChild className="sq-menu-trigger">
+        {trigger}
+      </Dropdown.Trigger>
       <Dropdown.Portal>
         <Dropdown.Content
           aria-label={label}
           data-staq-theme={theme}
-          data-staq-density={density}
           className="sq-menu"
           sideOffset={6}
           align={align}
@@ -184,7 +192,7 @@ export interface TooltipProps {
   side?: "top" | "right" | "bottom" | "left";
 }
 export function Tooltip({ content, children, side = "top" }: TooltipProps) {
-  const { theme, density } = useStaq();
+  const { theme } = useStaq();
   return (
     <Tip.Provider delayDuration={800}>
       <Tip.Root>
@@ -192,7 +200,6 @@ export function Tooltip({ content, children, side = "top" }: TooltipProps) {
         <Tip.Portal>
           <Tip.Content
             data-staq-theme={theme}
-            data-staq-density={density}
             className="sq-tooltip"
             side={side}
             sideOffset={8}

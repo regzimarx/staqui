@@ -4,12 +4,10 @@ import { usePathname } from "next/navigation";
 import {
   StaqProvider,
   Button,
-  ButtonGroup,
   Icon,
   SearchField,
   Modal,
   Text,
-  type Density,
 } from "@staqforce-studio/staqui";
 import { guides } from "@/lib/guides";
 import { catalog, categories, searchCatalog } from "@/lib/catalog";
@@ -28,7 +26,6 @@ export function Logo() {
 }
 export function Shell({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [density, setDensity] = useState<Density>("compact");
   const [query, setQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,14 +33,10 @@ export function Shell({ children }: { children: ReactNode }) {
   useBrowserLayoutEffect(() => {
     const root = document.documentElement;
     if (root.dataset.staqTheme === "dark") setTheme("dark");
-    if (root.dataset.staqDensity === "comfortable") setDensity("comfortable");
   }, []);
   useEffect(() => {
     document.documentElement.dataset.staqTheme = theme;
   }, [theme]);
-  useEffect(() => {
-    document.documentElement.dataset.staqDensity = density;
-  }, [density]);
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -63,12 +56,6 @@ export function Shell({ children }: { children: ReactNode }) {
     setTheme(next);
     try {
       localStorage.setItem("staqui-theme", next);
-    } catch {}
-  }
-  function changeDensity(next: Density) {
-    setDensity(next);
-    try {
-      localStorage.setItem("staqui-density", next);
     } catch {}
   }
   const filtered = searchCatalog(query);
@@ -156,7 +143,7 @@ export function Shell({ children }: { children: ReactNode }) {
   return (
     <StaqProvider
       theme={theme}
-      density={density}
+
       className={path === "/" ? "site site-landing" : "site"}
     >
       <a className="skip-link" href="#main-content">
@@ -191,8 +178,8 @@ export function Shell({ children }: { children: ReactNode }) {
               size="small"
               onClick={() => setSearchOpen(true)}
               aria-label="Search docs ⌘ K"
+              icon={<Icon name="search" size={16} />}
             >
-              <Icon name="search" size={16} />
               <span>Search docs</span>
               <kbd aria-hidden="true">⌘ K</kbd>
             </Button>
@@ -270,26 +257,6 @@ export function Shell({ children }: { children: ReactNode }) {
             </span>
           </footer>
         </div>
-      </div>
-      <div className="density-dock">
-        <ButtonGroup label="Component density" className="density-switch">
-          <Button
-            variant="tertiary"
-            size="small"
-            aria-pressed={density === "compact"}
-            onClick={() => changeDensity("compact")}
-          >
-            Compact
-          </Button>
-          <Button
-            variant="tertiary"
-            size="small"
-            aria-pressed={density === "comfortable"}
-            onClick={() => changeDensity("comfortable")}
-          >
-            Comfortable
-          </Button>
-        </ButtonGroup>
       </div>
       <Modal
         title="Search documentation"

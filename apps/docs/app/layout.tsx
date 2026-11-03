@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   description:
     "A React and TypeScript component library by Staqforce Studio. 50 composable components, semantic themes, accessible interactions, and compact layouts.",
-  icons: { icon: "/brand/staqui-favicon.png" },
+  icons: { icon: "/brand/staqui-favicon.svg" },
 };
 export default function RootLayout({
   children,
@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${geist.variable} ${geistMono.variable}`}>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem("staqui-theme");if(t==="light"||t==="dark")document.documentElement.dataset.staqTheme=t;var d=localStorage.getItem("staqui-density");if(d==="compact"||d==="comfortable")document.documentElement.dataset.staqDensity=d}catch(e){}`,
+            __html: `try{var t=localStorage.getItem("staqui-theme");if(t==="light"||t==="dark")document.documentElement.dataset.staqTheme=t}catch(e){}`,
           }}
         />
         <Shell>{children}</Shell>

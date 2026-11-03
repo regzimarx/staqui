@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button, Icon, StaqProvider, useStaq } from "@staqforce-studio/staqui";
+import { Button, Icon, StaqProvider } from "@staqforce-studio/staqui";
 export function CopyButton({
   text,
   label = "Copy code",
@@ -26,9 +26,9 @@ export function CopyButton({
       variant="tertiary"
       size="small"
       aria-label={status || label}
+      icon={<Icon name={status === "Copied" ? "check" : "copy"} size={14} />}
       onClick={copy}
     >
-      <Icon name={status === "Copied" ? "check" : "copy"} size={14} />
       <span aria-live="polite">{status || "Copy"}</span>
     </Button>
   );
@@ -36,19 +36,43 @@ export function CopyButton({
 export function CodeBlock({
   code,
   filename = "Example.tsx",
+  showCopy = true,
 }: {
   code: string;
   filename?: string;
+  showCopy?: boolean;
 }) {
-  const { density } = useStaq();
   return (
-    <StaqProvider theme="dark" density={density} className="code-block">
+    <StaqProvider theme="dark" className="code-block">
       <div className="code-header">
         <span>{filename}</span>
-        <CopyButton text={code} />
+        {showCopy && <CopyButton text={code} />}
       </div>
       <pre tabIndex={0} aria-label={`${filename} source`}>
-        <code>{code}</code>
+        <code>
+          {code
+            .split(
+              /(<!--[\s\S]*?-->|\/\*[\s\S]*?\*\/|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|<\/?[\w.-]+|\b(?:import|from|export|default|function|const|let|return|true|false|undefined)\b)/g,
+            )
+            .map((part, index) =>
+              index % 2 === 0 ? (
+                part
+              ) : (
+                <span
+                  key={index}
+                  className={
+                    part.startsWith("<!--") || part.startsWith("/*")
+                      ? "code-comment"
+                      : part.startsWith('"') || part.startsWith("'")
+                        ? "code-string"
+                        : "code-keyword"
+                  }
+                >
+                  {part}
+                </span>
+              ),
+            )}
+        </code>
       </pre>
     </StaqProvider>
   );

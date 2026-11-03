@@ -8,7 +8,7 @@ import {
   type Matcher,
 } from "react-day-picker";
 import { useControllable } from "./shared";
-import { Button } from "./actions";
+import { Button, Spinner } from "./actions";
 import { Icon } from "./foundations";
 export type { DateRange, Matcher };
 interface CalendarBase {
@@ -175,8 +175,11 @@ export function Table<T>({
         );
       })
     : rows;
-  const all =
-    rows.length > 0 && rows.every((r) => selected.includes(rowKey(r)));
+  const selectedCount = rows.filter((row) =>
+    selected.includes(rowKey(row)),
+  ).length;
+  const all = rows.length > 0 && selectedCount === rows.length;
+  const partial = selectedCount > 0 && !all;
   return (
     <div className="sq-table-container" aria-busy={loading}>
       {filters && <div className="sq-table-filters">{filters}</div>}
@@ -191,12 +194,16 @@ export function Table<T>({
           <thead>
             <tr>
               {onSelectionChange && (
-                <th scope="col">
+                <th scope="col" className="sq-table-selection">
                   <input
                     aria-label="Select all visible rows"
                     type="checkbox"
                     className="sq-checkbox"
                     checked={all}
+                    disabled={!rows.length}
+                    ref={(input) => {
+                      if (input) input.indeterminate = partial;
+                    }}
                     onChange={(e) => {
                       const keys = rows.map(rowKey);
                       onSelectionChange(
@@ -233,7 +240,15 @@ export function Table<T>({
                       }
                     >
                       {c.header}
-                      <Icon name="chevronDown" size={14} />
+                      <Icon
+                        name="chevronDown"
+                        size={14}
+                        className={
+                          sorting?.column === c.id
+                            ? "sq-table-sort-active"
+                            : undefined
+                        }
+                      />
                     </button>
                   ) : (
                     c.header
@@ -246,7 +261,7 @@ export function Table<T>({
             {displayed.map((r) => (
               <tr key={rowKey(r)} data-selected={selected.includes(rowKey(r))}>
                 {onSelectionChange && (
-                  <td>
+                  <td className="sq-table-selection">
                     <input
                       type="checkbox"
                       className="sq-checkbox"
@@ -271,8 +286,18 @@ export function Table<T>({
             ))}
             {!rows.length && (
               <tr>
-                <td colSpan={columns.length + (onSelectionChange ? 1 : 0)}>
-                  {loading ? "Loading…" : emptyMessage}
+                <td
+                  className="sq-table-empty"
+                  colSpan={Math.max(
+                    1,
+                    columns.length + (onSelectionChange ? 1 : 0),
+                  )}
+                >
+                  {loading ? (
+                    <Spinner label="Loading…" size="small" />
+                  ) : (
+                    emptyMessage
+                  )}
                 </td>
               </tr>
             )}

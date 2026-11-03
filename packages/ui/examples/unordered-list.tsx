@@ -6,7 +6,7 @@ export default function UnorderedListExample() {
     <UnorderedList>
       <ListItem>Keyboard navigation</ListItem>
       <ListItem>Semantic color tokens</ListItem>
-      <ListItem>Comfortable and compact density</ListItem>
+      <ListItem>Consistent control sizing</ListItem>
     </UnorderedList>
   );
 }

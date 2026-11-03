@@ -6,8 +6,19 @@ export default function TooltipExample() {
   const [copied, setCopied] = useState(false);
   const [failed, setFailed] = useState(false);
   return (
-    <Tooltip content="Copy the collection link">
+    <Tooltip
+      content={
+        copied
+          ? "Link copied"
+          : failed
+            ? "Copy unavailable"
+            : "Copy collection link"
+      }
+    >
       <Button
+        variant="secondary"
+        style={{ width: 36, minHeight: 36, paddingInline: 0 }}
+        icon={<Icon name={copied ? "check" : "copy"} />}
         aria-label={
           copied
             ? "Copied"
@@ -26,10 +37,7 @@ export default function TooltipExample() {
             setFailed(true);
           }
         }}
-      >
-        <Icon name={copied ? "check" : "copy"} />
-        {copied ? "Copied" : failed ? "Copy unavailable" : "Copy link"}
-      </Button>
+      />
     </Tooltip>
   );
 }

@@ -255,6 +255,113 @@
       "description": "A meaningful visible or accessible label."
     }
   ],
+  "tabs": [
+    {
+      "name": "label",
+      "default": null,
+      "type": "string",
+      "required": true,
+      "description": "A meaningful visible or accessible label."
+    },
+    {
+      "name": "items",
+      "default": null,
+      "type": "readonly TabItem[]",
+      "required": true,
+      "description": "Menu actions with stable ids and optional groups."
+    },
+    {
+      "name": "value",
+      "default": null,
+      "type": "string | undefined",
+      "required": false,
+      "description": "Controlled value. Pair with its change callback."
+    },
+    {
+      "name": "defaultValue",
+      "default": null,
+      "type": "string | undefined",
+      "required": false,
+      "description": "Initial value for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "default": null,
+      "type": "((value: string) => void) | undefined",
+      "required": false,
+      "description": "Called with the next value. Update controlled state here."
+    },
+    {
+      "name": "defaultChecked",
+      "default": null,
+      "type": "boolean | undefined",
+      "required": false,
+      "description": "Standard React / HTML attribute passed to the underlying element."
+    },
+    {
+      "name": "className",
+      "default": null,
+      "type": "string | undefined",
+      "required": false,
+      "description": "Additional CSS class names."
+    },
+    {
+      "name": "id",
+      "default": null,
+      "type": "string | undefined",
+      "required": false,
+      "description": "Standard React / HTML attribute passed to the underlying element."
+    },
+    {
+      "name": "style",
+      "default": null,
+      "type": "CSSProperties | undefined",
+      "required": false,
+      "description": "Inline styles, including CSS custom property overrides."
+    },
+    {
+      "name": "rel",
+      "default": null,
+      "type": "string | undefined",
+      "required": false,
+      "description": "Standard React / HTML attribute passed to the underlying element."
+    },
+    {
+      "name": "children",
+      "default": null,
+      "type": "ReactNode",
+      "required": false,
+      "description": "Content rendered inside the component."
+    },
+    {
+      "name": "onFocus",
+      "default": null,
+      "type": "FocusEventHandler<HTMLDivElement> | undefined",
+      "required": false,
+      "description": "Standard React / HTML attribute passed to the underlying element."
+    },
+    {
+      "name": "onBlur",
+      "default": null,
+      "type": "FocusEventHandler<HTMLDivElement> | undefined",
+      "required": false,
+      "description": "Standard React / HTML attribute passed to the underlying element."
+    },
+    {
+      "name": "onError",
+      "default": null,
+      "type": "ReactEventHandler<HTMLDivElement> | undefined",
+      "required": false,
+      "description": "Standard React / HTML attribute passed to the underlying element."
+    },
+    {
+      "name": "onClick",
+      "default": null,
+      "type": "MouseEventHandler<HTMLDivElement> | undefined",
+      "required": false,
+      "description": "Standard React / HTML attribute passed to the underlying element."
+    }
+  ],
   "clickable": [
     {
       "name": "disabled",
@@ -1224,7 +1331,7 @@
     {
       "name": "options",
       "default": null,
-      "type": "SelectOption[]",
+      "type": "ChoiceOption[]",
       "required": true,
       "description": "Selectable values with stable unique identifiers."
     },

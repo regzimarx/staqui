@@ -2,6 +2,8 @@
 import {
   forwardRef,
   useState,
+  useId,
+  type KeyboardEvent,
   type ButtonHTMLAttributes,
   type AnchorHTMLAttributes,
   type HTMLAttributes,
@@ -9,7 +11,7 @@ import {
   type ElementType,
 } from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cx, type Tone, type Size } from "./shared";
+import { cx, useControllable, type Tone, type Size } from "./shared";
 import { Icon } from "./foundations";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "tertiary";
@@ -48,6 +50,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-tone={tone}
         data-size={size}
         data-full-width={fullWidth}
+        data-loading={!asChild && loading ? true : undefined}
         disabled={asChild ? undefined : disabled || loading}
         aria-busy={loading || undefined}
         {...props}
@@ -56,12 +59,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           children
         ) : (
           <>
-            {loading ? (
-              <span className="sq-spinner" aria-hidden="true" />
-            ) : (
-              icon
+            <span className="sq-button__contents">
+              {icon != null && <span className="sq-button__icon">{icon}</span>}
+              {children != null && (
+                <span className="sq-button__label">{children}</span>
+              )}
+            </span>
+            {loading && (
+              <svg
+                className="sq-button__spinner"
+                viewBox="0 0 20 20"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <circle cx="10" cy="10" r="7" />
+              </svg>
             )}
-            {children}
             {loading && <span className="sq-sr-only">Loading</span>}
           </>
         )}
@@ -83,6 +96,112 @@ export function ButtonGroup({
     />
   );
 }
+export interface TabItem {
+  value: string;
+  label: ReactNode;
+  content: ReactNode;
+  disabled?: boolean;
+}
+
+export interface TabsProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  "onChange"
+> {
+  label: string;
+  items: readonly TabItem[];
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
+}
+
+export function Tabs({
+  label,
+  items,
+  value,
+  defaultValue,
+  onValueChange,
+  className,
+  ...props
+}: TabsProps) {
+  const id = useId();
+  const firstEnabled = items.find((item) => !item.disabled)?.value ?? "";
+  const [selection, setSelection] = useControllable(
+    value,
+    defaultValue ?? firstEnabled,
+    onValueChange,
+  );
+  const selected = items.some(
+    (item) => !item.disabled && item.value === selection,
+  )
+    ? selection
+    : firstEnabled;
+
+  function navigate(event: KeyboardEvent<HTMLButtonElement>) {
+    const { key, currentTarget } = event;
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(key)) return;
+
+    const list = currentTarget.parentElement;
+    if (!list) return;
+    const buttons = Array.from(
+      list.querySelectorAll<HTMLButtonElement>('[role="tab"]:not(:disabled)'),
+    );
+    const index = buttons.indexOf(currentTarget);
+    const rtl = getComputedStyle(list).direction === "rtl";
+    const step = (key === "ArrowRight" ? 1 : -1) * (rtl ? -1 : 1);
+    const next =
+      key === "Home"
+        ? 0
+        : key === "End"
+          ? buttons.length - 1
+          : (index + step + buttons.length) % buttons.length;
+    event.preventDefault();
+    buttons[next]?.focus();
+    buttons[next]?.click();
+  }
+
+  return (
+    <div className={cx("sq-tabs", className)} {...props}>
+      <div className="sq-tab-list" role="tablist" aria-label={label}>
+        {items.map((item, index) => {
+          const active = !item.disabled && item.value === selected;
+          return (
+            <button
+              key={item.value}
+              type="button"
+              role="tab"
+              className="sq-tab"
+              id={`${id}-tab-${index}`}
+              aria-controls={`${id}-panel-${index}`}
+              aria-selected={active}
+              tabIndex={active ? 0 : -1}
+              disabled={item.disabled}
+              onClick={() => {
+                if (!active) setSelection(item.value);
+              }}
+              onKeyDown={navigate}
+            >
+              {item.label}
+            </button>
+          );
+        })}
+      </div>
+      {items.map((item, index) => (
+        <div
+          key={item.value}
+          role="tabpanel"
+          className="sq-tab-panel"
+          id={`${id}-panel-${index}`}
+          aria-labelledby={`${id}-tab-${index}`}
+          hidden={item.disabled || item.value !== selected}
+          tabIndex={0}
+        >
+          {item.content}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export const Clickable = forwardRef<
   HTMLButtonElement,
   ButtonHTMLAttributes<HTMLButtonElement>
@@ -165,7 +284,10 @@ export function ClickableChip({
         aria-pressed={selected}
         {...props}
       >
-        {selected && <Icon name="check" size={14} />} {children}
+        <span className="sq-clickable-chip__check" aria-hidden="true">
+          <Icon name="check" size={14} />
+        </span>
+        {children}
       </button>
       {onRemove && (
         <button
@@ -312,7 +434,15 @@ export function Spinner({
 }) {
   return (
     <span role="status" className="sq-spinner-wrap">
-      <span className="sq-spinner" data-size={size} aria-hidden="true" />
+      <svg
+        className="sq-spinner"
+        data-size={size}
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+      >
+        <circle cx="10" cy="10" r="9" />
+        <circle cx="10" cy="10" r="9" />
+      </svg>
       <span className="sq-sr-only">{label}</span>
     </span>
   );

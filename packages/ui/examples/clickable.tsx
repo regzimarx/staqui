@@ -8,11 +8,7 @@ export default function ClickableExample() {
     <Clickable onClick={() => setSelected(!selected)} aria-pressed={selected}>
       <Stack direction="row" align="center">
         <Icon name="package" />
-        <span>
-          {selected
-            ? "Collection selected"
-            : "Select the Essentials collection"}
-        </span>
+        <span>Essentials collection</span>
       </Stack>
     </Clickable>
   );

@@ -19,6 +19,7 @@ import {
   Menu,
   Modal,
   PasswordField,
+  URLField,
   Popover,
   Progress,
   Select,
@@ -37,7 +38,7 @@ describe("catalog examples", () => {
       );
       expect(
         container.textContent?.length ||
-          container.querySelectorAll("svg,img").length,
+          container.querySelectorAll("svg,img,input").length,
       ).toBeGreaterThan(0);
       const result = await axe.run(container, {
         rules: {
@@ -69,6 +70,14 @@ it("fields associate labels, help, and errors with the input", () => {
   expect(input).toHaveAccessibleDescription("Public name Required");
   expect(input).toHaveAttribute("aria-invalid", "true");
 });
+it("reports a URL-specific error until the address is valid", () => {
+  render(<URLField label="Website" />);
+  const input = screen.getByRole("textbox", { name: "Website" });
+  fireEvent.change(input, { target: { value: "invalid" } });
+  expect(input).toHaveAccessibleDescription("Enter a valid URL.");
+  fireEvent.change(input, { target: { value: "https://example.com" } });
+  expect(input).not.toHaveAttribute("aria-invalid");
+});
 it("uncontrolled selects show their placeholder", () => {
   render(
     <Select
@@ -81,8 +90,33 @@ it("uncontrolled selects show their placeholder", () => {
     />,
   );
   const select = screen.getByRole("combobox", { name: "Visibility" });
-  expect(select).toHaveValue("");
-  expect(select).toHaveDisplayValue("Choose visibility");
+  expect(select).toHaveTextContent("Choose visibility");
+});
+it("selects a described option with the keyboard and submits its value", async () => {
+  const user = userEvent.setup();
+  const onValueChange = vi.fn();
+  const { container } = render(
+    <form>
+      <Select
+        label="Role"
+        name="role"
+        defaultValue="admin"
+        onValueChange={onValueChange}
+        options={[
+          { value: "admin", label: "Administrator" },
+          { value: "editor", label: "Editor", description: "Edit projects" },
+        ]}
+      />
+    </form>,
+  );
+  await user.tab();
+  await user.keyboard("{Enter}");
+  expect(screen.getByText("Edit projects")).toBeVisible();
+  await user.keyboard("{ArrowDown}{Enter}");
+  expect(onValueChange).toHaveBeenCalledWith("editor");
+  expect(new FormData(container.querySelector("form")!).getAll("role")).toEqual(
+    ["editor"],
+  );
 });
 it("checkbox and radio choices work with the keyboard", async () => {
   const user = userEvent.setup();
@@ -118,7 +152,7 @@ it("password reveal preserves value and changes the accessible toggle state", as
 it("modal traps focus, escapes, restores trigger focus and inherits theme", async () => {
   const user = userEvent.setup();
   render(
-    <StaqProvider theme="dark" density="compact">
+    <StaqProvider theme="dark">
       <Modal
         title="Edit project"
         description="Change its name"
@@ -133,7 +167,6 @@ it("modal traps focus, escapes, restores trigger focus and inherits theme", asyn
   await user.click(trigger);
   const dialog = screen.getByRole("dialog", { name: "Edit project" });
   expect(dialog).toHaveAttribute("data-staq-theme", "dark");
-  expect(dialog).toHaveAttribute("data-staq-density", "compact");
   for (let i = 0; i < 6; i++) {
     await user.tab();
     expect(dialog.contains(document.activeElement)).toBe(true);
@@ -152,22 +185,9 @@ it("supports the Staqwish visual theme", () => {
     </StaqProvider>,
   );
 
-  expect(screen.getByText("Create").closest("[data-staq-theme]")).toHaveAttribute(
-    "data-staq-theme",
-    "staqwish",
-  );
-});
-
-it("supports comfortable density", () => {
-  render(
-    <StaqProvider density="comfortable">
-      <Button>Create</Button>
-    </StaqProvider>,
-  );
-
   expect(
-    screen.getByText("Create").closest("[data-staq-density]"),
-  ).toHaveAttribute("data-staq-density", "comfortable");
+    screen.getByText("Create").closest("[data-staq-theme]"),
+  ).toHaveAttribute("data-staq-theme", "staqwish");
 });
 
 it("renders button styles on a child link with asChild", () => {
@@ -296,14 +316,10 @@ it("collection demo sorts all rows before paginating", async () => {
   render(<CollectionsDemo />);
   await user.click(screen.getByRole("button", { name: "Collection" }));
   let rows = screen.getAllByRole("row");
-  expect(
-    within(rows[1]).getByText("Archive selection"),
-  ).toBeInTheDocument();
+  expect(within(rows[1]).getByText("Archive selection")).toBeInTheDocument();
   await user.click(screen.getByRole("button", { name: "Next page" }));
   rows = screen.getAllByRole("row");
-  expect(
-    within(rows[1]).getByText("Spring collection"),
-  ).toBeInTheDocument();
+  expect(within(rows[1]).getByText("Spring collection")).toBeInTheDocument();
 });
 it("calendar selects a range and disables constrained dates", async () => {
   const user = userEvent.setup(),

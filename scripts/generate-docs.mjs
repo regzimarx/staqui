@@ -116,7 +116,8 @@ for (const source of program
 const api = {};
 let imports = [],
   entries = [],
-  sources = {};
+  sources = {},
+  webSources = {};
 for (const c of catalog) {
   const symbol = exports.find((x) => x.name === c.name);
   if (!symbol) throw new Error(`Missing export ${c.name}`);
@@ -170,6 +171,19 @@ for (const c of catalog) {
     `packages/ui/examples/${c.slug}.tsx`,
     "utf8",
   );
+  const webSource = sources[c.slug]
+    .replace(/^"use client";\s*/, "")
+    .replaceAll('"@staqforce-studio/staqui"', '"@staqforce-studio/staqui/html"')
+    .replace(`export default function ${exampleName}`, "function Example");
+  webSources[c.slug] = ts.transpileModule(webSource, {
+    compilerOptions: {
+      target: ts.ScriptTarget.ES2022,
+      module: ts.ModuleKind.ESNext,
+      jsx: ts.JsxEmit.React,
+      jsxFactory: "element",
+      jsxFragmentFactory: "Fragment",
+    },
+  }).outputText.trimEnd();
 }
 fs.writeFileSync("apps/docs/lib/api.json", JSON.stringify(api, null, 2) + "\n");
 // This file lives one directory deeper than the app root.
@@ -180,6 +194,10 @@ fs.writeFileSync(
 fs.writeFileSync(
   "apps/docs/lib/example-source.json",
   JSON.stringify(sources, null, 2) + "\n",
+);
+fs.writeFileSync(
+  "apps/docs/lib/example-web-source.json",
+  JSON.stringify(webSources, null, 2) + "\n",
 );
 console.log(
   `Generated public API and synchronized example source for ${catalog.length} components.`,

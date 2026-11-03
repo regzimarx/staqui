@@ -6,7 +6,7 @@ A React/TypeScript library with 50 components and a Next.js documentation site. 
 ## Completed
 - [x] Maintain all 50 component descriptions, implementation notes, and accessibility guidance.
 - [x] Produce dated inventory, adaptations and coverage mapping.
-- [x] Define original staqui identity, semantic tokens, light/dark themes and density options.
+- [x] Define original staqui identity, semantic tokens, light/dark themes.
 - [x] Implement all 50 component equivalents before the full documentation site.
 - [x] Build an independently consumable package with declarations, CSS and module exports.
 - [x] Build documentation, synchronized previews/code, generated API tables, catalog search and guides.

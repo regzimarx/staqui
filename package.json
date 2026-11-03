@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm --filter @staqui/docs dev",
+    "dev": "pnpm build:ui && pnpm generate:docs && pnpm --filter @staqui/docs dev",
     "build:ui": "pnpm --filter @staqforce-studio/staqui build",
     "build": "pnpm build:ui && pnpm generate:docs && pnpm --filter @staqui/docs build",
     "typecheck": "pnpm --filter @staqforce-studio/staqui build && tsc --noEmit -p packages/ui/tsconfig.json && pnpm --filter @staqui/docs typecheck",

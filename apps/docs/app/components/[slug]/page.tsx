@@ -5,9 +5,7 @@ import { Badge } from "@staqforce-studio/staqui";
 import { SiteLink as Link } from "@/components/site-link";
 import { catalog } from "@/lib/catalog";
 import api from "@/lib/api.json";
-import sources from "@/lib/example-source.json";
 import { ComponentPreview } from "@/components/component-preview";
-import { CodeBlock } from "@/components/code-block";
 export function generateStaticParams() {
   return catalog.map((c) => ({ slug: c.slug }));
 }
@@ -55,26 +53,15 @@ export default async function ComponentPage({
       <p className="component-description">{c.description}</p>
       <nav className="page-toc" aria-label="On this page">
         <a href="#example">Example</a>
-        <a href="#usage">Usage</a>
         <a href="#api">API reference</a>
         <a href="#accessibility">Accessibility</a>
       </nav>
       <section id="example">
         <h2>Try it out</h2>
         <p className="section-description">
-          Use the live controls. The theme and density settings apply here too.
+          Use the live controls or open the Code tab to view and copy the example.
         </p>
         <ComponentPreview slug={slug} />
-      </section>
-      <section id="usage">
-        <h2>Usage</h2>
-        <p className="section-description">
-          This is the exact source rendered in the preview above.
-        </p>
-        <CodeBlock
-          code={sources[slug as keyof typeof sources]}
-          filename={`${c.name}Example.tsx`}
-        />
       </section>
       <section id="api">
         <h2>API reference</h2>

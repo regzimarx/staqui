@@ -9,7 +9,7 @@ export const guides = [
     "theming",
     "02",
     "Themes & tokens",
-    "Make the system yours with semantic colors, typography, and density.",
+    "Make the system yours with semantic colors, typography, and spacing.",
   ],
   [
     "accessibility",

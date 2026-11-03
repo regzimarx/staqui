@@ -19,9 +19,9 @@ All browser research and browser verification used BrowserOS Neo.
 
 - Homepage screenshots at 1280×800, 1440×900, 1920×1080 and 375px mobile width, including desktop/mobile full pages. Files: `screenshots/`.
 - Inspected light and dark themes; confirmed no document horizontal overflow at the inspected 375px and 1440px sizes.
-- Verified catalog filtering, global search navigation, working clipboard feedback, theme switching, compact density, modal Escape dismissal and themed portal focus.
+- Verified catalog filtering, global search navigation, working clipboard feedback, theme switching, modal Escape dismissal and themed portal focus.
 - Browser axe scans passed on the corrected date-picker, tooltip and modal pages at desktop size. Table, examples and getting-started pages passed at mobile size. Homepage passed in mobile dark mode.
-- Fixed findings: skipped demo heading level, visible-label/accessible-name mismatches in search and calendar day controls, a missing mobile heading space, and a floating density control overlapping mobile content.
+- Fixed findings: skipped demo heading level, visible-label/accessible-name mismatches in search and calendar day controls, a missing mobile heading space.
 
 The structural unit scans disable color-contrast because jsdom has no rendered layout. The browser scans use the actual rendered document and include contrast checks; region checks were disabled because examples deliberately demonstrate embedded component structures.
 

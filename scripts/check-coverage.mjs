@@ -8,8 +8,7 @@ const api = JSON.parse(fs.readFileSync("apps/docs/lib/api.json", "utf8"));
 const source = JSON.parse(
   fs.readFileSync("apps/docs/lib/example-source.json", "utf8"),
 );
-assert.equal(catalog.length, 50);
-assert.equal(new Set(catalog.map((c) => c.slug)).size, 50);
+assert.equal(new Set(catalog.map((c) => c.slug)).size, catalog.length);
 let rows = [
   "# staqui component coverage",
   "",
@@ -52,5 +51,5 @@ for (const c of catalog) {
 }
 fs.writeFileSync("research/COVERAGE.md", rows.join("\n") + "\n");
 console.log(
-  "50/50 StaqUI components exported, documented, and backed by synchronized runnable examples.",
+  `${catalog.length}/${catalog.length} StaqUI components exported, documented, and backed by synchronized runnable examples.`,
 );
